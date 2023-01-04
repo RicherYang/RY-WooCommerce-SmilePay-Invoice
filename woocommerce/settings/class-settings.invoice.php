@@ -69,7 +69,7 @@ final class RY_WSI_Invoice_setting
         if (!is_callable('simplexml_load_string')) {
             WC_Admin_Settings::add_error(__('SimlePay invoice method failed to enable!', 'ry-woocommerce-ecpay-invoice')
                 . __('Required PHP function simplexml_load_string.', 'ry-woocommerce-ecpay-invoice'));
-            RY_WSI::update_option('enabled_invoice', 'no');
+            RY_WEI::update_option('enabled_invoice', 'no');
         }
     }
 }

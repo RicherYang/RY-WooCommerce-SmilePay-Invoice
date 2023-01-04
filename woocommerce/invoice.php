@@ -45,7 +45,7 @@ final class RY_WSI_Invoice
 
                 add_filter('manage_shop_order_posts_columns', [__CLASS__, 'add_admin_invoice_column'], 11);
                 add_action('manage_shop_order_posts_custom_column', [__CLASS__, 'show_admin_invoice_column'], 11);
-                add_action('woocommerce_admin_order_data_after_billing_address', ['WC_Meta_Box_Invoice_Data', 'output']);
+                add_action('woocommerce_admin_order_data_after_billing_address', ['RY_WSI_MetaBox_Invoice_Data', 'output']);
                 add_action('woocommerce_update_order', [__CLASS__, 'save_order_update']);
 
                 add_action('wp_ajax_RY_WSI_get', [__CLASS__, 'get_invoice']);

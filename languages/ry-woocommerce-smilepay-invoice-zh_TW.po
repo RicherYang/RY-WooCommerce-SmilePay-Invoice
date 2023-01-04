@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: RY WooCommerce SmilePay Invoice\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-woocommerce-"
 "smilepay-invoice\n"
-"POT-Creation-Date: 2023-01-03T21:52:52+08:00\n"
-"PO-Revision-Date: 2023-01-03 21:53+0800\n"
+"POT-Creation-Date: 2023-01-04T10:27:35+08:00\n"
+"PO-Revision-Date: 2023-01-04 10:28+0800\n"
 "Last-Translator: Richer Yang\n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -165,13 +165,13 @@ msgstr "捐贈愛心碼"
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:88
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:90
 #: woocommerce/invoice-basic.php:213 woocommerce/invoice.php:112
-#: woocommerce/invoice.php:224 woocommerce/smilepay-invoice-api.php:73
+#: woocommerce/invoice.php:224 woocommerce/smilepay-invoice-api.php:75
 msgid "Invoice number"
 msgstr "發票號碼"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:59
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:91
-#: woocommerce/invoice-basic.php:218 woocommerce/smilepay-invoice-api.php:74
+#: woocommerce/invoice-basic.php:218 woocommerce/smilepay-invoice-api.php:76
 msgid "Invoice random number"
 msgstr "發票隨機碼"
 
@@ -191,8 +191,8 @@ msgid "Negative no invoice"
 msgstr "負數不開立"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:118
-#: woocommerce/smilepay-invoice-api.php:271
-#: woocommerce/smilepay-invoice-api.php:300
+#: woocommerce/smilepay-invoice-api.php:273
+#: woocommerce/smilepay-invoice-api.php:302
 msgid "Invalid invoice"
 msgstr "作廢發票"
 
@@ -434,7 +434,7 @@ msgid "fix amount product name"
 msgstr "修正金額異常商品名稱"
 
 #: woocommerce/settings/settings-smilepay-invoice.php:118
-#: woocommerce/smilepay-invoice-api.php:217
+#: woocommerce/smilepay-invoice-api.php:219
 msgid "Discount"
 msgstr "折價"
 
@@ -467,105 +467,22 @@ msgstr "Verify_key"
 msgid "Get invoice error: %s"
 msgstr "開立發票號碼失敗：%s"
 
-#: woocommerce/smilepay-invoice-api.php:75
+#: woocommerce/smilepay-invoice-api.php:77
 msgid "Invoice create time"
 msgstr "發票建立時間"
 
-#: woocommerce/smilepay-invoice-api.php:183
-#: woocommerce/smilepay-invoice-api.php:200
-#: woocommerce/smilepay-invoice-api.php:209
-#: woocommerce/smilepay-invoice-api.php:219
+#: woocommerce/smilepay-invoice-api.php:185
+#: woocommerce/smilepay-invoice-api.php:202
+#: woocommerce/smilepay-invoice-api.php:211
+#: woocommerce/smilepay-invoice-api.php:221
 msgid "parcel"
 msgstr "批"
 
-#: woocommerce/smilepay-invoice-api.php:207
+#: woocommerce/smilepay-invoice-api.php:209
 msgid "shipping fee"
 msgstr "運費"
 
 #. translators: %s Error messade
-#: woocommerce/smilepay-invoice-api.php:292
+#: woocommerce/smilepay-invoice-api.php:294
 msgid "Invalid invoice error: %s"
 msgstr "作廢發票號碼失敗：%s"
-
-#~ msgid "Required PHP function simplexml_load_string."
-#~ msgstr "缺少必要的 PHP 函式 simplexml。"
-
-#~ msgid "Delay get invoice"
-#~ msgstr "延遲開立發票"
-
-#~ msgid "Cancel invoice"
-#~ msgstr "取消發票"
-
-#~ msgid "Cancel delay invoice data.<br>Please wait."
-#~ msgstr "取消延遲開立發票資訊。<br>請耐心等待。"
-
-#, php-format
-#~ msgid "Cancel delay invoice error: %s"
-#~ msgstr "取消延遲開立發票失敗：%s"
-
-#~ msgid "Cancel delay invoice"
-#~ msgstr "取消延遲開立"
-
-#~ msgctxt "carruer type"
-#~ msgid "ecpay_host"
-#~ msgstr "雲端發票"
-
-#~ msgid "Delay day only can between 1 and 15 days."
-#~ msgstr "延遲天數只可以在 1 到 15 天。"
-
-#~ msgid "Required PHP function openssl_encrypt and openssl_decrypt."
-#~ msgstr "缺少必要的 PHP 函式 openssl_encrypt 和 openssl_decrypt。"
-
-#~ msgid "Enable ECPay invoice method"
-#~ msgstr "啟用 速買配電子發票 模組"
-
-#~ msgid "check number with api"
-#~ msgstr "呼叫速買配 API 確認編號正確"
-
-#~ msgid "Use ECPay API to check the carruer number or donate number is right."
-#~ msgstr "呼叫速買配 API 確認載具編號或是捐贈愛心碼輸入正確。"
-
-#~ msgid "Delay get days"
-#~ msgstr "延遲開立天數"
-
-#~ msgid "ECPay invoice sandbox"
-#~ msgstr "速買配電子發票測試模式"
-
-#~ msgid "Enable ECPay invoice sandbox"
-#~ msgstr "啟用速買配電子發票測試模式"
-
-#~ msgid "MerchantID"
-#~ msgstr "商店代號"
-
-#~ msgid "HashKey"
-#~ msgstr "HashKey"
-
-#~ msgid "HashIV"
-#~ msgstr "HashIV"
-
-#~ msgid "ECPay invoice method failed to enable!"
-#~ msgstr "速買配發票模組啟用失敗！"
-
-#~ msgid "Data transfer"
-#~ msgstr "資料轉移"
-
-#~ msgid "Data transfer & DELET"
-#~ msgstr "資料轉移併<strong>刪除</strong>舊資料"
-
-#~ msgid "Data DELET"
-#~ msgstr "資料刪除"
-
-#~ msgid "ECPay invoice"
-#~ msgstr "速買配電子發票"
-
-#~ msgid "Data transfer complated."
-#~ msgstr "完成資料轉移。"
-
-#~ msgid "Data delete complated."
-#~ msgstr "完成資料刪除。"
-
-#~ msgid "RY WooCommerce ECPay Invoice"
-#~ msgstr "RY WooCommerce ECPay Invoice"
-
-#~ msgid "https://ry-plugin.com/ry-woocommerce-ecpay-invoice"
-#~ msgstr "https://ry-plugin.com/ry-woocommerce-ecpay-invoice"

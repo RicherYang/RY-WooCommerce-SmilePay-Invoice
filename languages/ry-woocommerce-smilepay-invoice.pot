@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY WooCommerce SmilePay Invoice 0.0.1\n"
+"Project-Id-Version: RY WooCommerce SmilePay Invoice 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-woocommerce-smilepay-invoice\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-01-03T21:52:52+08:00\n"
+"POT-Creation-Date: 2023-01-04T10:27:35+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: ry-woocommerce-smilepay-invoice\n"
@@ -165,14 +165,14 @@ msgstr ""
 #: woocommerce/invoice-basic.php:213
 #: woocommerce/invoice.php:112
 #: woocommerce/invoice.php:224
-#: woocommerce/smilepay-invoice-api.php:73
+#: woocommerce/smilepay-invoice-api.php:75
 msgid "Invoice number"
 msgstr ""
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:59
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:91
 #: woocommerce/invoice-basic.php:218
-#: woocommerce/smilepay-invoice-api.php:74
+#: woocommerce/smilepay-invoice-api.php:76
 msgid "Invoice random number"
 msgstr ""
 
@@ -192,8 +192,8 @@ msgid "Negative no invoice"
 msgstr ""
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:118
-#: woocommerce/smilepay-invoice-api.php:271
-#: woocommerce/smilepay-invoice-api.php:300
+#: woocommerce/smilepay-invoice-api.php:273
+#: woocommerce/smilepay-invoice-api.php:302
 msgid "Invalid invoice"
 msgstr ""
 
@@ -438,7 +438,7 @@ msgid "fix amount product name"
 msgstr ""
 
 #: woocommerce/settings/settings-smilepay-invoice.php:118
-#: woocommerce/smilepay-invoice-api.php:217
+#: woocommerce/smilepay-invoice-api.php:219
 msgid "Discount"
 msgstr ""
 
@@ -471,22 +471,22 @@ msgstr ""
 msgid "Get invoice error: %s"
 msgstr ""
 
-#: woocommerce/smilepay-invoice-api.php:75
+#: woocommerce/smilepay-invoice-api.php:77
 msgid "Invoice create time"
 msgstr ""
 
-#: woocommerce/smilepay-invoice-api.php:183
-#: woocommerce/smilepay-invoice-api.php:200
-#: woocommerce/smilepay-invoice-api.php:209
-#: woocommerce/smilepay-invoice-api.php:219
+#: woocommerce/smilepay-invoice-api.php:185
+#: woocommerce/smilepay-invoice-api.php:202
+#: woocommerce/smilepay-invoice-api.php:211
+#: woocommerce/smilepay-invoice-api.php:221
 msgid "parcel"
 msgstr ""
 
-#: woocommerce/smilepay-invoice-api.php:207
+#: woocommerce/smilepay-invoice-api.php:209
 msgid "shipping fee"
 msgstr ""
 
 #. translators: %s Error messade
-#: woocommerce/smilepay-invoice-api.php:292
+#: woocommerce/smilepay-invoice-api.php:294
 msgid "Invalid invoice error: %s"
 msgstr ""
