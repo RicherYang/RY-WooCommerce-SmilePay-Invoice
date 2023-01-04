@@ -69,18 +69,20 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
         }
 
         $invoice_date = new DateTime(str_replace('/', '-', (string) $result->InvoiceDate));
+        $invoice_time = explode(':', (string) $result->InvoiceTime);
+        $invoice_date->setTime($invoice_time[0], $invoice_time[1], $invoice_time[2]);
 
         if (apply_filters('ry_wsi_add_api_success_notice', true)) {
             $order->add_order_note(
                 __('Invoice number', 'ry-woocommerce-smilepay-invoice') . ': ' . (string) $result->InvoiceNumber . "\n"
                 . __('Invoice random number', 'ry-woocommerce-smilepay-invoice') . ': ' . (string) $result->RandomNumber . "\n"
-                . __('Invoice create time', 'ry-woocommerce-smilepay-invoice') . ': ' . $invoice_date->format('Y-m-d') . ' ' . (string) $result->InvoiceTime . "\n"
+                . __('Invoice create time', 'ry-woocommerce-smilepay-invoice') . ': ' . $invoice_date->format('Y-m-d H:i:s')
             );
         }
 
         $order->update_meta_data('_invoice_number', (string) $result->InvoiceNumber);
         $order->update_meta_data('_invoice_random_number', (string) $result->RandomNumber);
-        $order->update_meta_data('_invoice_date', $invoice_date->format('Y-m-d') . ' ' . (string) $result->InvoiceTime);
+        $order->update_meta_data('_invoice_date', $invoice_date->format('Y-m-d H:i:s'));
         $order->save_meta_data();
 
         do_action('ry_wsi_get_invoice_response', $result, $order);
