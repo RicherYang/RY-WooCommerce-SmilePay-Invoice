@@ -134,8 +134,7 @@ final class RY_WSI_Invoice
 
     public static function get_invoice()
     {
-        $order_ID = (int) $_POST['id'];
-
+        $order_ID = (int) wp_unslash($_POST['id'] ?? 0);
         $order = wc_get_order($order_ID);
         if (!$order) {
             return;
@@ -146,8 +145,7 @@ final class RY_WSI_Invoice
 
     public static function invalid_invoice()
     {
-        $order_ID = (int) $_POST['id'];
-
+        $order_ID = (int) wp_unslash($_POST['id'] ?? 0);
         $order = wc_get_order($order_ID);
         if (!$order) {
             return;
