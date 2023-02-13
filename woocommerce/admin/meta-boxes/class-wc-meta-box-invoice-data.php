@@ -87,7 +87,7 @@ class RY_WSI_MetaBox_Invoice_Data
             <?php } elseif ($invoice_number == 'negative') { ?>
             <strong><?php esc_html_e('Invoice number', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?php esc_html_e('Negative no invoice', 'ry-woocommerce-smilepay-invoice'); ?><br>
             <?php } elseif ($invoice_number) { ?>
-            <strong><?php esc_html_e('Invoice number', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?=$invoice_number ?><br>
+            <strong><?php esc_html_e('Invoice number', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?php echo esc_html($invoice_number); ?><br>
             <strong><?php esc_html_e('Invoice random number', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?php echo esc_html($order->get_meta('_invoice_random_number')); ?><br>
             <strong><?php esc_html_e('Invoice date', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?php echo esc_html($order->get_meta('_invoice_date')); ?><br>
             <?php } ?>
@@ -162,3 +162,4 @@ class RY_WSI_MetaBox_Invoice_Data
 <?php
     }
 }
+?>

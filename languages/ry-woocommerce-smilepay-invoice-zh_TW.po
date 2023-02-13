@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: RY WooCommerce SmilePay Invoice\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-woocommerce-"
 "smilepay-invoice\n"
-"POT-Creation-Date: 2023-01-04T10:27:35+08:00\n"
-"PO-Revision-Date: 2023-01-04 10:28+0800\n"
+"POT-Creation-Date: 2023-02-13T17:39:21+08:00\n"
+"PO-Revision-Date: 2023-02-13 17:39+0800\n"
 "Last-Translator: Richer Yang\n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -13,7 +13,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
-"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,"
+"_nc:4c,1,2\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Generator: Poedit 3.0\n"
@@ -165,13 +166,13 @@ msgstr "捐贈愛心碼"
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:88
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:90
 #: woocommerce/invoice-basic.php:213 woocommerce/invoice.php:112
-#: woocommerce/invoice.php:224 woocommerce/smilepay-invoice-api.php:75
+#: woocommerce/invoice.php:222 woocommerce/smilepay-invoice-api.php:77
 msgid "Invoice number"
 msgstr "發票號碼"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:59
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:91
-#: woocommerce/invoice-basic.php:218 woocommerce/smilepay-invoice-api.php:76
+#: woocommerce/invoice-basic.php:218 woocommerce/smilepay-invoice-api.php:78
 msgid "Invoice random number"
 msgstr "發票隨機碼"
 
@@ -191,8 +192,8 @@ msgid "Negative no invoice"
 msgstr "負數不開立"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:118
-#: woocommerce/smilepay-invoice-api.php:273
-#: woocommerce/smilepay-invoice-api.php:302
+#: woocommerce/smilepay-invoice-api.php:275
+#: woocommerce/smilepay-invoice-api.php:304
 msgid "Invalid invoice"
 msgstr "作廢發票"
 
@@ -434,7 +435,7 @@ msgid "fix amount product name"
 msgstr "修正金額異常商品名稱"
 
 #: woocommerce/settings/settings-smilepay-invoice.php:118
-#: woocommerce/smilepay-invoice-api.php:219
+#: woocommerce/smilepay-invoice-api.php:221
 msgid "Discount"
 msgstr "折價"
 
@@ -467,22 +468,22 @@ msgstr "Verify_key"
 msgid "Get invoice error: %s"
 msgstr "開立發票號碼失敗：%s"
 
-#: woocommerce/smilepay-invoice-api.php:77
+#: woocommerce/smilepay-invoice-api.php:79
 msgid "Invoice create time"
 msgstr "發票建立時間"
 
-#: woocommerce/smilepay-invoice-api.php:185
-#: woocommerce/smilepay-invoice-api.php:202
-#: woocommerce/smilepay-invoice-api.php:211
-#: woocommerce/smilepay-invoice-api.php:221
+#: woocommerce/smilepay-invoice-api.php:187
+#: woocommerce/smilepay-invoice-api.php:204
+#: woocommerce/smilepay-invoice-api.php:213
+#: woocommerce/smilepay-invoice-api.php:223
 msgid "parcel"
 msgstr "批"
 
-#: woocommerce/smilepay-invoice-api.php:209
+#: woocommerce/smilepay-invoice-api.php:211
 msgid "shipping fee"
 msgstr "運費"
 
 #. translators: %s Error messade
-#: woocommerce/smilepay-invoice-api.php:294
+#: woocommerce/smilepay-invoice-api.php:296
 msgid "Invalid invoice error: %s"
 msgstr "作廢發票號碼失敗：%s"
