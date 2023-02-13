@@ -3,7 +3,7 @@
 return [
     [
         'title' => 'RY WooCommerce SmilePay Invoice',
-        'id' => 'wei_options',
+        'id' => 'wsi_options',
         'type' => 'title'
     ],
     [
@@ -16,7 +16,7 @@ return [
         'type' => 'rywsi_version_info',
     ],
     [
-        'id' => 'wei_options',
+        'id' => 'wsi_options',
         'type' => 'sectionend'
     ]
 ];
