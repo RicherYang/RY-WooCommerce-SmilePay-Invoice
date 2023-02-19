@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY WooCommerce SmilePay Invoice 1.0.2\n"
+"Project-Id-Version: RY WooCommerce SmilePay Invoice 1.0.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-woocommerce-smilepay-invoice\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-02-13T17:39:21+08:00\n"
+"POT-Creation-Date: 2023-02-19T13:00:52+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: ry-woocommerce-smilepay-invoice\n"
@@ -78,12 +78,12 @@ msgstr ""
 
 #: templates/checkout/form-invoice.php:16
 #: templates/order/order-invoice-info.php:16
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:79
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:81
 msgid "Invoice info"
 msgstr ""
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:10
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:95
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:97
 #: woocommerce/invoice-basic.php:27
 #: woocommerce/invoice-basic.php:226
 msgid "Invoice type"
@@ -108,7 +108,7 @@ msgid "donate"
 msgstr ""
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:21
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:98
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:100
 #: woocommerce/invoice-basic.php:39
 msgid "Carruer type"
 msgstr ""
@@ -120,48 +120,53 @@ msgid "none"
 msgstr ""
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:27
+msgctxt "carruer type"
+msgid "ecpay_host"
+msgstr ""
+
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:28
 #: woocommerce/invoice-basic.php:42
 msgctxt "carruer type"
 msgid "smilepay_host"
 msgstr ""
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:28
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:29
 #: woocommerce/invoice-basic.php:43
 msgctxt "carruer type"
 msgid "MOICA"
 msgstr ""
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:29
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:30
 #: woocommerce/invoice-basic.php:44
 msgctxt "carruer type"
 msgid "phone_barcode"
 msgstr ""
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:33
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:101
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:34
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:103
 #: woocommerce/invoice-basic.php:51
 #: woocommerce/invoice-basic.php:236
 msgid "Carruer number"
 msgstr ""
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:38
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:106
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:39
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:108
 #: woocommerce/invoice-basic.php:56
 #: woocommerce/invoice-basic.php:244
 msgid "Tax ID number"
 msgstr ""
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:43
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:110
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:44
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:112
 #: woocommerce/invoice-basic.php:61
 #: woocommerce/invoice-basic.php:251
 msgid "Donate number"
 msgstr ""
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:54
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:86
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:56
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:88
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:90
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:92
 #: woocommerce/invoice-basic.php:213
 #: woocommerce/invoice.php:112
 #: woocommerce/invoice.php:222
@@ -169,47 +174,47 @@ msgstr ""
 msgid "Invoice number"
 msgstr ""
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:59
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:91
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:61
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:93
 #: woocommerce/invoice-basic.php:218
 #: woocommerce/smilepay-invoice-api.php:78
 msgid "Invoice random number"
 msgstr ""
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:65
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:92
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:67
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:94
 msgid "Invoice date"
 msgstr ""
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:86
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:88
 #: woocommerce/invoice.php:126
 msgid "Zero no invoice"
 msgstr ""
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:88
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:90
 #: woocommerce/invoice.php:128
 msgid "Negative no invoice"
 msgstr ""
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:118
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:120
 #: woocommerce/smilepay-invoice-api.php:275
 #: woocommerce/smilepay-invoice-api.php:304
 msgid "Invalid invoice"
 msgstr ""
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:122
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:124
 msgid "Get invoice"
 msgstr ""
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:149
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:151
 msgid "h"
 msgstr ""
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:150
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:152
 msgid "m"
 msgstr ""
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:151
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:153
 msgid "s"
 msgstr ""
 
@@ -296,11 +301,16 @@ msgid "Not recommended enable two invoice module/plugin at the same time!"
 msgstr ""
 
 #: woocommerce/settings/class-settings.invoice.php:58
+#: woocommerce/settings/class-settings.invoice.php:70
 msgid "SimlePay invoice method failed to enable!"
 msgstr ""
 
 #: woocommerce/settings/class-settings.invoice.php:65
 msgid "Order no prefix only letters and numbers allowed"
+msgstr ""
+
+#: woocommerce/settings/class-settings.invoice.php:71
+msgid "Required PHP function simplexml_load_string."
 msgstr ""
 
 #: woocommerce/settings/settings-smilepay-invoice.php:12

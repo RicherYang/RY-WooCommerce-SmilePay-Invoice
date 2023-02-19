@@ -24,6 +24,7 @@ class RY_WSI_MetaBox_Invoice_Data
                 'type' => 'select',
                 'options' => [
                     'none' => _x('none', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
+                    'ecpay_host' => _x('ecpay_host', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
                     'smilepay_host' => _x('smilepay_host', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
                     'MOICA' => _x('MOICA', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
                     'phone_barcode' => _x('phone_barcode', 'carruer type', 'ry-woocommerce-smilepay-invoice')
@@ -48,6 +49,7 @@ class RY_WSI_MetaBox_Invoice_Data
         if ('no' == RY_WSI::get_option('support_carruer_type_none', 'no')) {
             unset(self::$fields['carruer_type']['options']['none']);
         }
+        unset(self::$fields['carruer_type']['options']['ecpay_host']);
 
         if ($order->is_paid()) {
             self::$fields['number'] = [
