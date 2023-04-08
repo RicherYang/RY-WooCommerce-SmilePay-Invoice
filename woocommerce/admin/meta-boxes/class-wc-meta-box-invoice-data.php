@@ -46,7 +46,7 @@ class RY_WSI_MetaBox_Invoice_Data
                 'type' => 'text'
             ],
         ];
-        if ('no' == RY_WSI::get_option('support_carruer_type_none', 'no')) {
+        if ('no' === RY_WSI::get_option('support_carruer_type_none', 'no')) {
             unset(self::$fields['carruer_type']['options']['none']);
         }
         unset(self::$fields['carruer_type']['options']['ecpay_host']);
@@ -84,9 +84,9 @@ class RY_WSI_MetaBox_Invoice_Data
 <div class="ivoice <?=$invoice_number ? '' : 'address' ?>">
     <div class="ivoice_data_column">
         <p>
-            <?php if ($invoice_number == 'zero') { ?>
+            <?php if ('zero' == $invoice_number) { ?>
             <strong><?php esc_html_e('Invoice number', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?php esc_html_e('Zero no invoice', 'ry-woocommerce-smilepay-invoice'); ?><br>
-            <?php } elseif ($invoice_number == 'negative') { ?>
+            <?php } elseif ('negative' == $invoice_number) { ?>
             <strong><?php esc_html_e('Invoice number', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?php esc_html_e('Negative no invoice', 'ry-woocommerce-smilepay-invoice'); ?><br>
             <?php } elseif ($invoice_number) { ?>
             <strong><?php esc_html_e('Invoice number', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?php echo esc_html($invoice_number); ?><br>
@@ -96,7 +96,7 @@ class RY_WSI_MetaBox_Invoice_Data
 
             <strong><?php esc_html_e('Invoice type', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?php echo esc_html_x($invoice_type, 'invoice type', 'ry-woocommerce-smilepay-invoice'); ?><br>
 
-            <?php if ($invoice_type == 'personal') { ?>
+            <?php if ('personal' == $invoice_type) { ?>
             <strong><?php esc_html_e('Carruer type', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?php echo esc_html_x($carruer_type, 'carruer type', 'ry-woocommerce-smilepay-invoice'); ?><br>
 
             <?php if (in_array($carruer_type, ['MOICA', 'phone_barcode'])) { ?>
@@ -104,11 +104,11 @@ class RY_WSI_MetaBox_Invoice_Data
             <?php } ?>
             <?php } ?>
 
-            <?php if ($invoice_type == 'company') { ?>
+            <?php if ('company' == $invoice_type) { ?>
             <strong><?php esc_html_e('Tax ID number', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?php echo esc_html($order->get_meta('_invoice_no')); ?><br>
             <?php } ?>
 
-            <?php if ($invoice_type == 'donate') { ?>
+            <?php if ('donate' == $invoice_type) { ?>
             <strong><?php esc_html_e('Donate number', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?php echo esc_html($order->get_meta('_invoice_donate_no')); ?><br>
             <?php } ?>
         </p>

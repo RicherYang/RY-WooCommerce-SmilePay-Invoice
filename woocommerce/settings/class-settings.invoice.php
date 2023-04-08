@@ -35,7 +35,7 @@ final class RY_WSI_Invoice_setting
 
     public static function add_setting($settings, $current_section)
     {
-        if ($current_section == 'smilepay_invoice') {
+        if ('smilepay_invoice' == $current_section) {
             $settings = include RY_WSI_PLUGIN_DIR . 'woocommerce/settings/settings-smilepay-invoice.php';
         }
         return $settings;
@@ -43,17 +43,17 @@ final class RY_WSI_Invoice_setting
 
     public static function check_option()
     {
-        if ('yes' == RY_WSI::get_option('enabled_invoice', 'no')) {
+        if ('yes' === RY_WSI::get_option('enabled_invoice', 'no')) {
             $enable_list = apply_filters('enable_ry_invoice', []);
-            if (count($enable_list) == 1) {
+            if (1 == count($enable_list)) {
                 if ($enable_list != ['smilepay']) {
                     WC_Admin_Settings::add_error(__('Not recommended enable two invoice module/plugin at the same time!', 'ry-woocommerce-smilepay-invoice'));
                 }
-            } elseif (count($enable_list) > 1) {
+            } elseif (1 < count($enable_list)) {
                 WC_Admin_Settings::add_error(__('Not recommended enable two invoice module/plugin at the same time!', 'ry-woocommerce-smilepay-invoice'));
             }
 
-            if ('yes' != RY_WSI::get_option('smilepay_testmode', 'no')) {
+            if ('yes' !== RY_WSI::get_option('smilepay_testmode', 'no')) {
                 if (empty(RY_WSI::get_option('smilepay_Grvc')) || empty(RY_WSI::get_option('smilepay_Verify_key'))) {
                     WC_Admin_Settings::add_error(__('SimlePay invoice method failed to enable!', 'ry-woocommerce-smilepay-invoice'));
                     RY_WSI::update_option('enabled_invoice', 'no');

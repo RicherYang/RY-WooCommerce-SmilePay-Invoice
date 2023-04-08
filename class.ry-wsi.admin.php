@@ -6,7 +6,7 @@ final class RY_WSI_admin
 
     public static function instance()
     {
-        if (self::$_instance === null) {
+        if (null === self::$_instance) {
             self::$_instance = new self();
             self::$_instance->do_init();
         }
@@ -36,7 +36,7 @@ final class RY_WSI_admin
     {
         global $current_section, $current_tab;
 
-        if ($current_tab === 'rytools' && $current_section === 'ry_key') {
+        if ('rytools' === $current_tab && 'ry_key' === $current_section) {
             return ;
         }
 
@@ -53,7 +53,7 @@ final class RY_WSI_admin
 
     public function add_setting($settings, $current_section)
     {
-        if ($current_section == 'ry_key') {
+        if ('ry_key' === $current_section) {
             add_action('woocommerce_admin_field_rywsi_version_info', [$this, 'show_version_info']);
             if (empty($settings)) {
                 $settings = [];
@@ -63,7 +63,7 @@ final class RY_WSI_admin
             $expire = RY_WSI_License::get_expire();
             if (!empty($expire)) {
                 foreach ($settings as $key => $setting) {
-                    if (isset($setting['id']) && $setting['id'] == RY_WSI::$option_prefix . 'license_key') {
+                    if (isset($setting['id']) && RY_WSI::$option_prefix . 'license_key' === $setting['id']) {
                         $settings[$key]['desc'] = sprintf(
                             /* translators: %s: Expiration date of pro license */
                             __('License Expiration Date %s', 'ry-woocommerce-smilepay-invoice'),
@@ -98,7 +98,7 @@ final class RY_WSI_admin
 
             $json = RY_WSI_LinkServer::activate_key();
 
-            if ($json === false) {
+            if (false === $json) {
                 WC_Admin_Settings::add_error('RY WooCommerce SmilePay Invoice: '
                     . __('Connect license server failed!', 'ry-woocommerce-smilepay-invoice'));
             } else {

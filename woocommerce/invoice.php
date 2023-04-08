@@ -34,7 +34,7 @@ final class RY_WSI_Invoice
             }
             add_action('ry_wsi_auto_get_invoice', ['RY_WSI_Invoice_Api', 'get'], 10, 2);
 
-            if ('auto_cancell' == RY_WSI::get_option('invalid_mode')) {
+            if ('auto_cancell' === RY_WSI::get_option('invalid_mode')) {
                 add_action('woocommerce_order_status_cancelled', ['RY_WSI_Invoice_Api', 'invalid']);
                 add_action('woocommerce_order_status_refunded', ['RY_WSI_Invoice_Api', 'invalid']);
             }
@@ -52,7 +52,7 @@ final class RY_WSI_Invoice
                 add_action('wp_ajax_RY_WSI_invalid', [__CLASS__, 'invalid_invoice']);
             } else {
                 add_filter('default_checkout_invoice_company_name', [__CLASS__, 'set_default_invoice_company_name']);
-                if ('yes' == RY_WSI::get_option('show_invoice_number', 'no')) {
+                if ('yes' === RY_WSI::get_option('show_invoice_number', 'no')) {
                     add_filter('woocommerce_account_orders_columns', [__CLASS__, 'add_invoice_column']);
                     add_action('woocommerce_my_account_my_orders_column_invoice-number', [__CLASS__, 'show_invoice_column']);
                 }
@@ -77,7 +77,7 @@ final class RY_WSI_Invoice
             }
         }
 
-        WC()->queue()->schedule_single(time() + 3, 'ry_wsi_auto_get_invoice', [$order_id], '');
+        WC()->queue()->schedule_single(time() + 10, 'ry_wsi_auto_get_invoice', [$order_id], '');
     }
 
     public static function add_enable_ry_invoice($enable)
@@ -118,13 +118,13 @@ final class RY_WSI_Invoice
 
     public static function show_admin_invoice_column($column)
     {
-        if ($column == 'invoice-number') {
+        if ('invoice-number' == $column) {
             global $the_order;
 
             $invoice_number = $the_order->get_meta('_invoice_number');
-            if ($invoice_number == 'zero') {
+            if ('zero' == $invoice_number) {
                 echo __('Zero no invoice', 'ry-woocommerce-smilepay-invoice');
-            } elseif ($invoice_number == 'negative') {
+            } elseif ('negative' == $invoice_number) {
                 echo __('Negative no invoice', 'ry-woocommerce-smilepay-invoice');
             } else {
                 echo $the_order->get_meta('_invoice_number');
@@ -169,7 +169,7 @@ final class RY_WSI_Invoice
 
     public static function log($message, $level = 'info')
     {
-        if (self::$log_enabled || $level == 'error') {
+        if (self::$log_enabled || 'error' == $level) {
             if (empty(self::$log)) {
                 self::$log = wc_get_logger();
             }

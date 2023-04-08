@@ -64,11 +64,11 @@ final class RY_WSI_Invoice_Basic
             ]
         ];
 
-        if ('no' == RY_WSI::get_option('support_carruer_type_none', 'no')) {
+        if ('no' === RY_WSI::get_option('support_carruer_type_none', 'no')) {
             unset($fields['invoice']['invoice_carruer_type']['options']['none']);
         }
 
-        if ('yes' == RY_WSI::get_option('move_billing_company', 'no')) {
+        if ('yes' === RY_WSI::get_option('move_billing_company', 'no')) {
             unset($fields['billing']['billing_company']);
             $fields['invoice']['invoice_company_name'] = [
                 'label' => __('Company name', 'ry-woocommerce-smilepay-invoice'),
@@ -140,31 +140,32 @@ final class RY_WSI_Invoice_Basic
 
     public static function invoice_checkout_validation($data, $errors)
     {
-        // 自然人憑證
-        if ($data['invoice_type'] == 'personal' && $data['invoice_carruer_type'] == 'MOICA') {
-            if (!empty($data['invoice_carruer_no'])) {
-                if (!preg_match('/^[A-Z]{2}\d{14}$/', $data['invoice_carruer_no'])) {
+
+        if ('personal' == $data['invoice_type']) {
+            // 自然人憑證
+            if ('MOICA' == $data['invoice_carruer_type']) {
+                if (!empty($data['invoice_carruer_no'])) {
+                    if (!preg_match('/^[A-Z]{2}\d{14}$/', $data['invoice_carruer_no'])) {
+                        $errors->add('validation', __('Invalid carruer number', 'ry-woocommerce-smilepay-invoice'));
+                    }
+                }
+            }
+
+            // 手機載具
+            if ('phone_barcode' == $data['invoice_carruer_type']) {
+                if (!preg_match('/^\/{1}[0-9A-Z+-.]{7}$/', $data['invoice_carruer_no'])) {
                     $errors->add('validation', __('Invalid carruer number', 'ry-woocommerce-smilepay-invoice'));
                 }
             }
-        }
-
-        // 手機載具
-        if ($data['invoice_type'] == 'personal' && $data['invoice_carruer_type'] == 'phone_barcode') {
-            if (!preg_match('/^\/{1}[0-9A-Z+-.]{7}$/', $data['invoice_carruer_no'])) {
-                $errors->add('validation', __('Invalid carruer number', 'ry-woocommerce-smilepay-invoice'));
-            }
-        }
 
         // 統一編號
-        if ($data['invoice_type'] == 'company') {
+        } elseif ('company' == $data['invoice_type']) {
             if (!preg_match('/^[0-9]{8}$/', $data['invoice_no'])) {
                 $errors->add('validation', __('Invalid tax ID number', 'ry-woocommerce-smilepay-invoice'));
             }
-        }
 
         // 愛心碼
-        if ($data['invoice_type'] == 'donate') {
+        } elseif ('donate' == $data['invoice_type']) {
             if (!preg_match('/^[0-9]{3,7}$/', $data['invoice_donate_no'])) {
                 $errors->add('validation', __('Invalid donate number', 'ry-woocommerce-smilepay-invoice'));
             }
@@ -195,19 +196,19 @@ final class RY_WSI_Invoice_Basic
 
         $invoice_info = [];
         if ($invoice_number) {
-            if ($invoice_number == 'zero') {
+            if ('zero' == $invoice_number) {
                 $invoice_info[] = [
                     'key' => 'zero-info',
                     'name' => __('Zero total fee without invoice', 'ry-woocommerce-smilepay-invoice'),
                     'value' => ''
                 ];
-            } elseif ($invoice_number == 'negative') {
+            } elseif ('negative' == $invoice_number) {
                 $invoice_info[] = [
                     'key' => 'negative-info',
                     'name' => __('Negative total fee can\'t invoice', 'ry-woocommerce-smilepay-invoice'),
                     'value' => ''
                 ];
-            } elseif ($invoice_number != 'delay') {
+            } elseif ('delay' != $invoice_number) {
                 $invoice_info[] = [
                     'key' => 'invoice-number',
                     'name' => __('Invoice number', 'ry-woocommerce-smilepay-invoice'),
@@ -227,7 +228,7 @@ final class RY_WSI_Invoice_Basic
             'value' => _x($invoice_type, 'invoice type', 'ry-woocommerce-smilepay-invoice')
         ];
 
-        if ($invoice_type == 'personal') {
+        if ('personal' == $invoice_type) {
             $key = count($invoice_info) - 1;
             $invoice_info[$key]['value'] .= ' (' . _x($carruer_type, 'carruer type', 'ry-woocommerce-smilepay-invoice') . ')';
             if (in_array($carruer_type, ['MOICA', 'phone_barcode'])) {
@@ -238,14 +239,14 @@ final class RY_WSI_Invoice_Basic
                 ];
             }
         }
-        if ($invoice_type == 'company') {
+        if ('company' == $invoice_type) {
             $invoice_info[] = [
                 'key' => 'tax-id-number',
                 'name' => __('Tax ID number', 'ry-woocommerce-smilepay-invoice'),
                 'value' => $order->get_meta('_invoice_no')
             ];
         }
-        if ($invoice_type == 'donate') {
+        if ('donate' == $invoice_type) {
             $invoice_info[] = [
                 'key' => 'donate-number',
                 'name' => __('Donate number', 'ry-woocommerce-smilepay-invoice'),

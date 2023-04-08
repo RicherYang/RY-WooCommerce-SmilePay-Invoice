@@ -18,7 +18,7 @@ final class RY_WSI_Cron
         add_action(RY_WSI::$option_prefix . 'check_update', ['RY_WSI_Updater', 'check_update']);
         if (!wp_next_scheduled(RY_WSI::$option_prefix . 'check_update')) {
             $time = wp_next_scheduled('wp_update_plugins');
-            if ($time == false) {
+            if (false == $time) {
                 $time = time();
             }
             wp_schedule_event($time + MINUTE_IN_SECONDS, 'daily', RY_WSI::$option_prefix . 'check_update');

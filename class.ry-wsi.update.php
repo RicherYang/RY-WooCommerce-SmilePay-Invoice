@@ -6,10 +6,10 @@ final class RY_WSI_update
     {
         $now_version = RY_WSI::get_option('version');
 
-        if ($now_version === false) {
+        if (false === $now_version) {
             $now_version = '0.0.0';
         }
-        if ($now_version == RY_WSI_VERSION) {
+        if (RY_WSI_VERSION == $now_version) {
             return;
         }
 

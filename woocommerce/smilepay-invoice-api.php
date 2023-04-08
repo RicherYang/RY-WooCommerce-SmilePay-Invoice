@@ -26,13 +26,13 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
         list($Grvc, $Verify_key) = RY_WSI_Invoice::get_smilepay_api_info();
 
         $args = self::make_get_data($order, $Grvc, $Verify_key);
-        if ($args['AllAmount'] == 0) {
+        if (0 == $args['AllAmount']) {
             $order->update_meta_data('_invoice_number', 'zero');
             $order->save_meta_data();
             $order->add_order_note(__('Zero total fee without invoice', 'ry-woocommerce-smilepay-invoice'));
             return;
         }
-        if ($args['AllAmount'] < 0) {
+        if (0 > $args['AllAmount']) {
             $order->update_meta_data('_invoice_number', 'negative');
             $order->save_meta_data();
             $order->add_order_note(__('Negative total fee can\'t invoice', 'ry-woocommerce-smilepay-invoice'));
@@ -55,7 +55,7 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
         }
         $result = self::link_server($post_url, $args);
 
-        if ($result === null) {
+        if (null === $result) {
             return;
         }
 
@@ -156,7 +156,7 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
                 break;
         }
 
-        $use_sku = 'yes' == RY_WSI::get_option('use_sku_as_name', 'no');
+        $use_sku = 'yes' === RY_WSI::get_option('use_sku_as_name', 'no');
         $order_items = $order->get_items(['line_item']);
         if (count($order_items)) {
             foreach ($order_items as $order_item) {
@@ -170,7 +170,7 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
                 $item_total = $item_total - $item_refunded;
                 $item_qty = $order_item->get_quantity() + $order->get_qty_refunded_for_item($order_item->get_id(), $order_item->get_type());
 
-                if ($item_total == 0 && $item_qty == 0) {
+                if (0 == $item_total && 0 == $item_qty) {
                     continue;
                 }
 
@@ -195,7 +195,7 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
                 $item_total = $fee_item->get_total();
                 $item_qty = $fee_item->get_quantity();
                 $item_total = round($item_total, wc_get_price_decimals());
-                if ($item_total == 0 && $item_qty == 0) {
+                if (0 == $item_total && 0 == $item_qty) {
                     continue;
                 }
 
@@ -255,7 +255,7 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
 
         $invoice_number = $order->get_meta('_invoice_number');
 
-        if ($invoice_number == 'zero' || $invoice_number == 'negative') {
+        if ('zero' == $invoice_number || 'negative' == $invoice_number) {
             $order->delete_meta_data('_invoice_number');
             $order->save_meta_data();
             return;
@@ -272,7 +272,7 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
             'InvoiceNumber' => $invoice_number,
             'InvoiceDate' => str_replace('-', '/', substr($order->get_meta('_invoice_date'), 0, 10)),
             'types' => 'Cancel',
-            'CancelReason' => __('Invalid invoice', 'ry-woocommerce-smilepay-invoice'),
+            'CancelReason' => __('Order cancel', 'ry-woocommerce-smilepay-invoice'),
         ];
 
         do_action('ry_wsi_invalid_invoice', $args, $order);
@@ -286,7 +286,7 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
         }
         $result = self::link_server($post_url, $args);
 
-        if ($result === null) {
+        if (null === $result) {
             return;
         }
 
