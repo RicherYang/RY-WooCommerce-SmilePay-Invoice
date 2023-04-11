@@ -1,5 +1,20 @@
 jQuery(function ($) {
 
+    if ($('#RY_WSI_get_mode').length) {
+        function toggleDelayBox() {
+            let $item = $('#RY_WSI_skip_foreign_order').closest('tr');
+
+            if ($('#RY_WSI_get_mode').val() == 'manual') {
+                $item.hide();
+            } else {
+                $item.show();
+            }
+        }
+
+        toggleDelayBox();
+        $('#RY_WSI_get_mode').change(toggleDelayBox);
+    }
+
     if ($('#RY_WSI_amount_abnormal_mode').length) {
         function toggleAmountBox() {
             let $item = $('#RY_WSI_amount_abnormal_product').closest('tr');

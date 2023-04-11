@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY WooCommerce SmilePay Invoice 1.0.4\n"
+"Project-Id-Version: RY WooCommerce SmilePay Invoice 1.0.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-woocommerce-smilepay-invoice\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-02-19T13:00:52+08:00\n"
+"POT-Creation-Date: 2023-04-11T17:17:52+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: ry-woocommerce-smilepay-invoice\n"
@@ -85,7 +85,7 @@ msgstr ""
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:10
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:97
 #: woocommerce/invoice-basic.php:27
-#: woocommerce/invoice-basic.php:226
+#: woocommerce/invoice-basic.php:227
 msgid "Invoice type"
 msgstr ""
 
@@ -145,21 +145,21 @@ msgstr ""
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:34
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:103
 #: woocommerce/invoice-basic.php:51
-#: woocommerce/invoice-basic.php:236
+#: woocommerce/invoice-basic.php:237
 msgid "Carruer number"
 msgstr ""
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:39
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:108
 #: woocommerce/invoice-basic.php:56
-#: woocommerce/invoice-basic.php:244
+#: woocommerce/invoice-basic.php:245
 msgid "Tax ID number"
 msgstr ""
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:44
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:112
 #: woocommerce/invoice-basic.php:61
-#: woocommerce/invoice-basic.php:251
+#: woocommerce/invoice-basic.php:252
 msgid "Donate number"
 msgstr ""
 
@@ -167,16 +167,16 @@ msgstr ""
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:88
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:90
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:92
-#: woocommerce/invoice-basic.php:213
-#: woocommerce/invoice.php:112
-#: woocommerce/invoice.php:222
+#: woocommerce/invoice-basic.php:214
+#: woocommerce/invoice.php:123
+#: woocommerce/invoice.php:233
 #: woocommerce/smilepay-invoice-api.php:77
 msgid "Invoice number"
 msgstr ""
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:61
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:93
-#: woocommerce/invoice-basic.php:218
+#: woocommerce/invoice-basic.php:219
 #: woocommerce/smilepay-invoice-api.php:78
 msgid "Invoice random number"
 msgstr ""
@@ -187,17 +187,16 @@ msgid "Invoice date"
 msgstr ""
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:88
-#: woocommerce/invoice.php:126
+#: woocommerce/invoice.php:137
 msgid "Zero no invoice"
 msgstr ""
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:90
-#: woocommerce/invoice.php:128
+#: woocommerce/invoice.php:139
 msgid "Negative no invoice"
 msgstr ""
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:120
-#: woocommerce/smilepay-invoice-api.php:275
 #: woocommerce/smilepay-invoice-api.php:304
 msgid "Invalid invoice"
 msgstr ""
@@ -251,34 +250,34 @@ msgstr ""
 msgid "Company name"
 msgstr ""
 
-#: woocommerce/invoice-basic.php:147
-#: woocommerce/invoice-basic.php:155
+#: woocommerce/invoice-basic.php:149
+#: woocommerce/invoice-basic.php:157
 msgid "Invalid carruer number"
 msgstr ""
 
-#: woocommerce/invoice-basic.php:162
+#: woocommerce/invoice-basic.php:164
 msgid "Invalid tax ID number"
 msgstr ""
 
-#: woocommerce/invoice-basic.php:169
+#: woocommerce/invoice-basic.php:170
 msgid "Invalid donate number"
 msgstr ""
 
-#: woocommerce/invoice-basic.php:201
+#: woocommerce/invoice-basic.php:202
 #: woocommerce/smilepay-invoice-api.php:32
 msgid "Zero total fee without invoice"
 msgstr ""
 
-#: woocommerce/invoice-basic.php:207
+#: woocommerce/invoice-basic.php:208
 #: woocommerce/smilepay-invoice-api.php:38
 msgid "Negative total fee can't invoice"
 msgstr ""
 
-#: woocommerce/invoice.php:100
+#: woocommerce/invoice.php:111
 msgid "Get invoice.<br>Please wait."
 msgstr ""
 
-#: woocommerce/invoice.php:101
+#: woocommerce/invoice.php:112
 msgid "Invalid invoice.<br>Please wait."
 msgstr ""
 
@@ -371,7 +370,7 @@ msgid "Invoice options"
 msgstr ""
 
 #: woocommerce/settings/settings-smilepay-invoice.php:67
-msgid "support paper type"
+msgid "support paper type (B2C)"
 msgstr ""
 
 #: woocommerce/settings/settings-smilepay-invoice.php:71
@@ -411,68 +410,76 @@ msgid "Order paid status: %s"
 msgstr ""
 
 #: woocommerce/settings/settings-smilepay-invoice.php:94
+msgid "Skip foreign orders"
+msgstr ""
+
+#: woocommerce/settings/settings-smilepay-invoice.php:98
+msgid "Disable auto get invoice for order billing country and shipping country are not in Taiwan."
+msgstr ""
+
+#: woocommerce/settings/settings-smilepay-invoice.php:101
 msgid "Invalid mode"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:99
+#: woocommerce/settings/settings-smilepay-invoice.php:106
 msgctxt "invalid mode"
 msgid "manual"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:100
+#: woocommerce/settings/settings-smilepay-invoice.php:107
 msgctxt "invalid mode"
 msgid "auto ( when order status cancelled OR refunded )"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:104
+#: woocommerce/settings/settings-smilepay-invoice.php:111
 msgid "Amount abnormal mode"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:109
+#: woocommerce/settings/settings-smilepay-invoice.php:116
 msgctxt "amount abnormal mode"
 msgid "No action"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:110
+#: woocommerce/settings/settings-smilepay-invoice.php:117
 msgctxt "amount abnormal mode"
 msgid "add one product to match order amount"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:111
+#: woocommerce/settings/settings-smilepay-invoice.php:118
 msgctxt "amount abnormal mode"
 msgid "change order total amount"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:115
+#: woocommerce/settings/settings-smilepay-invoice.php:122
 msgid "fix amount product name"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:118
+#: woocommerce/settings/settings-smilepay-invoice.php:125
 #: woocommerce/smilepay-invoice-api.php:221
 msgid "Discount"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:125
+#: woocommerce/settings/settings-smilepay-invoice.php:132
 msgid "API credentials"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:130
+#: woocommerce/settings/settings-smilepay-invoice.php:137
 msgid "SmilePay invoice sandbox"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:134
+#: woocommerce/settings/settings-smilepay-invoice.php:141
 msgid "Enable SmilePay invoice sandbox"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:135
+#: woocommerce/settings/settings-smilepay-invoice.php:142
 msgid "Note: Recommend using this for development purposes only."
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:138
+#: woocommerce/settings/settings-smilepay-invoice.php:145
 msgid "Grvc"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:144
+#: woocommerce/settings/settings-smilepay-invoice.php:151
 msgid "Verify_key"
 msgstr ""
 
@@ -494,6 +501,10 @@ msgstr ""
 
 #: woocommerce/smilepay-invoice-api.php:211
 msgid "shipping fee"
+msgstr ""
+
+#: woocommerce/smilepay-invoice-api.php:275
+msgid "Order cancel"
 msgstr ""
 
 #. translators: %s Error messade

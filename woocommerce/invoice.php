@@ -68,10 +68,21 @@ final class RY_WSI_Invoice
         }
 
         $skip_shipping = apply_filters('ry_wsi_skip_autoget_invoice_shipping', []);
-
         if (!empty($skip_shipping)) {
             foreach ($order->get_items('shipping') as $item) {
                 if (in_array($item->get_method_id(), $skip_shipping)) {
+                    return false;
+                }
+            }
+        }
+
+        if ('yes' === RY_WSI::get_option('skip_foreign_order', 'no')) {
+            if('TW' !== $order->get_billing_country()) {
+                if($order->needs_shipping_address()) {
+                    if('TW' !== $order->get_shipping_country()) {
+                        return false;
+                    }
+                } else {
                     return false;
                 }
             }

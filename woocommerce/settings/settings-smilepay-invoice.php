@@ -64,7 +64,7 @@ return [
         'type' => 'title'
     ],
     [
-        'title' => __('support paper type', 'ry-woocommerce-smilepay-invoice'),
+        'title' => __('support paper type (B2C)', 'ry-woocommerce-smilepay-invoice'),
         'id' => RY_WSI::$option_prefix . 'support_carruer_type_none',
         'type' => 'checkbox',
         'default' => 'no',
@@ -89,6 +89,13 @@ return [
         ],
         /* translators: %s: paid status */
         'desc' => sprintf(__('Order paid status: %s', 'ry-woocommerce-smilepay-invoice'), $paid_status)
+    ],
+    [
+        'title' => __('Skip foreign orders', 'ry-woocommerce-smilepay-invoice'),
+        'id' => RY_WSI::$option_prefix . 'skip_foreign_order',
+        'type' => 'checkbox',
+        'default' => 'no',
+        'desc' => __('Disable auto get invoice for order billing country and shipping country are not in Taiwan.', 'ry-woocommerce-smilepay-invoice')
     ],
     [
         'title' => __('Invalid mode', 'ry-woocommerce-smilepay-invoice'),
