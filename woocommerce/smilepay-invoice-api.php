@@ -28,13 +28,13 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
         $args = self::make_get_data($order, $Grvc, $Verify_key);
         if (0 == $args['AllAmount']) {
             $order->update_meta_data('_invoice_number', 'zero');
-            $order->save_meta_data();
+            $order->save();
             $order->add_order_note(__('Zero total fee without invoice', 'ry-woocommerce-smilepay-invoice'));
             return;
         }
         if (0 > $args['AllAmount']) {
             $order->update_meta_data('_invoice_number', 'negative');
-            $order->save_meta_data();
+            $order->save();
             $order->add_order_note(__('Negative total fee can\'t invoice', 'ry-woocommerce-smilepay-invoice'));
             return;
         }
@@ -83,7 +83,7 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
         $order->update_meta_data('_invoice_number', (string) $result->InvoiceNumber);
         $order->update_meta_data('_invoice_random_number', (string) $result->RandomNumber);
         $order->update_meta_data('_invoice_date', $invoice_date->format('Y-m-d H:i:s'));
-        $order->save_meta_data();
+        $order->save();
 
         do_action('ry_wsi_get_invoice_response', $result, $order);
     }
@@ -267,7 +267,7 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
 
         if ('zero' == $invoice_number || 'negative' == $invoice_number) {
             $order->delete_meta_data('_invoice_number');
-            $order->save_meta_data();
+            $order->save();
             return;
         }
 
@@ -318,7 +318,7 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
         $order->delete_meta_data('_invoice_number');
         $order->delete_meta_data('_invoice_random_number');
         $order->delete_meta_data('_invoice_date');
-        $order->save_meta_data();
+        $order->save();
 
         do_action('ry_wsi_invalid_invoice_response', $result, $order);
     }

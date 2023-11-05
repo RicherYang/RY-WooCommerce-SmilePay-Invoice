@@ -158,13 +158,13 @@ final class RY_WSI_Invoice_Basic
                 }
             }
 
-        // 統一編號
+            // 統一編號
         } elseif ('company' == $data['invoice_type']) {
             if (!preg_match('/^[0-9]{8}$/', $data['invoice_no'])) {
                 $errors->add('validation', __('Invalid tax ID number', 'ry-woocommerce-smilepay-invoice'));
             }
 
-        // 愛心碼
+            // 愛心碼
         } elseif ('donate' == $data['invoice_type']) {
             if (!preg_match('/^[0-9]{3,7}$/', $data['invoice_donate_no'])) {
                 $errors->add('validation', __('Invalid donate number', 'ry-woocommerce-smilepay-invoice'));
