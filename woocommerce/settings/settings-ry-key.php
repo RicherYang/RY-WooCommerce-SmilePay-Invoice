@@ -13,7 +13,8 @@ return [
         'default' => ''
     ],
     [
-        'type' => 'rywsi_version_info',
+        'id' => 'ry_wsi_version_info',
+        'type' => 'ry_wsi_version_info',
     ],
     [
         'id' => 'wsi_options',

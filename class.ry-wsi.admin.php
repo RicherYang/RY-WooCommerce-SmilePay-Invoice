@@ -54,7 +54,7 @@ final class RY_WSI_admin
     public function add_setting($settings, $current_section)
     {
         if ('ry_key' === $current_section) {
-            add_action('woocommerce_admin_field_rywsi_version_info', [$this, 'show_version_info']);
+            add_action('woocommerce_admin_field_ry_wsi_version_info', [$this, 'show_version_info']);
             if (empty($settings)) {
                 $settings = [];
             }
