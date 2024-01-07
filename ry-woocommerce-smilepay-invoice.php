@@ -3,7 +3,7 @@
  * Plugin Name: RY WooCommerce SmilePay Invoice
  * Plugin URI: https://ry-plugin.com/ry-woocommerce-smilepay-invoice
  * Version: 1.1.4
- * Requires at least: 5.6
+ * Requires at least: 6.2
  * Requires PHP: 7.4
  * Author: Richer Yang
  * Author URI: https://richer.tw/
@@ -12,7 +12,7 @@
  * Text Domain: ry-woocommerce-smilepay-invoice
  * Domain Path: /languages
  *
- * WC requires at least: 7
+ * WC requires at least: 8
  */
 
 function_exists('plugin_dir_url') or exit('No direct script access allowed');
