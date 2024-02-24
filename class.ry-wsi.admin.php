@@ -63,7 +63,7 @@ final class RY_WSI_admin
             $expire = RY_WSI_License::get_expire();
             if (!empty($expire)) {
                 foreach ($settings as $key => $setting) {
-                    if (isset($setting['id']) && RY_WSI::$option_prefix . 'license_key' === $setting['id']) {
+                    if (isset($setting['id']) && RY_WSI::OPTION_PREFIX . 'license_key' === $setting['id']) {
                         $settings[$key]['desc'] = sprintf(
                             /* translators: %s: Expiration date of pro license */
                             __('License Expiration Date %s', 'ry-woocommerce-smilepay-invoice'),

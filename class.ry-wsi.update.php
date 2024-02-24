@@ -13,8 +13,8 @@ final class RY_WSI_update
             return;
         }
 
-        if (version_compare($now_version, '1.1.4', '<')) {
-            RY_WSI::update_option('version', '1.1.4');
+        if (version_compare($now_version, '1.1.5', '<')) {
+            RY_WSI::update_option('version', '1.1.5');
         }
     }
 }

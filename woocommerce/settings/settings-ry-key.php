@@ -8,7 +8,7 @@ return [
     ],
     [
         'title' => __('License key', 'ry-woocommerce-smilepay-invoice'),
-        'id' => RY_WSI::$option_prefix . 'license_key',
+        'id' => RY_WSI::OPTION_PREFIX . 'license_key',
         'type' => 'text',
         'default' => ''
     ],

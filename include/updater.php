@@ -17,7 +17,7 @@ final class RY_WSI_Updater
 
     public static function check_update()
     {
-        $time = (int) get_site_transient(RY_WSI::$option_prefix . 'checktime');
+        $time = (int) get_site_transient(RY_WSI::OPTION_PREFIX . 'checktime');
         if (HOUR_IN_SECONDS < time() - $time) {
             $update_plugins = get_site_transient('update_plugins');
             set_site_transient('update_plugins', $update_plugins);
@@ -29,7 +29,7 @@ final class RY_WSI_Updater
         $json = RY_WSI_LinkServer::check_version();
 
         if (is_array($json) && isset($json['new_version'])) {
-            set_site_transient(RY_WSI::$option_prefix . 'checktime', time());
+            set_site_transient(RY_WSI::OPTION_PREFIX . 'checktime', time());
 
             if (version_compare(RY_WSI_VERSION, $json['new_version'], '<')) {
                 unset($json['version']);
