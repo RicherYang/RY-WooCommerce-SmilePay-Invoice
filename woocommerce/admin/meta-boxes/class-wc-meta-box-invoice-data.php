@@ -116,12 +116,12 @@ class RY_WSI_MetaBox_Invoice_Data
     <div class="ivoice_action_column">
         <?php
         if ($invoice_number) {
-            echo '<button id="invalid_smilepay_invoice" type="button" class="button" data-orderid="' . $order->get_id() . '">'
-                . __('Invalid invoice', 'ry-woocommerce-smilepay-invoice')
+            echo '<button id="invalid_smilepay_invoice" type="button" class="button" data-orderid="' . esc_attr($order->get_id()) . '">'
+                . esc_html__('Invalid invoice', 'ry-woocommerce-smilepay-invoice')
                 . '</button>';
         } elseif ($order->is_paid()) {
-            echo '<button id="get_smilepay_invoice" type="button" class="button" data-orderid="' . $order->get_id() . '">'
-                    . __('Get invoice', 'ry-woocommerce-smilepay-invoice')
+            echo '<button id="get_smilepay_invoice" type="button" class="button" data-orderid="' . esc_attr($order->get_id()) . '">'
+                    . esc_html__('Get invoice', 'ry-woocommerce-smilepay-invoice')
                     . '</button>';
         }
     ?>

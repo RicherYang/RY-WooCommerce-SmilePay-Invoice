@@ -146,11 +146,11 @@ final class RY_WSI_Invoice
 
             $invoice_number = $order->get_meta('_invoice_number');
             if ('zero' == $invoice_number) {
-                echo __('Zero no invoice', 'ry-woocommerce-smilepay-invoice');
+                esc_html_e('Zero no invoice', 'ry-woocommerce-smilepay-invoice');
             } elseif ('negative' == $invoice_number) {
-                echo __('Negative no invoice', 'ry-woocommerce-smilepay-invoice');
+                esc_html_e('Negative no invoice', 'ry-woocommerce-smilepay-invoice');
             } else {
-                echo $order->get_meta('_invoice_number');
+                echo esc_html($order->get_meta('_invoice_number'));
             }
         }
     }
@@ -253,7 +253,7 @@ final class RY_WSI_Invoice
     {
         $invoice_number = $order->get_meta('_invoice_number');
         if (!in_array($invoice_number, ['delay', 'zero', 'negative'])) {
-            echo $invoice_number;
+            echo esc_html($invoice_number);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 return [
     [
-        'title' => 'RY WooCommerce SmilePay Invoice',
+        'title' => 'RY SmilePay Invoice for WooCommerce',
         'id' => 'wsi_options',
         'type' => 'title'
     ],

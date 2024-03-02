@@ -40,7 +40,7 @@ final class RY_WSI_admin
             return ;
         }
 
-        echo '<div class="notice notice-info"><p><strong>RY WooCommerce SmilePay Invoice</strong> ' . __('Your license is not active!', 'ry-woocommerce-smilepay-invoice') . '</p></div>';
+        echo '<div class="notice notice-info"><p><strong>RY SmilePay Invoice for WooCommerce</strong> ' . esc_html__('Your license is not active!', 'ry-woocommerce-smilepay-invoice') . '</p></div>';
     }
 
     public function add_sections($sections)
@@ -99,13 +99,13 @@ final class RY_WSI_admin
             $json = RY_WSI_LinkServer::activate_key();
 
             if (false === $json) {
-                WC_Admin_Settings::add_error('RY WooCommerce SmilePay Invoice: '
+                WC_Admin_Settings::add_error('RY SmilePay Invoice for WooCommerce: '
                     . __('Connect license server failed!', 'ry-woocommerce-smilepay-invoice'));
             } else {
                 if (is_array($json)) {
                     if (empty($json['data'])) {
                         RY_WSI_License::delete_license();
-                        WC_Admin_Settings::add_error('RY WooCommerce SmilePay Invoice: '
+                        WC_Admin_Settings::add_error('RY SmilePay Invoice for WooCommerce: '
                             . sprintf(
                                 /* translators: %s: Error message */
                                 __('Verification error: %s', 'ry-woocommerce-smilepay-invoice'),
@@ -123,7 +123,7 @@ final class RY_WSI_admin
                         return true;
                     }
                 } else {
-                    WC_Admin_Settings::add_error('RY WooCommerce SmilePay Invoice: '
+                    WC_Admin_Settings::add_error('RY SmilePay Invoice for WooCommerce: '
                         . __('Connect license server failed!', 'ry-woocommerce-smilepay-invoice'));
                 }
             }

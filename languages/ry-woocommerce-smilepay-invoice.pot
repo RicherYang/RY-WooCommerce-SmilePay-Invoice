@@ -1,32 +1,41 @@
-# Copyright (C) 2023 Richer Yang
-# This file is distributed under the GPLv2 or later.
+# Copyright (C) 2024 Richer Yang
+# This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY WooCommerce SmilePay Invoice 1.0.5\n"
+"Project-Id-Version: RY SmilePay Invoice for WooCommerce 1.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-woocommerce-smilepay-invoice\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-04-11T17:17:52+08:00\n"
+"POT-Creation-Date: 2024-03-02T11:52:48+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.7.1\n"
+"X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: ry-woocommerce-smilepay-invoice\n"
 
 #. Plugin Name of the plugin
-msgid "RY WooCommerce SmilePay Invoice"
+#: D:\WordPress_SVN\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
+msgid "RY SmilePay Invoice for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin
+#: D:\WordPress_SVN\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
 msgid "https://ry-plugin.com/ry-woocommerce-smilepay-invoice"
 msgstr ""
 
+#. Description of the plugin
+#: D:\WordPress_SVN\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
+msgid "WooCommerce order invoice for smilepay"
+msgstr ""
+
 #. Author of the plugin
+#: D:\WordPress_SVN\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
 msgid "Richer Yang"
 msgstr ""
 
 #. Author URI of the plugin
+#: D:\WordPress_SVN\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
 msgid "https://richer.tw/"
 msgstr ""
 
@@ -168,8 +177,8 @@ msgstr ""
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:90
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:92
 #: woocommerce/invoice-basic.php:214
-#: woocommerce/invoice.php:123
-#: woocommerce/invoice.php:233
+#: woocommerce/invoice.php:132
+#: woocommerce/invoice.php:247
 #: woocommerce/smilepay-invoice-api.php:77
 msgid "Invoice number"
 msgstr ""
@@ -187,17 +196,17 @@ msgid "Invoice date"
 msgstr ""
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:88
-#: woocommerce/invoice.php:137
+#: woocommerce/invoice.php:149
 msgid "Zero no invoice"
 msgstr ""
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:90
-#: woocommerce/invoice.php:139
+#: woocommerce/invoice.php:151
 msgid "Negative no invoice"
 msgstr ""
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:120
-#: woocommerce/smilepay-invoice-api.php:304
+#: woocommerce/smilepay-invoice-api.php:314
 msgid "Invalid invoice"
 msgstr ""
 
@@ -234,11 +243,11 @@ msgstr ""
 msgid "Now Version:"
 msgstr ""
 
-#: woocommerce/admin/view/html-version-info.php:9
+#: woocommerce/admin/view/html-version-info.php:10
 msgid "New Version:"
 msgstr ""
 
-#: woocommerce/admin/view/html-version-info.php:11
+#: woocommerce/admin/view/html-version-info.php:12
 msgid "update plugin"
 msgstr ""
 
@@ -273,11 +282,11 @@ msgstr ""
 msgid "Negative total fee can't invoice"
 msgstr ""
 
-#: woocommerce/invoice.php:111
+#: woocommerce/invoice.php:120
 msgid "Get invoice.<br>Please wait."
 msgstr ""
 
-#: woocommerce/invoice.php:112
+#: woocommerce/invoice.php:121
 msgid "Invalid invoice.<br>Please wait."
 msgstr ""
 
@@ -405,81 +414,81 @@ msgid "auto ( when order completed )"
 msgstr ""
 
 #. translators: %s: paid status
-#: woocommerce/settings/settings-smilepay-invoice.php:91
+#: woocommerce/settings/settings-smilepay-invoice.php:92
 msgid "Order paid status: %s"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:94
+#: woocommerce/settings/settings-smilepay-invoice.php:97
 msgid "Skip foreign orders"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:98
+#: woocommerce/settings/settings-smilepay-invoice.php:101
 msgid "Disable auto get invoice for order billing country and shipping country are not in Taiwan."
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:101
+#: woocommerce/settings/settings-smilepay-invoice.php:104
 msgid "Invalid mode"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:106
+#: woocommerce/settings/settings-smilepay-invoice.php:109
 msgctxt "invalid mode"
 msgid "manual"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:107
+#: woocommerce/settings/settings-smilepay-invoice.php:110
 msgctxt "invalid mode"
 msgid "auto ( when order status cancelled OR refunded )"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:111
+#: woocommerce/settings/settings-smilepay-invoice.php:114
 msgid "Amount abnormal mode"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:116
+#: woocommerce/settings/settings-smilepay-invoice.php:119
 msgctxt "amount abnormal mode"
 msgid "No action"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:117
+#: woocommerce/settings/settings-smilepay-invoice.php:120
 msgctxt "amount abnormal mode"
 msgid "add one product to match order amount"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:118
+#: woocommerce/settings/settings-smilepay-invoice.php:121
 msgctxt "amount abnormal mode"
 msgid "change order total amount"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:122
+#: woocommerce/settings/settings-smilepay-invoice.php:125
 msgid "fix amount product name"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:125
-#: woocommerce/smilepay-invoice-api.php:221
+#: woocommerce/settings/settings-smilepay-invoice.php:128
+#: woocommerce/smilepay-invoice-api.php:231
 msgid "Discount"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:132
+#: woocommerce/settings/settings-smilepay-invoice.php:135
 msgid "API credentials"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:137
+#: woocommerce/settings/settings-smilepay-invoice.php:140
 msgid "SmilePay invoice sandbox"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:141
+#: woocommerce/settings/settings-smilepay-invoice.php:144
 msgid "Enable SmilePay invoice sandbox"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:142
+#: woocommerce/settings/settings-smilepay-invoice.php:145
 msgid "Note: Recommend using this for development purposes only."
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:145
+#: woocommerce/settings/settings-smilepay-invoice.php:148
 msgid "Grvc"
 msgstr ""
 
-#: woocommerce/settings/settings-smilepay-invoice.php:151
+#: woocommerce/settings/settings-smilepay-invoice.php:154
 msgid "Verify_key"
 msgstr ""
 
@@ -492,22 +501,27 @@ msgstr ""
 msgid "Invoice create time"
 msgstr ""
 
-#: woocommerce/smilepay-invoice-api.php:187
-#: woocommerce/smilepay-invoice-api.php:204
-#: woocommerce/smilepay-invoice-api.php:213
+#: woocommerce/smilepay-invoice-api.php:189
+#: woocommerce/smilepay-invoice-api.php:206
+#: woocommerce/smilepay-invoice-api.php:216
 #: woocommerce/smilepay-invoice-api.php:223
+#: woocommerce/smilepay-invoice-api.php:233
 msgid "parcel"
 msgstr ""
 
-#: woocommerce/smilepay-invoice-api.php:211
+#: woocommerce/smilepay-invoice-api.php:214
 msgid "shipping fee"
 msgstr ""
 
-#: woocommerce/smilepay-invoice-api.php:275
+#: woocommerce/smilepay-invoice-api.php:221
+msgid "return fee"
+msgstr ""
+
+#: woocommerce/smilepay-invoice-api.php:285
 msgid "Order cancel"
 msgstr ""
 
 #. translators: %s Error messade
-#: woocommerce/smilepay-invoice-api.php:296
+#: woocommerce/smilepay-invoice-api.php:306
 msgid "Invalid invoice error: %s"
 msgstr ""
