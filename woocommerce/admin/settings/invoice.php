@@ -1,29 +1,33 @@
 <?php
 
-final class RY_WSI_Invoice_setting
+final class RY_WSI_WC_Admin_Setting_Invoice
 {
-    private static $initiated = false;
+    protected static $_instance = null;
 
-    public static function init()
+    public static function instance(): RY_WSI_WC_Admin_Setting_Invoice
     {
-        if (!self::$initiated) {
-            self::$initiated = true;
+        if (null === self::$_instance) {
+            self::$_instance = new self();
+            self::$_instance->do_init();
         }
 
-        if (is_admin()) {
-            add_filter('woocommerce_get_sections_rytools', [__CLASS__, 'add_sections'], 11);
-            add_filter('woocommerce_get_settings_rytools', [__CLASS__, 'add_setting'], 10, 2);
-            add_action('woocommerce_update_options_rytools_smilepay_invoice', [__CLASS__, 'check_option']);
-            add_filter('ry_setting_section_tools', '__return_false');
-        }
+        return self::$_instance;
     }
 
-    public static function add_sections($sections)
+    protected function do_init()
+    {
+        add_filter('woocommerce_get_sections_rytools', [$this, 'add_sections'], 11);
+        add_filter('woocommerce_get_settings_rytools', [$this, 'add_setting'], 10, 2);
+        add_action('woocommerce_update_options_rytools_smilepay_invoice', [$this, 'check_option']);
+        add_filter('ry_setting_section_tools', '__return_false');
+    }
+
+    public function add_sections($sections)
     {
         if (isset($sections['tools'])) {
             $add_idx = array_search('tools', array_keys($sections));
             $sections = array_slice($sections, 0, $add_idx) + [
-                'smilepay_invoice' => __('SimlePay invoice', 'ry-woocommerce-smilepay-invoice')
+                'smilepay_invoice' => __('SimlePay invoice', 'ry-woocommerce-smilepay-invoice'),
             ] + array_slice($sections, $add_idx);
         } else {
             $sections['smilepay_invoice'] = __('SimlePay invoice', 'ry-woocommerce-smilepay-invoice');
@@ -33,15 +37,15 @@ final class RY_WSI_Invoice_setting
         return $sections;
     }
 
-    public static function add_setting($settings, $current_section)
+    public function add_setting($settings, $current_section)
     {
         if ('smilepay_invoice' == $current_section) {
-            $settings = include RY_WSI_PLUGIN_DIR . 'woocommerce/settings/settings-smilepay-invoice.php';
+            $settings = include RY_WSI_PLUGIN_DIR . 'woocommerce/admin/settings/settings-invoice.php';
         }
         return $settings;
     }
 
-    public static function check_option()
+    public function check_option()
     {
         if ('yes' === RY_WSI::get_option('enabled_invoice', 'no')) {
             $enable_list = apply_filters('enable_ry_invoice', []);
@@ -53,7 +57,7 @@ final class RY_WSI_Invoice_setting
                 WC_Admin_Settings::add_error(__('Not recommended enable two invoice module/plugin at the same time!', 'ry-woocommerce-smilepay-invoice'));
             }
 
-            if ('yes' !== RY_WSI::get_option('smilepay_testmode', 'no')) {
+            if (!RY_WSI_WC_Invoice::instance()->is_testmode()) {
                 if (empty(RY_WSI::get_option('smilepay_Grvc')) || empty(RY_WSI::get_option('smilepay_Verify_key'))) {
                     WC_Admin_Settings::add_error(__('SimlePay invoice method failed to enable!', 'ry-woocommerce-smilepay-invoice'));
                     RY_WSI::update_option('enabled_invoice', 'no');
@@ -67,11 +71,8 @@ final class RY_WSI_Invoice_setting
         }
 
         if (!is_callable('simplexml_load_string')) {
-            WC_Admin_Settings::add_error(__('SimlePay invoice method failed to enable!', 'ry-woocommerce-smilepay-invoice')
-                . __('Required PHP function simplexml_load_string.', 'ry-woocommerce-smilepay-invoice'));
-            RY_WEI::update_option('enabled_invoice', 'no');
+            WC_Admin_Settings::add_error(__('SimlePay invoice method failed to enable!', 'ry-woocommerce-smilepay-invoice') . __('Required PHP function simplexml_load_string.', 'ry-woocommerce-smilepay-invoice'));
+            RY_WSI::update_option('enabled_invoice', 'no');
         }
     }
 }
-
-RY_WSI_Invoice_setting::init();

@@ -1,33 +1,28 @@
-jQuery(function ($) {
+import $ from 'jquery';
 
+import './ry-invoice.scss';
+
+$(function () {
     if ($('#RY_WSI_get_mode').length) {
-        function toggleDelayBox() {
+        $('#RY_WSI_get_mode').on('change', function () {
             let $item = $('#RY_WSI_skip_foreign_order').closest('tr');
 
-            if ($('#RY_WSI_get_mode').val() == 'manual') {
-                $item.hide();
+            if ($(this).val() == 'manual') {
+                $('#RY_WSI_skip_foreign_order').closest('tr').hide();
             } else {
-                $item.show();
+                $('#RY_WSI_skip_foreign_order').closest('tr').show();
             }
-        }
-
-        toggleDelayBox();
-        $('#RY_WSI_get_mode').change(toggleDelayBox);
+        }).trigger('change');
     }
 
     if ($('#RY_WSI_amount_abnormal_mode').length) {
-        function toggleAmountBox() {
-            let $item = $('#RY_WSI_amount_abnormal_product').closest('tr');
-
-            if ($('#RY_WSI_amount_abnormal_mode').val() == 'product') {
-                $item.show();
+        $('#RY_WSI_amount_abnormal_mode').on('change', function () {
+            if ($(this).val() == 'product') {
+                $('#RY_WSI_amount_abnormal_product').closest('tr').show();
             } else {
-                $item.hide();
+                $('#RY_WSI_amount_abnormal_product').closest('tr').hide();
             }
-        }
-
-        toggleAmountBox();
-        $('#RY_WSI_amount_abnormal_mode').change(toggleAmountBox);
+        }).trigger('change');
     }
 
     if ($('#_invoice_type').length) {
@@ -72,22 +67,36 @@ jQuery(function ($) {
         $('#_invoice_type').trigger('change');
     }
 
-    $('#get_smilepay_invoice').click(function () {
-        $.blockUI({ message: ry_wsi_script.get_loading_text });
-        $.post(ajaxurl, {
-            action: 'RY_WSI_get',
-            id: $(this).data('orderid'),
-        }, function () {
+    $('#get_smilepay_invoice').on('click', function () {
+        $.blockUI({
+            message: RyWsiAdminInvoiceParams.i18n.get
+        });
+        $.ajax({
+            url: ajaxurl,
+            method: 'POST',
+            data: {
+                action: 'RY_WSI_get',
+                id: $(this).data('orderid'),
+                _ajax_nonce: RyWsiAdminInvoiceParams._nonce.get
+            }
+        }).always(function () {
             location.reload();
         });
     });
 
-    $('#invalid_smilepay_invoice').click(function () {
-        $.blockUI({ message: ry_wsi_script.invalid_loading_text });
-        $.post(ajaxurl, {
-            action: 'RY_WSI_invalid',
-            id: $(this).data('orderid'),
-        }, function () {
+    $('#invalid_smilepay_invoice').on('click', function () {
+        $.blockUI({
+            message: RyWsiAdminInvoiceParams.i18n.invalid
+        });
+        $.ajax({
+            url: ajaxurl,
+            method: 'POST',
+            data: {
+                action: 'RY_WSI_invalid',
+                id: $(this).data('orderid'),
+                _ajax_nonce: RyWsiAdminInvoiceParams._nonce.invalid
+            }
+        }).always(function () {
             location.reload();
         });
     });

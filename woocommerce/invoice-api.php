@@ -1,20 +1,31 @@
 <?php
 
-class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
+class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
 {
-    public static $api_test_url = [
+    protected static $_instance = null;
+
+    protected $api_test_url = [
         'get' => 'https://ssl.smse.com.tw/api_test/SPEinvoice_Storage.asp',
-        'invalid' => 'https://ssl.smse.com.tw/api_test/SPEinvoice_Storage_Modify.asp'
+        'invalid' => 'https://ssl.smse.com.tw/api_test/SPEinvoice_Storage_Modify.asp',
     ];
 
-    public static $api_url = [
+    protected $api_url = [
         'get' => 'https://ssl.smse.com.tw/api/SPEinvoice_Storage.asp',
-        'invalid' => 'https://ssl.smse.com.tw/api/SPEinvoice_Storage_Modify.asp'
+        'invalid' => 'https://ssl.smse.com.tw/api/SPEinvoice_Storage_Modify.asp',
     ];
 
-    public static function get($order_id)
+    public static function instance(): RY_WSI_WC_Invoice_Api
     {
-        $order = wc_get_order($order_id);
+        if (null === self::$_instance) {
+            self::$_instance = new self();
+        }
+
+        return self::$_instance;
+    }
+
+    public function get($order_ID)
+    {
+        $order = wc_get_order($order_ID);
         if (!$order) {
             return false;
         }
@@ -23,9 +34,9 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
             return false;
         }
 
-        list($Grvc, $Verify_key) = RY_WSI_Invoice::get_smilepay_api_info();
+        list($Grvc, $Verify_key) = RY_WSI_WC_Invoice::instance()->get_api_info();
 
-        $args = self::make_get_data($order, $Grvc, $Verify_key);
+        $args = $this->make_get_data($order, $Grvc, $Verify_key);
         if (0 == $args['AllAmount']) {
             $order->update_meta_data('_invoice_number', 'zero');
             $order->save();
@@ -39,21 +50,21 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
             return;
         }
 
-        do_action('ry_wei_get_invoice', $args, $order);
+        do_action('ry_wsi_get_invoice', $args, $order);
         $args['Description'] = implode('|', $args['Description']);
         $args['Quantity'] = implode('|', $args['Quantity']);
         $args['UnitPrice'] = implode('|', $args['UnitPrice']);
         $args['Unit'] = implode('|', $args['Unit']);
         $args['Amount'] = implode('|', $args['Amount']);
 
-        RY_WSI_Invoice::log('Create POST: ' . var_export($args, true));
+        RY_WSI_WC_Invoice::instance()->log('Issue invoice for #' . $order->get_id(), WC_Log_Levels::INFO, ['data' => $args]);
 
-        if ('yes' === RY_WSI::get_option('smilepay_testmode', 'no')) {
-            $post_url = self::$api_test_url['get'];
+        if (RY_WSI_WC_Invoice::instance()->is_testmode()) {
+            $post_url = $this->api_test_url['get'];
         } else {
-            $post_url = self::$api_url['get'];
+            $post_url = $this->api_url['get'];
         }
-        $result = self::link_server($post_url, $args);
+        $result = $this->link_server($post_url, $args);
 
         if (null === $result) {
             return;
@@ -62,8 +73,8 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
         if ((string) $result->Status != '0') {
             $order->add_order_note(sprintf(
                 /* translators: %s Error messade */
-                __('Get invoice error: %s', 'ry-woocommerce-smilepay-invoice'),
-                (string) $result->Desc
+                __('Issue invoice error: %s', 'ry-woocommerce-smilepay-invoice'),
+                (string) $result->Desc,
             ));
             return;
         }
@@ -76,7 +87,7 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
             $order->add_order_note(
                 __('Invoice number', 'ry-woocommerce-smilepay-invoice') . ': ' . (string) $result->InvoiceNumber . "\n"
                 . __('Invoice random number', 'ry-woocommerce-smilepay-invoice') . ': ' . (string) $result->RandomNumber . "\n"
-                . __('Invoice create time', 'ry-woocommerce-smilepay-invoice') . ': ' . $invoice_date->format('Y-m-d H:i:s')
+                . __('Invoice create time', 'ry-woocommerce-smilepay-invoice') . ': ' . $invoice_date->format('Y-m-d H:i:s'),
             );
         }
 
@@ -88,7 +99,7 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
         do_action('ry_wsi_get_invoice_response', $result, $order);
     }
 
-    protected static function make_get_data($order, $Grvc, $Verify_key)
+    protected function make_get_data($order, $Grvc, $Verify_key)
     {
         $country = $order->get_billing_country();
         $countries = WC()->countries->get_countries();
@@ -109,7 +120,7 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
             'TaxType' => '1',
             'DonateMark' => '0',
             'LoveKey' => '',
-            'orderid' => self::generate_trade_no($order->get_id(), RY_WSI::get_option('order_prefix')),
+            'orderid' => $this->generate_trade_no($order->get_id(), RY_WSI::get_option('order_prefix')),
             'Certificate_Remark' => '#' . $order->get_order_number(),
 
             'Description' => [],
@@ -256,9 +267,9 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
         return $data;
     }
 
-    public static function invalid($order_id)
+    public function invalid($order_ID)
     {
-        $order = wc_get_order($order_id);
+        $order = wc_get_order($order_ID);
         if (!$order) {
             return false;
         }
@@ -275,7 +286,7 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
             return false;
         }
 
-        list($Grvc, $Verify_key) = RY_WSI_Invoice::get_smilepay_api_info();
+        list($Grvc, $Verify_key) = RY_WSI_WC_Invoice::instance()->get_api_info();
         $args = [
             'Grvc' => $Grvc,
             'Verify_key' => $Verify_key,
@@ -287,14 +298,14 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
 
         do_action('ry_wsi_invalid_invoice', $args, $order);
 
-        RY_WSI_Invoice::log('Invalid POST: ' . var_export($args, true));
+        RY_WSI_WC_Invoice::instance()->log('Invalid invoice for #' . $order->get_id(), WC_Log_Levels::INFO, ['data' => $args]);
 
-        if ('yes' === RY_WSI::get_option('smilepay_testmode', 'no')) {
-            $post_url = self::$api_test_url['invalid'];
+        if (RY_WSI_WC_Invoice::instance()->is_testmode()) {
+            $post_url = $this->api_test_url['invalid'];
         } else {
-            $post_url = self::$api_url['invalid'];
+            $post_url = $this->api_url['invalid'];
         }
-        $result = self::link_server($post_url, $args);
+        $result = $this->link_server($post_url, $args);
 
         if (null === $result) {
             return;
@@ -304,14 +315,14 @@ class RY_WSI_Invoice_Api extends RY_SmilePay_Invoice
             $order->add_order_note(sprintf(
                 /* translators: %s Error messade */
                 __('Invalid invoice error: %s', 'ry-woocommerce-smilepay-invoice'),
-                (string) $result->Desc
+                (string) $result->Desc,
             ));
             return;
         }
 
         if (apply_filters('ry_wsi_add_api_success_notice', true)) {
             $order->add_order_note(
-                __('Invalid invoice', 'ry-woocommerce-smilepay-invoice') . ': ' . (string) $result->InvoiceNumber
+                __('Invalid invoice', 'ry-woocommerce-smilepay-invoice') . ': ' . (string) $result->InvoiceNumber,
             );
         }
 

@@ -1,25 +1,31 @@
 <?php
 
-final class RY_WSI_Invoice_Basic
+final class RY_WSI_WC_Invoice_Basic
 {
-    private static $initiated = false;
+    protected static $_instance = null;
 
-    public static function init()
+    public static function instance(): RY_WSI_WC_Invoice_Basic
     {
-        if (!self::$initiated) {
-            self::$initiated = true;
-
-            add_filter('woocommerce_checkout_fields', [__CLASS__, 'add_invoice_info'], 9999);
-
-            add_action('woocommerce_after_checkout_billing_form', [__CLASS__, 'show_invoice_form']);
-            add_action('woocommerce_after_checkout_validation', [__CLASS__, 'invoice_checkout_validation'], 10, 2);
-            add_action('woocommerce_checkout_create_order', [__CLASS__, 'save_order_invoice'], 10, 2);
-
-            add_action('woocommerce_order_details_after_customer_details', [__CLASS__, 'show_invoice_info']);
+        if (null === self::$_instance) {
+            self::$_instance = new self();
+            self::$_instance->do_init();
         }
+
+        return self::$_instance;
     }
 
-    public static function add_invoice_info($fields)
+    protected function do_init(): void
+    {
+        add_filter('woocommerce_checkout_fields', [$this, 'add_invoice_info'], 9999);
+
+        add_action('woocommerce_after_checkout_billing_form', [$this, 'show_invoice_form']);
+        add_action('woocommerce_after_checkout_validation', [$this, 'invoice_checkout_validation'], 10, 2);
+        add_action('woocommerce_checkout_create_order', [$this, 'save_order_invoice'], 10, 2);
+
+        add_action('woocommerce_order_details_after_customer_details', [$this, 'show_invoice_info']);
+    }
+
+    public function add_invoice_info($fields)
     {
         $fields['invoice'] = [
             'invoice_type' => [
@@ -28,11 +34,11 @@ final class RY_WSI_Invoice_Basic
                 'options' => [
                     'personal' => _x('personal', 'invoice type', 'ry-woocommerce-smilepay-invoice'),
                     'company' => _x('company', 'invoice type', 'ry-woocommerce-smilepay-invoice'),
-                    'donate' => _x('donate', 'invoice type', 'ry-woocommerce-smilepay-invoice')
+                    'donate' => _x('donate', 'invoice type', 'ry-woocommerce-smilepay-invoice'),
                 ],
                 'default' => 'personal',
                 'required' => true,
-                'priority' => 10
+                'priority' => 10,
             ],
             'invoice_carruer_type' => [
                 'type' => 'select',
@@ -41,27 +47,27 @@ final class RY_WSI_Invoice_Basic
                     'none' => _x('none', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
                     'smilepay_host' => _x('smilepay_host', 'carruer type', 'ry-woocommerce-smilepay-invoice') . __(' (send paper when win)', 'ry-woocommerce-smilepay-invoice'),
                     'MOICA' => _x('MOICA', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
-                    'phone_barcode' => _x('phone_barcode', 'carruer type', 'ry-woocommerce-smilepay-invoice')
+                    'phone_barcode' => _x('phone_barcode', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
                 ],
                 'default' => 'smilepay_host',
                 'required' => true,
-                'priority' => 10
+                'priority' => 10,
             ],
             'invoice_carruer_no' => [
                 'label' => __('Carruer number', 'ry-woocommerce-smilepay-invoice'),
                 'required' => true,
-                'priority' => 20
+                'priority' => 20,
             ],
             'invoice_no' => [
                 'label' => __('Tax ID number', 'ry-woocommerce-smilepay-invoice'),
                 'required' => true,
-                'priority' => 30
+                'priority' => 30,
             ],
             'invoice_donate_no' => [
                 'label' => __('Donate number', 'ry-woocommerce-smilepay-invoice'),
                 'required' => true,
-                'priority' => 40
-            ]
+                'priority' => 40,
+            ],
         ];
 
         if ('no' === RY_WSI::get_option('support_carruer_type_none', 'no')) {
@@ -73,7 +79,7 @@ final class RY_WSI_Invoice_Basic
             $fields['invoice']['invoice_company_name'] = [
                 'label' => __('Company name', 'ry-woocommerce-smilepay-invoice'),
                 'required' => true,
-                'priority' => 30
+                'priority' => 30,
             ];
         }
 
@@ -129,18 +135,18 @@ final class RY_WSI_Invoice_Basic
         return $fields;
     }
 
-    public static function show_invoice_form($checkout)
+    public function show_invoice_form($checkout)
     {
-        wp_enqueue_script('ry-wsi-checkout', RY_WSI_PLUGIN_URL . 'style/ry_wsi_checkout.js', ['jquery'], RY_WSI_VERSION, true);
+        $asset_info = include RY_WSI_PLUGIN_DIR . 'assets/ry-checkout.asset.php';
+        wp_enqueue_script('ry-wsi-checkout', RY_WSI_PLUGIN_URL . 'assets/ry-checkout.js', $asset_info['dependencies'], $asset_info['version'], true);
 
         wc_get_template('checkout/form-invoice.php', [
-            'checkout' => $checkout
+            'checkout' => $checkout,
         ], '', RY_WSI_PLUGIN_DIR . 'templates/');
     }
 
-    public static function invoice_checkout_validation($data, $errors)
+    public function invoice_checkout_validation($data, $errors)
     {
-
         if ('personal' == $data['invoice_type']) {
             // 自然人憑證
             if ('MOICA' == $data['invoice_carruer_type']) {
@@ -172,7 +178,7 @@ final class RY_WSI_Invoice_Basic
         }
     }
 
-    public static function save_order_invoice($order, $data)
+    public function save_order_invoice($order, $data)
     {
         $order->update_meta_data('_invoice_type', isset($data['invoice_type']) ? $data['invoice_type'] : 'personal');
         $order->update_meta_data('_invoice_carruer_type', isset($data['invoice_carruer_type']) ? $data['invoice_carruer_type'] : 'smilepay_host');
@@ -184,7 +190,7 @@ final class RY_WSI_Invoice_Basic
         }
     }
 
-    public static function show_invoice_info($order)
+    public function show_invoice_info($order)
     {
         $invoice_number = $order->get_meta('_invoice_number');
         $invoice_type = $order->get_meta('_invoice_type');
@@ -200,24 +206,24 @@ final class RY_WSI_Invoice_Basic
                 $invoice_info[] = [
                     'key' => 'zero-info',
                     'name' => __('Zero total fee without invoice', 'ry-woocommerce-smilepay-invoice'),
-                    'value' => ''
+                    'value' => '',
                 ];
             } elseif ('negative' == $invoice_number) {
                 $invoice_info[] = [
                     'key' => 'negative-info',
                     'name' => __('Negative total fee can\'t invoice', 'ry-woocommerce-smilepay-invoice'),
-                    'value' => ''
+                    'value' => '',
                 ];
             } elseif ('delay' != $invoice_number) {
                 $invoice_info[] = [
                     'key' => 'invoice-number',
                     'name' => __('Invoice number', 'ry-woocommerce-smilepay-invoice'),
-                    'value' => $invoice_number
+                    'value' => $invoice_number,
                 ];
                 $invoice_info[] = [
                     'key' => 'invoice-random-number',
                     'name' => __('Invoice random number', 'ry-woocommerce-smilepay-invoice'),
-                    'value' => $order->get_meta('_invoice_random_number')
+                    'value' => $order->get_meta('_invoice_random_number'),
                 ];
             }
         }
@@ -225,7 +231,7 @@ final class RY_WSI_Invoice_Basic
         $invoice_info[] = [
             'key' => 'invoice-type',
             'name' => __('Invoice type', 'ry-woocommerce-smilepay-invoice'),
-            'value' => _x($invoice_type, 'invoice type', 'ry-woocommerce-smilepay-invoice')
+            'value' => _x($invoice_type, 'invoice type', 'ry-woocommerce-smilepay-invoice'),
         ];
 
         if ('personal' == $invoice_type) {
@@ -235,7 +241,7 @@ final class RY_WSI_Invoice_Basic
                 $invoice_info[] = [
                     'key' => 'carruer-number',
                     'name' => __('Carruer number', 'ry-woocommerce-smilepay-invoice'),
-                    'value' => $order->get_meta('_invoice_carruer_no')
+                    'value' => $order->get_meta('_invoice_carruer_no'),
                 ];
             }
         }
@@ -243,23 +249,21 @@ final class RY_WSI_Invoice_Basic
             $invoice_info[] = [
                 'key' => 'tax-id-number',
                 'name' => __('Tax ID number', 'ry-woocommerce-smilepay-invoice'),
-                'value' => $order->get_meta('_invoice_no')
+                'value' => $order->get_meta('_invoice_no'),
             ];
         }
         if ('donate' == $invoice_type) {
             $invoice_info[] = [
                 'key' => 'donate-number',
                 'name' => __('Donate number', 'ry-woocommerce-smilepay-invoice'),
-                'value' => $order->get_meta('_invoice_donate_no')
+                'value' => $order->get_meta('_invoice_donate_no'),
             ];
         }
 
         $args = [
             'order' => $order,
-            'invoice_info' => apply_filters('ry_wsi_order_invoice_info_list', $invoice_info, $order)
+            'invoice_info' => apply_filters('ry_wsi_order_invoice_info_list', $invoice_info, $order),
         ];
         wc_get_template('order/order-invoice-info.php', $args, '', RY_WSI_PLUGIN_DIR . 'templates/');
     }
 }
-
-RY_WSI_Invoice_Basic::init();

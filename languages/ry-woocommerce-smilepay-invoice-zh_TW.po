@@ -1,21 +1,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: RY SmilePay Invoice for WooCommerce\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-woocommerce-"
-"smilepay-invoice\n"
-"POT-Creation-Date: 2024-03-02T11:52:48+08:00\n"
-"PO-Revision-Date: 2024-03-02 11:54+0800\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-woocommerce-smilepay-invoice\n"
 "Last-Translator: Richer Yang\n"
 "Language-Team: \n"
-"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-03-02T11:52:48+08:00\n"
+"PO-Revision-Date: 2024-07-13 11:27+0800\n"
+"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
-"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,"
-"_nc:4c,1,2\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Generator: Poedit 3.4.2\n"
@@ -23,35 +19,35 @@ msgstr ""
 "X-Poedit-SearchPath-0: ./..\n"
 
 #. Plugin Name of the plugin
-#: D:\WordPress_SVN\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
+#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
 msgid "RY SmilePay Invoice for WooCommerce"
 msgstr "RY SmilePay Invoice for WooCommerce"
 
 #. Plugin URI of the plugin
-#: D:\WordPress_SVN\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
+#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
 msgid "https://ry-plugin.com/ry-woocommerce-smilepay-invoice"
 msgstr "https://ry-plugin.com/ry-woocommerce-smilepay-invoice"
 
 #. Description of the plugin
-#: D:\WordPress_SVN\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
+#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
 msgid "WooCommerce order invoice for smilepay"
-msgstr ""
+msgstr "WooCommerce order invoice for smilepay"
 
 #. Author of the plugin
-#: D:\WordPress_SVN\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
+#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
 msgid "Richer Yang"
 msgstr "Richer Yang"
 
 #. Author URI of the plugin
-#: D:\WordPress_SVN\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
+#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
 msgid "https://richer.tw/"
 msgstr "https://richer.tw/"
 
-#: class.ry-wsi.admin.php:43
+#: woocommerce/admin/admin.php:39
 msgid "Your license is not active!"
 msgstr "你的授權尚未啟動！"
 
-#: class.ry-wsi.admin.php:49
+#: woocommerce/admin/admin.php:53
 #: woocommerce/admin/notes/license-auto-deactivate.php:41
 #: woocommerce/settings/class-settings-ry-wsi.php:17
 #: woocommerce/settings/settings-ry-key.php:10
@@ -59,36 +55,37 @@ msgid "License key"
 msgstr "授權金鑰"
 
 #. translators: %s: Expiration date of pro license
-#: class.ry-wsi.admin.php:69
+#: woocommerce/admin/admin.php:72
 msgid "License Expiration Date %s"
 msgstr "授權到期日 %s"
 
-#: class.ry-wsi.admin.php:103 class.ry-wsi.admin.php:127
+#: woocommerce/admin/admin.php:101
+#: woocommerce/admin/admin.php:124
 msgid "Connect license server failed!"
 msgstr "連結授權伺服器失敗！"
 
 #. translators: %s: Error message
-#: class.ry-wsi.admin.php:111
+#: woocommerce/admin/admin.php:109
 msgid "Verification error: %s"
 msgstr "驗證錯誤：%s"
 
-#: class.ry-wsi.admin.php:116
+#: woocommerce/admin/admin.php:114
 msgid "Unknown key"
 msgstr "未知的金鑰"
 
-#: class.ry-wsi.admin.php:117
+#: woocommerce/admin/admin.php:115
 msgid "Locked key"
 msgstr "鎖定的金鑰"
 
-#: class.ry-wsi.admin.php:118
+#: woocommerce/admin/admin.php:116
 msgid "Unknown target url"
 msgstr "未知的目標網址"
 
-#: class.ry-wsi.admin.php:119
+#: woocommerce/admin/admin.php:117
 msgid "Used key"
 msgstr "已使用的金鑰"
 
-#: class.ry-wsi.admin.php:120
+#: woocommerce/admin/admin.php:118
 msgid "Is tried"
 msgstr "已使用過測試版"
 
@@ -100,36 +97,37 @@ msgstr "發票資訊"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:10
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:97
-#: woocommerce/invoice-basic.php:27 woocommerce/invoice-basic.php:227
+#: woocommerce/invoice-basic.php:33
+#: woocommerce/invoice-basic.php:233
 msgid "Invoice type"
 msgstr "發票類型"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:15
-#: woocommerce/invoice-basic.php:29
+#: woocommerce/invoice-basic.php:35
 msgctxt "invoice type"
 msgid "personal"
 msgstr "個人"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:16
-#: woocommerce/invoice-basic.php:30
+#: woocommerce/invoice-basic.php:36
 msgctxt "invoice type"
 msgid "company"
 msgstr "公司"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:17
-#: woocommerce/invoice-basic.php:31
+#: woocommerce/invoice-basic.php:37
 msgctxt "invoice type"
 msgid "donate"
 msgstr "捐贈"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:21
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:100
-#: woocommerce/invoice-basic.php:39
+#: woocommerce/invoice-basic.php:45
 msgid "Carruer type"
 msgstr "載具類型"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:26
-#: woocommerce/invoice-basic.php:41
+#: woocommerce/invoice-basic.php:47
 msgctxt "carruer type"
 msgid "none"
 msgstr "紙本發票"
@@ -140,53 +138,59 @@ msgid "ecpay_host"
 msgstr "雲端發票 (綠界載具)"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:28
-#: woocommerce/invoice-basic.php:42
+#: woocommerce/invoice-basic.php:48
 msgctxt "carruer type"
 msgid "smilepay_host"
 msgstr "雲端發票"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:29
-#: woocommerce/invoice-basic.php:43
+#: woocommerce/invoice-basic.php:49
 msgctxt "carruer type"
 msgid "MOICA"
 msgstr "自然人憑證"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:30
-#: woocommerce/invoice-basic.php:44
+#: woocommerce/invoice-basic.php:50
 msgctxt "carruer type"
 msgid "phone_barcode"
 msgstr "手機條碼"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:34
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:103
-#: woocommerce/invoice-basic.php:51 woocommerce/invoice-basic.php:237
+#: woocommerce/invoice-basic.php:57
+#: woocommerce/invoice-basic.php:243
 msgid "Carruer number"
 msgstr "載具編號"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:39
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:108
-#: woocommerce/invoice-basic.php:56 woocommerce/invoice-basic.php:245
+#: woocommerce/invoice-basic.php:62
+#: woocommerce/invoice-basic.php:251
 msgid "Tax ID number"
 msgstr "統一編號"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:44
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:112
-#: woocommerce/invoice-basic.php:61 woocommerce/invoice-basic.php:252
+#: woocommerce/invoice-basic.php:67
+#: woocommerce/invoice-basic.php:258
 msgid "Donate number"
 msgstr "捐贈愛心碼"
 
+#: woocommerce/admin/invoice.php:100
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:56
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:88
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:90
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:92
-#: woocommerce/invoice-basic.php:214 woocommerce/invoice.php:132
-#: woocommerce/invoice.php:247 woocommerce/smilepay-invoice-api.php:77
+#: woocommerce/invoice-api.php:88
+#: woocommerce/invoice-basic.php:220
+#: woocommerce/invoice.php:124
 msgid "Invoice number"
 msgstr "發票號碼"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:61
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:93
-#: woocommerce/invoice-basic.php:219 woocommerce/smilepay-invoice-api.php:78
+#: woocommerce/invoice-api.php:89
+#: woocommerce/invoice-basic.php:225
 msgid "Invoice random number"
 msgstr "發票隨機碼"
 
@@ -195,24 +199,20 @@ msgstr "發票隨機碼"
 msgid "Invoice date"
 msgstr "發票開立時間"
 
+#: woocommerce/admin/invoice.php:117
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:88
-#: woocommerce/invoice.php:149
 msgid "Zero no invoice"
 msgstr "零元不開立"
 
+#: woocommerce/admin/invoice.php:119
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:90
-#: woocommerce/invoice.php:151
 msgid "Negative no invoice"
 msgstr "負數不開立"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:120
-#: woocommerce/smilepay-invoice-api.php:314
+#: woocommerce/invoice-api.php:325
 msgid "Invalid invoice"
 msgstr "作廢發票"
-
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:124
-msgid "Get invoice"
-msgstr "開立發票"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:151
 msgid "h"
@@ -251,39 +251,38 @@ msgstr "最新版本"
 msgid "update plugin"
 msgstr "升級外掛"
 
-#: woocommerce/invoice-basic.php:42
+#: woocommerce/invoice-basic.php:48
 msgid " (send paper when win)"
 msgstr " (中獎時寄送紙本發票)"
 
-#: woocommerce/invoice-basic.php:74
+#: woocommerce/invoice-basic.php:80
 msgid "Company name"
 msgstr "公司名稱"
 
-#: woocommerce/invoice-basic.php:149 woocommerce/invoice-basic.php:157
+#: woocommerce/invoice-basic.php:155
+#: woocommerce/invoice-basic.php:163
 msgid "Invalid carruer number"
 msgstr "無效的載具編號"
 
-#: woocommerce/invoice-basic.php:164
+#: woocommerce/invoice-basic.php:170
 msgid "Invalid tax ID number"
 msgstr "無效的統一編號"
 
-#: woocommerce/invoice-basic.php:170
+#: woocommerce/invoice-basic.php:176
 msgid "Invalid donate number"
 msgstr "無效的愛心碼"
 
-#: woocommerce/invoice-basic.php:202 woocommerce/smilepay-invoice-api.php:32
+#: woocommerce/invoice-api.php:43
+#: woocommerce/invoice-basic.php:208
 msgid "Zero total fee without invoice"
 msgstr "總額零元不開立發票"
 
-#: woocommerce/invoice-basic.php:208 woocommerce/smilepay-invoice-api.php:38
+#: woocommerce/invoice-api.php:49
+#: woocommerce/invoice-basic.php:214
 msgid "Negative total fee can't invoice"
 msgstr "總額負數不開立發票"
 
-#: woocommerce/invoice.php:120
-msgid "Get invoice.<br>Please wait."
-msgstr "開立發票中。<br>請耐心等待。"
-
-#: woocommerce/invoice.php:121
+#: woocommerce/admin/invoice.php:60
 msgid "Invalid invoice.<br>Please wait."
 msgstr "作廢發票中。<br>請耐心等待。"
 
@@ -420,9 +419,7 @@ msgid "Skip foreign orders"
 msgstr "忽略國外訂單"
 
 #: woocommerce/settings/settings-smilepay-invoice.php:101
-msgid ""
-"Disable auto get invoice for order billing country and shipping country are "
-"not in Taiwan."
+msgid "Disable auto get invoice for order billing country and shipping country are not in Taiwan."
 msgstr "當帳單地址與運送地址不是台灣的時候，停止自動開立發票。"
 
 #: woocommerce/settings/settings-smilepay-invoice.php:104
@@ -462,8 +459,8 @@ msgstr "修改訂單總金額"
 msgid "fix amount product name"
 msgstr "修正金額異常商品名稱"
 
+#: woocommerce/invoice-api.php:242
 #: woocommerce/settings/settings-smilepay-invoice.php:128
-#: woocommerce/smilepay-invoice-api.php:231
 msgid "Discount"
 msgstr "折價"
 
@@ -491,36 +488,44 @@ msgstr "Grvc"
 msgid "Verify_key"
 msgstr "Verify_key"
 
-#. translators: %s Error messade
-#: woocommerce/smilepay-invoice-api.php:65
-msgid "Get invoice error: %s"
-msgstr "開立發票號碼失敗：%s"
-
-#: woocommerce/smilepay-invoice-api.php:79
+#: woocommerce/invoice-api.php:90
 msgid "Invoice create time"
 msgstr "發票建立時間"
 
-#: woocommerce/smilepay-invoice-api.php:189
-#: woocommerce/smilepay-invoice-api.php:206
-#: woocommerce/smilepay-invoice-api.php:216
-#: woocommerce/smilepay-invoice-api.php:223
-#: woocommerce/smilepay-invoice-api.php:233
+#: woocommerce/invoice-api.php:200
+#: woocommerce/invoice-api.php:217
+#: woocommerce/invoice-api.php:227
+#: woocommerce/invoice-api.php:234
+#: woocommerce/invoice-api.php:244
 msgid "parcel"
 msgstr "批"
 
-#: woocommerce/smilepay-invoice-api.php:214
+#: woocommerce/invoice-api.php:225
 msgid "shipping fee"
 msgstr "運費"
 
-#: woocommerce/smilepay-invoice-api.php:221
+#: woocommerce/invoice-api.php:232
 msgid "return fee"
 msgstr "退款"
 
-#: woocommerce/smilepay-invoice-api.php:285
+#: woocommerce/invoice-api.php:296
 msgid "Order cancel"
 msgstr "訂單取消"
 
 #. translators: %s Error messade
-#: woocommerce/smilepay-invoice-api.php:306
+#: woocommerce/invoice-api.php:317
 msgid "Invalid invoice error: %s"
 msgstr "作廢發票號碼失敗：%s"
+
+#. translators: %s Error messade
+#: woocommerce/invoice-api.php:76
+msgid "Issue invoice error: %s"
+msgstr "開立發票失敗：%s"
+
+#: woocommerce/admin/invoice.php:59
+msgid "Issue invoice.<br>Please wait."
+msgstr "開立發票中。<br>請耐心等待。"
+
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:124
+msgid "Issue invoice"
+msgstr "開立發票"
