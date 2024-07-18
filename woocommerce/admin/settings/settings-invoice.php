@@ -14,13 +14,6 @@ return [
         'type' => 'title',
     ],
     [
-        'title' => __('Enable/Disable', 'ry-woocommerce-smilepay-invoice'),
-        'id' => RY_WSI::OPTION_PREFIX . 'enabled_invoice',
-        'type' => 'checkbox',
-        'default' => 'no',
-        'desc' => __('Enable SmilePay invoice method', 'ry-woocommerce-smilepay-invoice'),
-    ],
-    [
         'title' => __('Debug log', 'ry-woocommerce-smilepay-invoice'),
         'id' => RY_WSI::OPTION_PREFIX . 'smilepay_invoice_log',
         'type' => 'checkbox',

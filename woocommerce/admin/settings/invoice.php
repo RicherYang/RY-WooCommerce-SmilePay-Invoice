@@ -40,6 +40,10 @@ final class RY_WSI_WC_Admin_Setting_Invoice
     public function add_setting($settings, $current_section)
     {
         if ('smilepay_invoice' == $current_section) {
+            if (!is_callable('simplexml_load_string')) {
+                echo '<div class="notice notice-error"><p><strong>RY ECPay Invoice for WooCommerce</strong> ' . esc_html__('Required PHP function simplexml_load_string.', 'ry-woocommerce-smilepay-invoice') . '</p></div>';
+            }
+
             $settings = include RY_WSI_PLUGIN_DIR . 'woocommerce/admin/settings/settings-invoice.php';
         }
         return $settings;
@@ -47,32 +51,24 @@ final class RY_WSI_WC_Admin_Setting_Invoice
 
     public function check_option()
     {
-        if ('yes' === RY_WSI::get_option('enabled_invoice', 'no')) {
-            $enable_list = apply_filters('enable_ry_invoice', []);
-            if (1 == count($enable_list)) {
-                if ($enable_list != ['smilepay']) {
-                    WC_Admin_Settings::add_error(__('Not recommended enable two invoice module/plugin at the same time!', 'ry-woocommerce-smilepay-invoice'));
-                }
-            } elseif (1 < count($enable_list)) {
+        $enable_list = apply_filters('enable_ry_invoice', []);
+        if (1 == count($enable_list)) {
+            if ($enable_list != ['smilepay']) {
                 WC_Admin_Settings::add_error(__('Not recommended enable two invoice module/plugin at the same time!', 'ry-woocommerce-smilepay-invoice'));
             }
+        } elseif (1 < count($enable_list)) {
+            WC_Admin_Settings::add_error(__('Not recommended enable two invoice module/plugin at the same time!', 'ry-woocommerce-smilepay-invoice'));
+        }
 
-            if (!RY_WSI_WC_Invoice::instance()->is_testmode()) {
-                if (empty(RY_WSI::get_option('smilepay_Grvc')) || empty(RY_WSI::get_option('smilepay_Verify_key'))) {
-                    WC_Admin_Settings::add_error(__('SimlePay invoice method failed to enable!', 'ry-woocommerce-smilepay-invoice'));
-                    RY_WSI::update_option('enabled_invoice', 'no');
-                }
+        if (!RY_WSI_WC_Invoice::instance()->is_testmode()) {
+            if (empty(RY_WSI::get_option('smilepay_Grvc')) || empty(RY_WSI::get_option('smilepay_Verify_key'))) {
+                WC_Admin_Settings::add_error(__('SimlePay invoice method failed to enable!', 'ry-woocommerce-smilepay-invoice'));
             }
         }
 
         if (!preg_match('/^[a-z0-9]*$/i', RY_WSI::get_option('order_prefix'))) {
             WC_Admin_Settings::add_error(__('Order no prefix only letters and numbers allowed', 'ry-woocommerce-smilepay-invoice'));
             RY_WSI::update_option('order_prefix', '');
-        }
-
-        if (!is_callable('simplexml_load_string')) {
-            WC_Admin_Settings::add_error(__('SimlePay invoice method failed to enable!', 'ry-woocommerce-smilepay-invoice') . __('Required PHP function simplexml_load_string.', 'ry-woocommerce-smilepay-invoice'));
-            RY_WSI::update_option('enabled_invoice', 'no');
         }
     }
 }
