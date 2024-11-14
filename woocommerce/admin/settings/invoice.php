@@ -40,8 +40,8 @@ final class RY_WSI_WC_Admin_Setting_Invoice
     public function add_setting($settings, $current_section)
     {
         if ('smilepay_invoice' == $current_section) {
-            if (!is_callable('simplexml_load_string')) {
-                echo '<div class="notice notice-error"><p><strong>RY ECPay Invoice for WooCommerce</strong> ' . esc_html__('Required PHP function simplexml_load_string.', 'ry-woocommerce-smilepay-invoice') . '</p></div>';
+            if (!function_exists('simplexml_load_string')) {
+                echo '<div class="notice notice-error"><p><strong>RY ECPay Invoice for WooCommerce</strong> ' . esc_html__('Required PHP function `simplexml_load_string`.', 'ry-woocommerce-smilepay-invoice') . '</p></div>';
             }
 
             $settings = include RY_WSI_PLUGIN_DIR . 'woocommerce/admin/settings/settings-invoice.php';

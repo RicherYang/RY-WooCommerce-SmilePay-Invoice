@@ -21,19 +21,19 @@ abstract class RY_WSI_SmilePay
 
         if (is_wp_error($response)) {
             RY_WSI_WC_Invoice::instance()->log('Link failed', WC_Log_Levels::ERROR, ['info' => $response->get_error_messages()]);
-            return null;
+            return;
         }
 
         if (wp_remote_retrieve_response_code($response) != '200') {
             RY_WSI_WC_Invoice::instance()->log('Link HTTP status error', WC_Log_Levels::ERROR, ['info' => $response->get_error_messages()]);
-            return null;
+            return;
         }
 
         $result = @simplexml_load_string($response['body']);
 
         if (!is_object($result)) {
             RY_WSI_WC_Invoice::instance()->log('Link response parse failed', WC_Log_Levels::ERROR, ['info' => $response->get_error_messages()]);
-            return null;
+            return;
         }
 
         return $result;
@@ -54,11 +54,11 @@ abstract class RY_WSI_SmilePay
 
     protected function die_success()
     {
-        die('1|OK');
+        exit('1|OK');
     }
 
     protected function die_error()
     {
-        die('0|');
+        exit('0|');
     }
 }
