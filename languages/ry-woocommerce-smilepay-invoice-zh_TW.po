@@ -8,13 +8,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2024-03-02T11:52:48+08:00\n"
-"PO-Revision-Date: 2024-07-13 11:27+0800\n"
+"PO-Revision-Date: 2024-11-22 19:56+0800\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-SearchPath-0: ./..\n"
 
@@ -43,14 +43,14 @@ msgstr "Richer Yang"
 msgid "https://richer.tw/"
 msgstr "https://richer.tw/"
 
-#: woocommerce/admin/admin.php:39
+#: woocommerce/admin/admin.php:46
 msgid "Your license is not active!"
 msgstr "你的授權尚未啟動！"
 
 #: woocommerce/admin/admin.php:53
 #: woocommerce/admin/notes/license-auto-deactivate.php:41
-#: woocommerce/settings/class-settings-ry-wsi.php:17
-#: woocommerce/settings/settings-ry-key.php:10
+#: woocommerce/admin/settings/ry-tools-settings.php:20
+#: woocommerce/admin/settings/settings-ry-key.php:10
 msgid "License key"
 msgstr "授權金鑰"
 
@@ -176,7 +176,7 @@ msgstr "統一編號"
 msgid "Donate number"
 msgstr "捐贈愛心碼"
 
-#: woocommerce/admin/invoice.php:100
+#: woocommerce/admin/invoice.php:102
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:56
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:88
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:90
@@ -199,12 +199,12 @@ msgstr "發票隨機碼"
 msgid "Invoice date"
 msgstr "發票開立時間"
 
-#: woocommerce/admin/invoice.php:117
+#: woocommerce/admin/invoice.php:119
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:88
 msgid "Zero no invoice"
 msgstr "零元不開立"
 
-#: woocommerce/admin/invoice.php:119
+#: woocommerce/admin/invoice.php:121
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:90
 msgid "Negative no invoice"
 msgstr "負數不開立"
@@ -282,209 +282,196 @@ msgstr "總額零元不開立發票"
 msgid "Negative total fee can't invoice"
 msgstr "總額負數不開立發票"
 
-#: woocommerce/admin/invoice.php:60
+#: woocommerce/admin/invoice.php:62
 msgid "Invalid invoice.<br>Please wait."
 msgstr "作廢發票中。<br>請耐心等待。"
 
-#: woocommerce/settings/class-settings-ry-wsi.php:9
+#: woocommerce/admin/settings/ry-tools-settings.php:12
 msgid "RY Tools"
 msgstr "RY Tools"
 
-#: woocommerce/settings/class-settings.invoice.php:26
-#: woocommerce/settings/class-settings.invoice.php:29
+#: woocommerce/admin/settings/invoice.php:30
+#: woocommerce/admin/settings/invoice.php:33
 msgid "SimlePay invoice"
 msgstr "速買配電子發票"
 
-#: woocommerce/settings/class-settings.invoice.php:30
+#: woocommerce/admin/settings/invoice.php:34
 msgid "Tools"
 msgstr "工具"
 
-#: woocommerce/settings/class-settings.invoice.php:50
-#: woocommerce/settings/class-settings.invoice.php:53
+#: woocommerce/admin/settings/invoice.php:57
+#: woocommerce/admin/settings/invoice.php:60
 msgid "Not recommended enable two invoice module/plugin at the same time!"
 msgstr "不建議同時啟用兩個發票模組！"
 
-#: woocommerce/settings/class-settings.invoice.php:58
-#: woocommerce/settings/class-settings.invoice.php:70
+#: woocommerce/admin/settings/invoice.php:65
 msgid "SimlePay invoice method failed to enable!"
 msgstr "速買配發票模組啟用失敗！"
 
-#: woocommerce/settings/class-settings.invoice.php:65
+#: woocommerce/admin/settings/invoice.php:70
 msgid "Order no prefix only letters and numbers allowed"
 msgstr "訂單編號前綴只允許使用英文字母與數字"
 
-#: woocommerce/settings/class-settings.invoice.php:71
-msgid "Required PHP function simplexml_load_string."
-msgstr "缺少必要的 PHP 函式 simplexml。"
-
-#: woocommerce/settings/settings-smilepay-invoice.php:12
+#: woocommerce/admin/settings/settings-invoice.php:12
 msgid "Base options"
 msgstr "基本設定"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:17
-msgid "Enable/Disable"
-msgstr "啓用/停用"
-
-#: woocommerce/settings/settings-smilepay-invoice.php:21
-msgid "Enable SmilePay invoice method"
-msgstr "啟用 速買配電子發票 模組"
-
-#: woocommerce/settings/settings-smilepay-invoice.php:24
+#: woocommerce/admin/settings/settings-invoice.php:17
 msgid "Debug log"
 msgstr "除錯記錄"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:28
+#: woocommerce/admin/settings/settings-invoice.php:21
 msgid "Enable logging"
 msgstr "啓用記錄"
 
 #. translators: %s: Path of log file
-#: woocommerce/settings/settings-smilepay-invoice.php:31
+#: woocommerce/admin/settings/settings-invoice.php:24
 msgid "Log API / IPN information, inside %s"
 msgstr "紀錄 API / 服務商通知 等資訊，檔案位於 %s"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:34
+#: woocommerce/admin/settings/settings-invoice.php:27
 msgid "Note: this may log personal information."
 msgstr "注意：本紀錄可能包含個人資料。"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:37
+#: woocommerce/admin/settings/settings-invoice.php:30
 msgid "Order no prefix"
 msgstr "訂單編號前綴字"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:40
+#: woocommerce/admin/settings/settings-invoice.php:33
 msgid "The prefix string of order no. Only letters and numbers allowed."
 msgstr "訂單編號前綴字符串。只允許使用英文字母與數字。"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:44
+#: woocommerce/admin/settings/settings-invoice.php:37
 msgid "Show invoice number"
 msgstr "顯示發票號碼"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:48
+#: woocommerce/admin/settings/settings-invoice.php:41
 msgid "Show invoice number in Frontend order list"
 msgstr "於前台訂單列表中顯示發票號碼"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:51
+#: woocommerce/admin/settings/settings-invoice.php:44
 msgid "Move billing company"
 msgstr "移動帳單公司資訊"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:55
+#: woocommerce/admin/settings/settings-invoice.php:48
 msgid "Move billing company to invoice area"
 msgstr "移動帳單公司資訊到發票資訊區域"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:62
+#: woocommerce/admin/settings/settings-invoice.php:55
 msgid "Invoice options"
 msgstr "電子發票設定"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:67
+#: woocommerce/admin/settings/settings-invoice.php:60
 msgid "support paper type (B2C)"
 msgstr "支援紙本發票 (無統編發票)"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:71
+#: woocommerce/admin/settings/settings-invoice.php:64
 msgid "You need print invoice and seed to orderer."
 msgstr "你必須列印出紙本發票並且寄送給購買人。"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:74
+#: woocommerce/admin/settings/settings-invoice.php:67
 msgid "user SKU as product name"
 msgstr "使用貨號作為商品名稱"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:78
+#: woocommerce/admin/settings/settings-invoice.php:71
 msgid "If product no SKU, back to use product name"
 msgstr "如果沒有輸入貨號，則回復使用商品名稱"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:81
+#: woocommerce/admin/settings/settings-invoice.php:74
 msgid "Get mode"
 msgstr "開立發票模式"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:86
+#: woocommerce/admin/settings/settings-invoice.php:79
 msgctxt "get mode"
 msgid "manual"
 msgstr "手動"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:87
+#: woocommerce/admin/settings/settings-invoice.php:80
 msgctxt "get mode"
 msgid "auto ( when order paid )"
 msgstr "自動 (當訂單為完成付款)"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:88
+#: woocommerce/admin/settings/settings-invoice.php:81
 msgctxt "get mode"
 msgid "auto ( when order completed )"
 msgstr "自動 (當訂單狀態為完成)"
 
 #. translators: %s: paid status
-#: woocommerce/settings/settings-smilepay-invoice.php:92
+#: woocommerce/admin/settings/settings-invoice.php:85
 msgid "Order paid status: %s"
 msgstr "完成付款訂單狀態：%s"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:97
+#: woocommerce/admin/settings/settings-invoice.php:90
 msgid "Skip foreign orders"
 msgstr "忽略國外訂單"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:101
+#: woocommerce/admin/settings/settings-invoice.php:94
 msgid "Disable auto get invoice for order billing country and shipping country are not in Taiwan."
 msgstr "當帳單地址與運送地址不是台灣的時候，停止自動開立發票。"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:104
+#: woocommerce/admin/settings/settings-invoice.php:97
 msgid "Invalid mode"
 msgstr "作廢發票模式"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:109
+#: woocommerce/admin/settings/settings-invoice.php:102
 msgctxt "invalid mode"
 msgid "manual"
 msgstr "手動"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:110
+#: woocommerce/admin/settings/settings-invoice.php:103
 msgctxt "invalid mode"
 msgid "auto ( when order status cancelled OR refunded )"
 msgstr "自動 (當訂單狀態為取消或退費)"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:114
+#: woocommerce/admin/settings/settings-invoice.php:107
 msgid "Amount abnormal mode"
 msgstr "金額異常處理模式"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:119
+#: woocommerce/admin/settings/settings-invoice.php:112
 msgctxt "amount abnormal mode"
 msgid "No action"
 msgstr "沒有動作"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:120
+#: woocommerce/admin/settings/settings-invoice.php:113
 msgctxt "amount abnormal mode"
 msgid "add one product to match order amount"
 msgstr "添加一個商品以符合訂單總金額"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:121
+#: woocommerce/admin/settings/settings-invoice.php:114
 msgctxt "amount abnormal mode"
 msgid "change order total amount"
 msgstr "修改訂單總金額"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:125
+#: woocommerce/admin/settings/settings-invoice.php:118
 msgid "fix amount product name"
 msgstr "修正金額異常商品名稱"
 
+#: woocommerce/admin/settings/settings-invoice.php:121
 #: woocommerce/invoice-api.php:242
-#: woocommerce/settings/settings-smilepay-invoice.php:128
 msgid "Discount"
 msgstr "折價"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:135
+#: woocommerce/admin/settings/settings-invoice.php:128
 msgid "API credentials"
 msgstr "API 憑證"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:140
+#: woocommerce/admin/settings/settings-invoice.php:133
 msgid "SmilePay invoice sandbox"
 msgstr "速買配電子發票測試模式"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:144
+#: woocommerce/admin/settings/settings-invoice.php:137
 msgid "Enable SmilePay invoice sandbox"
 msgstr "啟用速買配電子發票測試模式"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:145
+#: woocommerce/admin/settings/settings-invoice.php:138
 msgid "Note: Recommend using this for development purposes only."
 msgstr "注意：僅建議基於開發需求使用本功能。"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:148
+#: woocommerce/admin/settings/settings-invoice.php:141
 msgid "Grvc"
 msgstr "Grvc"
 
-#: woocommerce/settings/settings-smilepay-invoice.php:154
+#: woocommerce/admin/settings/settings-invoice.php:147
 msgid "Verify_key"
 msgstr "Verify_key"
 
@@ -522,10 +509,14 @@ msgstr "作廢發票號碼失敗：%s"
 msgid "Issue invoice error: %s"
 msgstr "開立發票失敗：%s"
 
-#: woocommerce/admin/invoice.php:59
+#: woocommerce/admin/invoice.php:61
 msgid "Issue invoice.<br>Please wait."
 msgstr "開立發票中。<br>請耐心等待。"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:124
 msgid "Issue invoice"
 msgstr "開立發票"
+
+#: woocommerce/admin/settings/invoice.php:44
+msgid "Required PHP function `simplexml_load_string`."
+msgstr "需要 PHP simplexml_load_string 函式。"
