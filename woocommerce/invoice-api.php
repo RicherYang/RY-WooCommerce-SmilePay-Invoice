@@ -228,7 +228,7 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
             $data['Amount'][] = round($shipping_fee, wc_get_price_decimals());
         }
 
-        if($total_refunded != 0) {
+        if ($total_refunded != 0) {
             $data['Description'][] = __('return fee', 'ry-woocommerce-smilepay-invoice');
             $data['Quantity'][] = 1;
             $data['Unit'][] = __('parcel', 'ry-woocommerce-smilepay-invoice');
@@ -237,7 +237,7 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
 
         $total_amount = array_sum($data['Amount']);
         if ($total_amount != $data['AllAmount']) {
-            switch(RY_WSI::get_option('amount_abnormal_mode', '')) {
+            switch (RY_WSI::get_option('amount_abnormal_mode', '')) {
                 case 'product':
                     $data['Description'][] = RY_WSI::get_option('amount_abnormal_product', __('Discount', 'ry-woocommerce-smilepay-invoice'));
                     $data['Quantity'][] = 1;

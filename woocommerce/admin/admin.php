@@ -39,7 +39,7 @@ final class RY_WSI_WC_Admin
         global $current_section, $current_tab;
 
         if ('rytools' === $current_tab && 'ry_key' === $current_section) {
-            return ;
+            return;
         }
 
         if (!RY_WSI_License::instance()->is_activated()) {

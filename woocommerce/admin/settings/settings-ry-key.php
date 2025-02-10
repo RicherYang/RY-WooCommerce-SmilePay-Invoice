@@ -4,13 +4,13 @@ return [
     [
         'title' => 'RY SmilePay Invoice for WooCommerce',
         'id' => 'wsi_options',
-        'type' => 'title'
+        'type' => 'title',
     ],
     [
         'title' => __('License key', 'ry-woocommerce-smilepay-invoice'),
         'id' => RY_WSI::OPTION_PREFIX . 'license_key',
         'type' => 'text',
-        'default' => ''
+        'default' => '',
     ],
     [
         'id' => 'ry_wsi_version_info',
@@ -18,6 +18,6 @@ return [
     ],
     [
         'id' => 'wsi_options',
-        'type' => 'sectionend'
-    ]
+        'type' => 'sectionend',
+    ],
 ];

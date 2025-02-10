@@ -17,6 +17,7 @@ abstract class RY_WSI_SmilePay
         $response = wp_remote_post($post_url, [
             'timeout' => 30,
             'body' => $args,
+            'user-agent' => apply_filters('http_headers_useragent', 'WordPress/' . get_bloginfo('version')),
         ]);
 
         if (is_wp_error($response)) {

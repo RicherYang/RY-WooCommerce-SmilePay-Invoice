@@ -1,4 +1,4 @@
-# Copyright (C) 2024 Richer Yang
+# Copyright (C) 2025 Richer Yang
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-11-22T19:57:33+08:00\n"
+"POT-Creation-Date: 2025-02-04T11:14:32+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: ry-woocommerce-smilepay-invoice\n"
@@ -106,7 +106,7 @@ msgstr ""
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:92
 #: woocommerce/invoice-api.php:88
 #: woocommerce/invoice-basic.php:220
-#: woocommerce/invoice.php:124
+#: woocommerce/invoice.php:123
 msgid "Invoice number"
 msgstr ""
 

@@ -5,6 +5,7 @@ final class RY_WSI_LinkServer
     protected static $_instance = null;
 
     private $api_url = 'https://ry-plugin.com/wp-json/ry/v2/';
+
     private $plugin_type = 'ry-woocommerce-smilepay-invoice';
 
     public static function instance(): RY_WSI_LinkServer

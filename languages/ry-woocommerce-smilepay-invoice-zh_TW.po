@@ -183,7 +183,7 @@ msgstr "捐贈愛心碼"
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:92
 #: woocommerce/invoice-api.php:88
 #: woocommerce/invoice-basic.php:220
-#: woocommerce/invoice.php:124
+#: woocommerce/invoice.php:123
 msgid "Invoice number"
 msgstr "發票號碼"
 

@@ -23,12 +23,12 @@ final class RY_WSI_Updater
 
     public function update_plugin($update, $plugin_data, $plugin_file, $locales)
     {
-        if('RY SmilePay Invoice for WooCommerce' !== $plugin_data['Name']) {
+        if ('RY SmilePay Invoice for WooCommerce' !== $plugin_data['Name']) {
             return $update;
         }
 
         $update = RY_WSI_LinkServer::instance()->check_version();
-        if(is_array($update)) {
+        if (is_array($update)) {
             $update['id'] = 'https://ry-plugin.com/ry-woocommerce-smilepay-invoice';
             $update['url'] = 'https://ry-plugin.com/ry-woocommerce-smilepay-invoice';
             $update['slug'] = 'ry-woocommerce-smilepay-invoice';

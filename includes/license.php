@@ -13,7 +13,6 @@ final class RY_WSI_License extends RY_WSI_Model
         if (null === self::$_instance) {
             self::$_instance = new self();
             self::$_instance->do_init();
-
         }
 
         return self::$_instance;
