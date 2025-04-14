@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2024-03-02T11:52:48+08:00\n"
-"PO-Revision-Date: 2024-11-22 19:56+0800\n"
+"PO-Revision-Date: 2025-04-14 14:28+0800\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
@@ -19,27 +19,27 @@ msgstr ""
 "X-Poedit-SearchPath-0: ./..\n"
 
 #. Plugin Name of the plugin
-#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
+#: ry-woocommerce-smilepay-invoice.php
 msgid "RY SmilePay Invoice for WooCommerce"
 msgstr "RY SmilePay Invoice for WooCommerce"
 
 #. Plugin URI of the plugin
-#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
+#: ry-woocommerce-smilepay-invoice.php
 msgid "https://ry-plugin.com/ry-woocommerce-smilepay-invoice"
 msgstr "https://ry-plugin.com/ry-woocommerce-smilepay-invoice"
 
 #. Description of the plugin
-#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
+#: ry-woocommerce-smilepay-invoice.php
 msgid "WooCommerce order invoice for smilepay"
 msgstr "WooCommerce order invoice for smilepay"
 
 #. Author of the plugin
-#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
+#: ry-woocommerce-smilepay-invoice.php
 msgid "Richer Yang"
 msgstr "Richer Yang"
 
 #. Author URI of the plugin
-#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
+#: ry-woocommerce-smilepay-invoice.php
 msgid "https://richer.tw/"
 msgstr "https://richer.tw/"
 
@@ -210,7 +210,7 @@ msgid "Negative no invoice"
 msgstr "負數不開立"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:120
-#: woocommerce/invoice-api.php:325
+#: woocommerce/invoice-api.php:326
 msgid "Invalid invoice"
 msgstr "作廢發票"
 
@@ -361,17 +361,9 @@ msgstr "移動帳單公司資訊到發票資訊區域"
 msgid "Invoice options"
 msgstr "電子發票設定"
 
-#: woocommerce/admin/settings/settings-invoice.php:60
-msgid "support paper type (B2C)"
-msgstr "支援紙本發票 (無統編發票)"
-
 #: woocommerce/admin/settings/settings-invoice.php:64
 msgid "You need print invoice and seed to orderer."
 msgstr "你必須列印出紙本發票並且寄送給購買人。"
-
-#: woocommerce/admin/settings/settings-invoice.php:67
-msgid "user SKU as product name"
-msgstr "使用貨號作為商品名稱"
 
 #: woocommerce/admin/settings/settings-invoice.php:71
 msgid "If product no SKU, back to use product name"
@@ -442,36 +434,32 @@ msgctxt "amount abnormal mode"
 msgid "change order total amount"
 msgstr "修改訂單總金額"
 
-#: woocommerce/admin/settings/settings-invoice.php:118
-msgid "fix amount product name"
-msgstr "修正金額異常商品名稱"
-
 #: woocommerce/admin/settings/settings-invoice.php:121
-#: woocommerce/invoice-api.php:242
+#: woocommerce/invoice-api.php:241
 msgid "Discount"
 msgstr "折價"
 
-#: woocommerce/admin/settings/settings-invoice.php:128
+#: woocommerce/admin/settings/settings-invoice.php:134
 msgid "API credentials"
 msgstr "API 憑證"
 
-#: woocommerce/admin/settings/settings-invoice.php:133
+#: woocommerce/admin/settings/settings-invoice.php:139
 msgid "SmilePay invoice sandbox"
 msgstr "速買配電子發票測試模式"
 
-#: woocommerce/admin/settings/settings-invoice.php:137
+#: woocommerce/admin/settings/settings-invoice.php:143
 msgid "Enable SmilePay invoice sandbox"
 msgstr "啟用速買配電子發票測試模式"
 
-#: woocommerce/admin/settings/settings-invoice.php:138
+#: woocommerce/admin/settings/settings-invoice.php:144
 msgid "Note: Recommend using this for development purposes only."
 msgstr "注意：僅建議基於開發需求使用本功能。"
 
-#: woocommerce/admin/settings/settings-invoice.php:141
+#: woocommerce/admin/settings/settings-invoice.php:147
 msgid "Grvc"
 msgstr "Grvc"
 
-#: woocommerce/admin/settings/settings-invoice.php:147
+#: woocommerce/admin/settings/settings-invoice.php:153
 msgid "Verify_key"
 msgstr "Verify_key"
 
@@ -479,15 +467,11 @@ msgstr "Verify_key"
 msgid "Invoice create time"
 msgstr "發票建立時間"
 
-#: woocommerce/invoice-api.php:200
-#: woocommerce/invoice-api.php:217
-#: woocommerce/invoice-api.php:227
-#: woocommerce/invoice-api.php:234
-#: woocommerce/invoice-api.php:244
+#: woocommerce/invoice-api.php:259
 msgid "parcel"
 msgstr "批"
 
-#: woocommerce/invoice-api.php:225
+#: woocommerce/invoice-api.php:226
 msgid "shipping fee"
 msgstr "運費"
 
@@ -495,12 +479,12 @@ msgstr "運費"
 msgid "return fee"
 msgstr "退款"
 
-#: woocommerce/invoice-api.php:296
+#: woocommerce/invoice-api.php:297
 msgid "Order cancel"
 msgstr "訂單取消"
 
 #. translators: %s Error messade
-#: woocommerce/invoice-api.php:317
+#: woocommerce/invoice-api.php:318
 msgid "Invalid invoice error: %s"
 msgstr "作廢發票號碼失敗：%s"
 
@@ -520,3 +504,19 @@ msgstr "開立發票"
 #: woocommerce/admin/settings/invoice.php:44
 msgid "Required PHP function `simplexml_load_string`."
 msgstr "需要 PHP simplexml_load_string 函式。"
+
+#: woocommerce/admin/settings/settings-invoice.php:60
+msgid "Support paper type (B2C)"
+msgstr "支援紙本發票 (無統編發票)"
+
+#: woocommerce/admin/settings/settings-invoice.php:67
+msgid "User SKU as product name"
+msgstr "使用貨號作為商品名稱"
+
+#: woocommerce/admin/settings/settings-invoice.php:118
+msgid "Fix amount product name"
+msgstr "金額異常處理模式 "
+
+#: woocommerce/admin/settings/settings-invoice.php:124
+msgid "Custom track code"
+msgstr "自訂字軌代號"

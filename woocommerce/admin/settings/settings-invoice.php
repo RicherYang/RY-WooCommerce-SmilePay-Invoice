@@ -57,14 +57,14 @@ return [
         'type' => 'title',
     ],
     [
-        'title' => __('support paper type (B2C)', 'ry-woocommerce-smilepay-invoice'),
+        'title' => __('Support paper type (B2C)', 'ry-woocommerce-smilepay-invoice'),
         'id' => RY_WSI::OPTION_PREFIX . 'support_carruer_type_none',
         'type' => 'checkbox',
         'default' => 'no',
         'desc' => __('You need print invoice and seed to orderer.', 'ry-woocommerce-smilepay-invoice'),
     ],
     [
-        'title' => __('user SKU as product name', 'ry-woocommerce-smilepay-invoice'),
+        'title' => __('User SKU as product name', 'ry-woocommerce-smilepay-invoice'),
         'id' => RY_WSI::OPTION_PREFIX . 'use_sku_as_name',
         'type' => 'checkbox',
         'default' => 'no',
@@ -115,10 +115,16 @@ return [
         ],
     ],
     [
-        'title' => __('fix amount product name', 'ry-woocommerce-smilepay-invoice'),
+        'title' => __('Fix amount product name', 'ry-woocommerce-smilepay-invoice'),
         'id' => RY_WSI::OPTION_PREFIX . 'amount_abnormal_product',
         'type' => 'text',
         'default' => __('Discount', 'ry-woocommerce-smilepay-invoice'),
+    ],
+    [
+        'title' => __('Custom track code', 'ry-woocommerce-smilepay-invoice'),
+        'id' => RY_WSI::OPTION_PREFIX . 'used_track',
+        'type' => 'text',
+        'default' => '',
     ],
     [
         'id' => 'invoice_options',

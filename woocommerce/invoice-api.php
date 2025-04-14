@@ -116,11 +116,13 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
             'Verify_key' => $Verify_key,
             'InvoiceDate' => $now->format('Y/m/d'),
             'InvoiceTime' => $now->format('H:i:s'),
+            'TrackSystemID' => RY_WSI::get_option('used_track', ''),
             'Intype' => '07',
             'TaxType' => '1',
             'DonateMark' => '0',
             'LoveKey' => '',
-            'orderid' => $this->generate_trade_no($order->get_id(), RY_WSI::get_option('order_prefix')),
+            'orderid' => $this->generate_trade_no($order->get_id(), RY_WSI::get_option('order_prefix', '')),
+            'MainRemark' => '',
             'Certificate_Remark' => '#' . $order->get_order_number(),
 
             'Description' => [],
@@ -156,6 +158,7 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
                 break;
             case 'company':
                 $data['Buyer_id'] = $order->get_meta('_invoice_no');
+                $data['UnitTAX'] = 'Y';
                 $company = $order->get_billing_company();
                 if ($company) {
                     $data['CompanyName'] = $company;
@@ -197,7 +200,6 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
 
                 $data['Description'][] = $item_name;
                 $data['Quantity'][] = $item_qty == 0 ? 1 : $item_qty;
-                $data['Unit'][] = __('parcel', 'ry-woocommerce-smilepay-invoice');
                 $data['Amount'][] = $item_total;
             }
         }
@@ -214,7 +216,6 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
 
                 $data['Description'][] = $fee_item->get_name();
                 $data['Quantity'][] = $item_qty == 0 ? 1 : $item_qty;
-                $data['Unit'][] = __('parcel', 'ry-woocommerce-smilepay-invoice');
                 $data['Amount'][] = $item_total;
             }
         }
@@ -224,14 +225,12 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
         if ($shipping_fee != 0) {
             $data['Description'][] = __('shipping fee', 'ry-woocommerce-smilepay-invoice');
             $data['Quantity'][] = 1;
-            $data['Unit'][] = __('parcel', 'ry-woocommerce-smilepay-invoice');
             $data['Amount'][] = round($shipping_fee, wc_get_price_decimals());
         }
 
         if ($total_refunded != 0) {
             $data['Description'][] = __('return fee', 'ry-woocommerce-smilepay-invoice');
             $data['Quantity'][] = 1;
-            $data['Unit'][] = __('parcel', 'ry-woocommerce-smilepay-invoice');
             $data['Amount'][] = round(-$total_refunded, wc_get_price_decimals());
         }
 
@@ -241,11 +240,10 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
                 case 'product':
                     $data['Description'][] = RY_WSI::get_option('amount_abnormal_product', __('Discount', 'ry-woocommerce-smilepay-invoice'));
                     $data['Quantity'][] = 1;
-                    $data['Unit'][] = __('parcel', 'ry-woocommerce-smilepay-invoice');
                     $data['Amount'][] = round($data['AllAmount'] - $total_amount, wc_get_price_decimals());
                     break;
                 case 'order':
-                    $data['AllAmount'] = sprintf('%d', $total_amount);
+                    $data['AllAmount'] = round($total_amount, 0);
                     break;
                 default:
                     break;
@@ -255,11 +253,14 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
         foreach ($data['Description'] as $key => $item) {
             $item = str_replace('|', '', $item);
             $data['Description'][$key] = mb_substr($item, 0, 80);
+            $data['Amount'][$key] = round($data['Amount'][$key], 0);
+            $data['Quantity'][$key] = round($data['Quantity'][$key], 3);
+            $data['UnitPrice'][$key] = round($data['Amount'][$key] / $data['Quantity'][$key], 2);
+            $data['Unit'][$key] = __('parcel', 'ry-woocommerce-smilepay-invoice');
         }
-        foreach ($data['Amount'] as $key => $item) {
-            $data['Amount'][$key] = sprintf('%d', $item);
-            $data['UnitPrice'][$key] = sprintf('%.2f', $data['Amount'][$key] / $data['Quantity'][$key]);
-        }
+
+        $data['MainRemark'] = apply_filters('ry_wsi_invoice_main_remark', $data['MainRemark'], $data, $order);
+        $data['MainRemark'] = mb_substr($data['MainRemark'], 0, 100);
 
         $data['Certificate_Remark'] = apply_filters('ry_wsi_invoice_remark', $data['Certificate_Remark'], $data, $order);
         $data['Certificate_Remark'] = mb_substr($data['Certificate_Remark'], 0, 30);

@@ -2,40 +2,40 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY SmilePay Invoice for WooCommerce 2.0.3\n"
+"Project-Id-Version: RY SmilePay Invoice for WooCommerce 2.0.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-woocommerce-smilepay-invoice\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-04T11:14:32+08:00\n"
+"POT-Creation-Date: 2025-04-14T16:02:39+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: ry-woocommerce-smilepay-invoice\n"
 
 #. Plugin Name of the plugin
-#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
+#: ry-woocommerce-smilepay-invoice.php
 msgid "RY SmilePay Invoice for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
+#: ry-woocommerce-smilepay-invoice.php
 msgid "https://ry-plugin.com/ry-woocommerce-smilepay-invoice"
 msgstr ""
 
 #. Description of the plugin
-#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
+#: ry-woocommerce-smilepay-invoice.php
 msgid "WooCommerce order invoice for smilepay"
 msgstr ""
 
 #. Author of the plugin
-#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
+#: ry-woocommerce-smilepay-invoice.php
 msgid "Richer Yang"
 msgstr ""
 
 #. Author URI of the plugin
-#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-woocommerce-smilepay-invoice\ry-woocommerce-smilepay-invoice.php
+#: ry-woocommerce-smilepay-invoice.php
 msgid "https://richer.tw/"
 msgstr ""
 
@@ -214,7 +214,7 @@ msgid "Invoice date"
 msgstr ""
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:120
-#: woocommerce/invoice-api.php:325
+#: woocommerce/invoice-api.php:326
 msgid "Invalid invoice"
 msgstr ""
 
@@ -323,7 +323,7 @@ msgid "Invoice options"
 msgstr ""
 
 #: woocommerce/admin/settings/settings-invoice.php:60
-msgid "support paper type (B2C)"
+msgid "Support paper type (B2C)"
 msgstr ""
 
 #: woocommerce/admin/settings/settings-invoice.php:64
@@ -331,7 +331,7 @@ msgid "You need print invoice and seed to orderer."
 msgstr ""
 
 #: woocommerce/admin/settings/settings-invoice.php:67
-msgid "user SKU as product name"
+msgid "User SKU as product name"
 msgstr ""
 
 #: woocommerce/admin/settings/settings-invoice.php:71
@@ -404,35 +404,39 @@ msgid "change order total amount"
 msgstr ""
 
 #: woocommerce/admin/settings/settings-invoice.php:118
-msgid "fix amount product name"
+msgid "Fix amount product name"
 msgstr ""
 
 #: woocommerce/admin/settings/settings-invoice.php:121
-#: woocommerce/invoice-api.php:242
+#: woocommerce/invoice-api.php:241
 msgid "Discount"
 msgstr ""
 
-#: woocommerce/admin/settings/settings-invoice.php:128
+#: woocommerce/admin/settings/settings-invoice.php:124
+msgid "Custom track code"
+msgstr ""
+
+#: woocommerce/admin/settings/settings-invoice.php:134
 msgid "API credentials"
 msgstr ""
 
-#: woocommerce/admin/settings/settings-invoice.php:133
+#: woocommerce/admin/settings/settings-invoice.php:139
 msgid "SmilePay invoice sandbox"
 msgstr ""
 
-#: woocommerce/admin/settings/settings-invoice.php:137
+#: woocommerce/admin/settings/settings-invoice.php:143
 msgid "Enable SmilePay invoice sandbox"
 msgstr ""
 
-#: woocommerce/admin/settings/settings-invoice.php:138
+#: woocommerce/admin/settings/settings-invoice.php:144
 msgid "Note: Recommend using this for development purposes only."
 msgstr ""
 
-#: woocommerce/admin/settings/settings-invoice.php:141
+#: woocommerce/admin/settings/settings-invoice.php:147
 msgid "Grvc"
 msgstr ""
 
-#: woocommerce/admin/settings/settings-invoice.php:147
+#: woocommerce/admin/settings/settings-invoice.php:153
 msgid "Verify_key"
 msgstr ""
 
@@ -471,15 +475,7 @@ msgstr ""
 msgid "Invoice create time"
 msgstr ""
 
-#: woocommerce/invoice-api.php:200
-#: woocommerce/invoice-api.php:217
-#: woocommerce/invoice-api.php:227
-#: woocommerce/invoice-api.php:234
-#: woocommerce/invoice-api.php:244
-msgid "parcel"
-msgstr ""
-
-#: woocommerce/invoice-api.php:225
+#: woocommerce/invoice-api.php:226
 msgid "shipping fee"
 msgstr ""
 
@@ -487,12 +483,16 @@ msgstr ""
 msgid "return fee"
 msgstr ""
 
-#: woocommerce/invoice-api.php:296
+#: woocommerce/invoice-api.php:259
+msgid "parcel"
+msgstr ""
+
+#: woocommerce/invoice-api.php:297
 msgid "Order cancel"
 msgstr ""
 
 #. translators: %s Error messade
-#: woocommerce/invoice-api.php:317
+#: woocommerce/invoice-api.php:318
 msgid "Invalid invoice error: %s"
 msgstr ""
 
