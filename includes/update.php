@@ -9,7 +9,7 @@ final class RY_WSI_update
         if (false === $now_version) {
             $now_version = '0.0.0';
         }
-        if (RY_WSI_VERSION == $now_version) {
+        if (RY_WSI_VERSION === $now_version) {
             return;
         }
 

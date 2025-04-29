@@ -107,15 +107,8 @@ final class RY_WSI_WC_Admin
                             . sprintf(
                                 /* translators: %s: Error message */
                                 __('Verification error: %s', 'ry-woocommerce-smilepay-invoice'),
-                                __($json['error'], 'ry-woocommerce-smilepay-invoice'),
+                                rywsi_link_error_to_msg($json['error']),
                             ));
-
-                        /* Error message list. For make .pot */
-                        __('Unknown key', 'ry-woocommerce-smilepay-invoice');
-                        __('Locked key', 'ry-woocommerce-smilepay-invoice');
-                        __('Unknown target url', 'ry-woocommerce-smilepay-invoice');
-                        __('Used key', 'ry-woocommerce-smilepay-invoice');
-                        __('Is tried', 'ry-woocommerce-smilepay-invoice');
                     } else {
                         RY_WSI_License::instance()->set_license_data($json['data']);
                         return true;

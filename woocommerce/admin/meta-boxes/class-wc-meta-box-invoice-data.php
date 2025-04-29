@@ -24,7 +24,6 @@ class RY_WSI_MetaBox_Invoice_Data
                 'type' => 'select',
                 'options' => [
                     'none' => _x('none', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
-                    'ecpay_host' => _x('ecpay_host', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
                     'smilepay_host' => _x('smilepay_host', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
                     'MOICA' => _x('MOICA', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
                     'phone_barcode' => _x('phone_barcode', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
@@ -94,10 +93,10 @@ class RY_WSI_MetaBox_Invoice_Data
             <strong><?php esc_html_e('Invoice date', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?php echo esc_html($order->get_meta('_invoice_date')); ?><br>
             <?php } ?>
 
-            <strong><?php esc_html_e('Invoice type', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?php echo esc_html_x($invoice_type, 'invoice type', 'ry-woocommerce-smilepay-invoice'); ?><br>
+            <strong><?php esc_html_e('Invoice type', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?php echo esc_html(rywsi_invoice_type_to_name($invoice_type)); ?><br>
 
             <?php if ('personal' == $invoice_type) { ?>
-            <strong><?php esc_html_e('Carruer type', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?php echo esc_html_x($carruer_type, 'carruer type', 'ry-woocommerce-smilepay-invoice'); ?><br>
+            <strong><?php esc_html_e('Carruer type', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?php echo esc_html(rywsi_carruer_type_to_name($carruer_type)); ?><br>
 
             <?php if (in_array($carruer_type, ['MOICA', 'phone_barcode'])) { ?>
             <strong><?php esc_html_e('Carruer number', 'ry-woocommerce-smilepay-invoice'); ?>:</strong> <?php echo esc_html($order->get_meta('_invoice_carruer_no')); ?><br>
