@@ -60,7 +60,7 @@ msgid "License Expiration Date %s"
 msgstr "授權到期日 %s"
 
 #: woocommerce/admin/admin.php:101
-#: woocommerce/admin/admin.php:124
+#: woocommerce/admin/admin.php:117
 msgid "Connect license server failed!"
 msgstr "連結授權伺服器失敗！"
 
@@ -69,51 +69,54 @@ msgstr "連結授權伺服器失敗！"
 msgid "Verification error: %s"
 msgstr "驗證錯誤：%s"
 
-#: woocommerce/admin/admin.php:114
+#: includes/functions.php:8
 msgid "Unknown key"
 msgstr "未知的金鑰"
 
-#: woocommerce/admin/admin.php:115
+#: includes/functions.php:9
 msgid "Locked key"
 msgstr "鎖定的金鑰"
 
-#: woocommerce/admin/admin.php:116
+#: includes/functions.php:10
 msgid "Unknown target url"
 msgstr "未知的目標網址"
 
-#: woocommerce/admin/admin.php:117
+#: includes/functions.php:11
 msgid "Used key"
 msgstr "已使用的金鑰"
 
-#: woocommerce/admin/admin.php:118
+#: includes/functions.php:12
 msgid "Is tried"
 msgstr "已使用過測試版"
 
 #: templates/checkout/form-invoice.php:16
 #: templates/order/order-invoice-info.php:16
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:81
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:80
 msgid "Invoice info"
 msgstr "發票資訊"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:10
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:97
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:96
 #: woocommerce/invoice-basic.php:33
 #: woocommerce/invoice-basic.php:233
 msgid "Invoice type"
 msgstr "發票類型"
 
+#: includes/functions.php:24
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:15
 #: woocommerce/invoice-basic.php:35
 msgctxt "invoice type"
 msgid "personal"
 msgstr "個人"
 
+#: includes/functions.php:25
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:16
 #: woocommerce/invoice-basic.php:36
 msgctxt "invoice type"
 msgid "company"
 msgstr "公司"
 
+#: includes/functions.php:26
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:17
 #: woocommerce/invoice-basic.php:37
 msgctxt "invoice type"
@@ -121,108 +124,107 @@ msgid "donate"
 msgstr "捐贈"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:21
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:100
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:99
 #: woocommerce/invoice-basic.php:45
 msgid "Carruer type"
 msgstr "載具類型"
 
+#: includes/functions.php:38
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:26
 #: woocommerce/invoice-basic.php:47
 msgctxt "carruer type"
 msgid "none"
 msgstr "紙本發票"
 
+#: includes/functions.php:39
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:27
-msgctxt "carruer type"
-msgid "ecpay_host"
-msgstr "雲端發票 (綠界載具)"
-
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:28
 #: woocommerce/invoice-basic.php:48
 msgctxt "carruer type"
 msgid "smilepay_host"
 msgstr "雲端發票"
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:29
+#: includes/functions.php:40
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:28
 #: woocommerce/invoice-basic.php:49
 msgctxt "carruer type"
 msgid "MOICA"
 msgstr "自然人憑證"
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:30
+#: includes/functions.php:41
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:29
 #: woocommerce/invoice-basic.php:50
 msgctxt "carruer type"
 msgid "phone_barcode"
 msgstr "手機條碼"
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:34
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:103
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:33
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:102
 #: woocommerce/invoice-basic.php:57
 #: woocommerce/invoice-basic.php:243
 msgid "Carruer number"
 msgstr "載具編號"
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:39
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:108
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:38
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:107
 #: woocommerce/invoice-basic.php:62
 #: woocommerce/invoice-basic.php:251
 msgid "Tax ID number"
 msgstr "統一編號"
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:44
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:112
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:43
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:111
 #: woocommerce/invoice-basic.php:67
 #: woocommerce/invoice-basic.php:258
 msgid "Donate number"
 msgstr "捐贈愛心碼"
 
-#: woocommerce/admin/invoice.php:102
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:56
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:88
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:90
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:92
+#: woocommerce/admin/invoice.php:107
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:55
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:87
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:89
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:91
 #: woocommerce/invoice-api.php:88
 #: woocommerce/invoice-basic.php:220
 #: woocommerce/invoice.php:123
 msgid "Invoice number"
 msgstr "發票號碼"
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:61
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:93
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:60
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:92
 #: woocommerce/invoice-api.php:89
 #: woocommerce/invoice-basic.php:225
 msgid "Invoice random number"
 msgstr "發票隨機碼"
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:67
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:94
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:66
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:93
 msgid "Invoice date"
 msgstr "發票開立時間"
 
-#: woocommerce/admin/invoice.php:119
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:88
+#: woocommerce/admin/invoice.php:124
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:87
 msgid "Zero no invoice"
 msgstr "零元不開立"
 
-#: woocommerce/admin/invoice.php:121
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:90
+#: woocommerce/admin/invoice.php:126
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:89
 msgid "Negative no invoice"
 msgstr "負數不開立"
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:120
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:119
 #: woocommerce/invoice-api.php:326
 msgid "Invalid invoice"
 msgstr "作廢發票"
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:151
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:150
 msgid "h"
 msgstr "時"
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:152
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:151
 msgid "m"
 msgstr "分"
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:153
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:152
 msgid "s"
 msgstr "秒"
 
@@ -497,7 +499,7 @@ msgstr "開立發票失敗：%s"
 msgid "Issue invoice.<br>Please wait."
 msgstr "開立發票中。<br>請耐心等待。"
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:124
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:123
 msgid "Issue invoice"
 msgstr "開立發票"
 

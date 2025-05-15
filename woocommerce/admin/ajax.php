@@ -24,7 +24,7 @@ final class RY_WSI_WC_Admin_Ajax
     {
         check_ajax_referer('get-invoice');
 
-        $order_ID = (int) wp_unslash($_POST['id'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $order_ID = intval($_POST['id'] ?? '');
         $order = wc_get_order($order_ID);
         if ($order) {
             RY_WSI_WC_Invoice_Api::instance()->get($order);
@@ -37,7 +37,7 @@ final class RY_WSI_WC_Admin_Ajax
     {
         check_ajax_referer('invalid-invoice');
 
-        $order_ID = (int) wp_unslash($_POST['id'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $order_ID = intval($_POST['id'] ?? '');
         $order = wc_get_order($order_ID);
         if ($order) {
             RY_WSI_WC_Invoice_Api::instance()->invalid($order);

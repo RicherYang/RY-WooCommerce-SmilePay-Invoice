@@ -27,8 +27,8 @@ final class RY_WSI_update
             RY_WSI::update_option('version', '2.0.1', true);
         }
 
-        if (version_compare($now_version, '2.0.5', '<')) {
-            RY_WSI::update_option('version', '2.0.5', true);
+        if (version_compare($now_version, '2.0.6', '<')) {
+            RY_WSI::update_option('version', '2.0.6', true);
         }
     }
 }
