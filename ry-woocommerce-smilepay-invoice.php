@@ -4,7 +4,7 @@
  * Plugin Name: RY SmilePay Invoice for WooCommerce
  * Plugin URI: https://ry-plugin.com/ry-woocommerce-smilepay-invoice
  * Description: WooCommerce order invoice for smilepay
- * Version: 2.0.6
+ * Version: 2.0.7
  * Requires at least: 6.6
  * Requires PHP: 8.0
  * Requires Plugins: woocommerce
@@ -22,7 +22,7 @@
 
 function_exists('plugin_dir_url') or exit('No direct script access allowed');
 
-define('RY_WSI_VERSION', '2.0.6');
+define('RY_WSI_VERSION', '2.0.7');
 define('RY_WSI_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('RY_WSI_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('RY_WSI_PLUGIN_BASENAME', plugin_basename(__FILE__));
