@@ -120,8 +120,8 @@ class RY_WSI_MetaBox_Invoice_Data
                 . '</button>';
         } elseif ($order->is_paid()) {
             echo '<button id="get_smilepay_invoice" type="button" class="button" data-orderid="' . esc_attr($order->get_id()) . '">'
-                    . esc_html__('Issue invoice', 'ry-woocommerce-smilepay-invoice')
-                    . '</button>';
+                . esc_html__('Issue invoice', 'ry-woocommerce-smilepay-invoice')
+                . '</button>';
         }
     ?>
     </div>

@@ -8,13 +8,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2024-03-02T11:52:48+08:00\n"
-"PO-Revision-Date: 2025-04-14 14:28+0800\n"
+"PO-Revision-Date: 2025-09-13 17:03+0800\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.7\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-SearchPath-0: ./..\n"
 
@@ -43,52 +43,6 @@ msgstr "Richer Yang"
 msgid "https://richer.tw/"
 msgstr "https://richer.tw/"
 
-#: woocommerce/admin/admin.php:46
-msgid "Your license is not active!"
-msgstr "你的授權尚未啟動！"
-
-#: woocommerce/admin/admin.php:53
-#: woocommerce/admin/notes/license-auto-deactivate.php:41
-#: woocommerce/admin/settings/ry-tools-settings.php:20
-#: woocommerce/admin/settings/settings-ry-key.php:10
-msgid "License key"
-msgstr "授權金鑰"
-
-#. translators: %s: Expiration date of pro license
-#: woocommerce/admin/admin.php:72
-msgid "License Expiration Date %s"
-msgstr "授權到期日 %s"
-
-#: woocommerce/admin/admin.php:101
-#: woocommerce/admin/admin.php:117
-msgid "Connect license server failed!"
-msgstr "連結授權伺服器失敗！"
-
-#. translators: %s: Error message
-#: woocommerce/admin/admin.php:109
-msgid "Verification error: %s"
-msgstr "驗證錯誤：%s"
-
-#: includes/functions.php:8
-msgid "Unknown key"
-msgstr "未知的金鑰"
-
-#: includes/functions.php:9
-msgid "Locked key"
-msgstr "鎖定的金鑰"
-
-#: includes/functions.php:10
-msgid "Unknown target url"
-msgstr "未知的目標網址"
-
-#: includes/functions.php:11
-msgid "Used key"
-msgstr "已使用的金鑰"
-
-#: includes/functions.php:12
-msgid "Is tried"
-msgstr "已使用過測試版"
-
 #: templates/checkout/form-invoice.php:16
 #: templates/order/order-invoice-info.php:16
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:80
@@ -102,21 +56,21 @@ msgstr "發票資訊"
 msgid "Invoice type"
 msgstr "發票類型"
 
-#: includes/functions.php:24
+#: includes/functions.php:8
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:15
 #: woocommerce/invoice-basic.php:35
 msgctxt "invoice type"
 msgid "personal"
 msgstr "個人"
 
-#: includes/functions.php:25
+#: includes/functions.php:9
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:16
 #: woocommerce/invoice-basic.php:36
 msgctxt "invoice type"
 msgid "company"
 msgstr "公司"
 
-#: includes/functions.php:26
+#: includes/functions.php:10
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:17
 #: woocommerce/invoice-basic.php:37
 msgctxt "invoice type"
@@ -129,28 +83,28 @@ msgstr "捐贈"
 msgid "Carruer type"
 msgstr "載具類型"
 
-#: includes/functions.php:38
+#: includes/functions.php:22
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:26
 #: woocommerce/invoice-basic.php:47
 msgctxt "carruer type"
 msgid "none"
 msgstr "紙本發票"
 
-#: includes/functions.php:39
+#: includes/functions.php:23
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:27
 #: woocommerce/invoice-basic.php:48
 msgctxt "carruer type"
 msgid "smilepay_host"
 msgstr "雲端發票"
 
-#: includes/functions.php:40
+#: includes/functions.php:24
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:28
 #: woocommerce/invoice-basic.php:49
 msgctxt "carruer type"
 msgid "MOICA"
 msgstr "自然人憑證"
 
-#: includes/functions.php:41
+#: includes/functions.php:25
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:29
 #: woocommerce/invoice-basic.php:50
 msgctxt "carruer type"
@@ -178,7 +132,7 @@ msgstr "統一編號"
 msgid "Donate number"
 msgstr "捐贈愛心碼"
 
-#: woocommerce/admin/invoice.php:107
+#: woocommerce/admin/invoice.php:127
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:55
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:87
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:89
@@ -201,12 +155,12 @@ msgstr "發票隨機碼"
 msgid "Invoice date"
 msgstr "發票開立時間"
 
-#: woocommerce/admin/invoice.php:124
+#: woocommerce/admin/invoice.php:144
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:87
 msgid "Zero no invoice"
 msgstr "零元不開立"
 
-#: woocommerce/admin/invoice.php:126
+#: woocommerce/admin/invoice.php:146
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:89
 msgid "Negative no invoice"
 msgstr "負數不開立"
@@ -227,31 +181,6 @@ msgstr "分"
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:152
 msgid "s"
 msgstr "秒"
-
-#. translators: Date
-#: woocommerce/admin/notes/license-auto-deactivate.php:24
-msgid "License has auto deactivate at %1$s."
-msgstr "授權於 %1$s 自動終止。"
-
-#: woocommerce/admin/notes/license-auto-deactivate.php:35
-msgid "License Auto Deactivate!"
-msgstr "授權自動終止！"
-
-#: woocommerce/admin/view/html-version-info.php:3
-msgid "version info"
-msgstr "版本資訊"
-
-#: woocommerce/admin/view/html-version-info.php:6
-msgid "Now Version:"
-msgstr "目前版本"
-
-#: woocommerce/admin/view/html-version-info.php:10
-msgid "New Version:"
-msgstr "最新版本"
-
-#: woocommerce/admin/view/html-version-info.php:12
-msgid "update plugin"
-msgstr "升級外掛"
 
 #: woocommerce/invoice-basic.php:48
 msgid " (send paper when win)"
@@ -284,7 +213,7 @@ msgstr "總額零元不開立發票"
 msgid "Negative total fee can't invoice"
 msgstr "總額負數不開立發票"
 
-#: woocommerce/admin/invoice.php:62
+#: woocommerce/admin/invoice.php:69
 msgid "Invalid invoice.<br>Please wait."
 msgstr "作廢發票中。<br>請耐心等待。"
 
@@ -292,25 +221,21 @@ msgstr "作廢發票中。<br>請耐心等待。"
 msgid "RY Tools"
 msgstr "RY Tools"
 
-#: woocommerce/admin/settings/invoice.php:30
-#: woocommerce/admin/settings/invoice.php:33
+#: woocommerce/admin/settings/invoice.php:29
+#: woocommerce/admin/settings/invoice.php:32
 msgid "SimlePay invoice"
 msgstr "速買配電子發票"
 
-#: woocommerce/admin/settings/invoice.php:34
-msgid "Tools"
-msgstr "工具"
-
-#: woocommerce/admin/settings/invoice.php:57
-#: woocommerce/admin/settings/invoice.php:60
+#: woocommerce/admin/settings/invoice.php:55
+#: woocommerce/admin/settings/invoice.php:58
 msgid "Not recommended enable two invoice module/plugin at the same time!"
 msgstr "不建議同時啟用兩個發票模組！"
 
-#: woocommerce/admin/settings/invoice.php:65
+#: woocommerce/admin/settings/invoice.php:63
 msgid "SimlePay invoice method failed to enable!"
 msgstr "速買配發票模組啟用失敗！"
 
-#: woocommerce/admin/settings/invoice.php:70
+#: woocommerce/admin/settings/invoice.php:68
 msgid "Order no prefix only letters and numbers allowed"
 msgstr "訂單編號前綴只允許使用英文字母與數字"
 
@@ -495,15 +420,16 @@ msgstr "作廢發票號碼失敗：%s"
 msgid "Issue invoice error: %s"
 msgstr "開立發票失敗：%s"
 
-#: woocommerce/admin/invoice.php:61
+#: woocommerce/admin/invoice.php:68
 msgid "Issue invoice.<br>Please wait."
 msgstr "開立發票中。<br>請耐心等待。"
 
+#: woocommerce/admin/invoice.php:155
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:123
 msgid "Issue invoice"
 msgstr "開立發票"
 
-#: woocommerce/admin/settings/invoice.php:44
+#: woocommerce/admin/settings/invoice.php:42
 msgid "Required PHP function `simplexml_load_string`."
 msgstr "需要 PHP simplexml_load_string 函式。"
 
@@ -522,3 +448,9 @@ msgstr "金額異常處理模式 "
 #: woocommerce/admin/settings/settings-invoice.php:124
 msgid "Custom track code"
 msgstr "自訂字軌代號"
+
+#. translators: %s: count
+#: woocommerce/admin/invoice.php:116
+msgid "%s order issue invoice."
+msgid_plural "%s orders issue invoice."
+msgstr[0] "%d 筆訂單開立發票。"

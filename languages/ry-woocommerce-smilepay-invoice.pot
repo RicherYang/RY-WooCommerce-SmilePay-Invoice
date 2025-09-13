@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY SmilePay Invoice for WooCommerce 2.0.6\n"
+"Project-Id-Version: RY SmilePay Invoice for WooCommerce 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-woocommerce-smilepay-invoice\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-15T23:16:31+08:00\n"
+"POT-Creation-Date: 2025-09-13T17:03:09+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: ry-woocommerce-smilepay-invoice\n"
@@ -40,68 +40,48 @@ msgid "https://richer.tw/"
 msgstr ""
 
 #: includes/functions.php:8
-msgid "Unknown key"
-msgstr ""
-
-#: includes/functions.php:9
-msgid "Locked key"
-msgstr ""
-
-#: includes/functions.php:10
-msgid "Unknown target url"
-msgstr ""
-
-#: includes/functions.php:11
-msgid "Used key"
-msgstr ""
-
-#: includes/functions.php:12
-msgid "Is tried"
-msgstr ""
-
-#: includes/functions.php:24
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:15
 #: woocommerce/invoice-basic.php:35
 msgctxt "invoice type"
 msgid "personal"
 msgstr ""
 
-#: includes/functions.php:25
+#: includes/functions.php:9
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:16
 #: woocommerce/invoice-basic.php:36
 msgctxt "invoice type"
 msgid "company"
 msgstr ""
 
-#: includes/functions.php:26
+#: includes/functions.php:10
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:17
 #: woocommerce/invoice-basic.php:37
 msgctxt "invoice type"
 msgid "donate"
 msgstr ""
 
-#: includes/functions.php:38
+#: includes/functions.php:22
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:26
 #: woocommerce/invoice-basic.php:47
 msgctxt "carruer type"
 msgid "none"
 msgstr ""
 
-#: includes/functions.php:39
+#: includes/functions.php:23
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:27
 #: woocommerce/invoice-basic.php:48
 msgctxt "carruer type"
 msgid "smilepay_host"
 msgstr ""
 
-#: includes/functions.php:40
+#: includes/functions.php:24
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:28
 #: woocommerce/invoice-basic.php:49
 msgctxt "carruer type"
 msgid "MOICA"
 msgstr ""
 
-#: includes/functions.php:41
+#: includes/functions.php:25
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:29
 #: woocommerce/invoice-basic.php:50
 msgctxt "carruer type"
@@ -114,41 +94,22 @@ msgstr ""
 msgid "Invoice info"
 msgstr ""
 
-#: woocommerce/admin/admin.php:46
-msgid "Your license is not active!"
-msgstr ""
-
-#: woocommerce/admin/admin.php:53
-#: woocommerce/admin/notes/license-auto-deactivate.php:41
-#: woocommerce/admin/settings/ry-tools-settings.php:20
-#: woocommerce/admin/settings/settings-ry-key.php:10
-msgid "License key"
-msgstr ""
-
-#. translators: %s: Expiration date of pro license
-#: woocommerce/admin/admin.php:72
-msgid "License Expiration Date %s"
-msgstr ""
-
-#: woocommerce/admin/admin.php:101
-#: woocommerce/admin/admin.php:117
-msgid "Connect license server failed!"
-msgstr ""
-
-#. translators: %s: Error message
-#: woocommerce/admin/admin.php:109
-msgid "Verification error: %s"
-msgstr ""
-
-#: woocommerce/admin/invoice.php:61
+#: woocommerce/admin/invoice.php:68
 msgid "Issue invoice.<br>Please wait."
 msgstr ""
 
-#: woocommerce/admin/invoice.php:62
+#: woocommerce/admin/invoice.php:69
 msgid "Invalid invoice.<br>Please wait."
 msgstr ""
 
-#: woocommerce/admin/invoice.php:107
+#. translators: %s: count
+#: woocommerce/admin/invoice.php:116
+msgid "%s order issue invoice."
+msgid_plural "%s orders issue invoice."
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/admin/invoice.php:127
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:55
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:87
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:89
@@ -159,14 +120,19 @@ msgstr ""
 msgid "Invoice number"
 msgstr ""
 
-#: woocommerce/admin/invoice.php:124
+#: woocommerce/admin/invoice.php:144
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:87
 msgid "Zero no invoice"
 msgstr ""
 
-#: woocommerce/admin/invoice.php:126
+#: woocommerce/admin/invoice.php:146
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:89
 msgid "Negative no invoice"
+msgstr ""
+
+#: woocommerce/admin/invoice.php:155
+#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:123
+msgid "Issue invoice"
 msgstr ""
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:10
@@ -220,10 +186,6 @@ msgstr ""
 msgid "Invalid invoice"
 msgstr ""
 
-#: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:123
-msgid "Issue invoice"
-msgstr ""
-
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:150
 msgid "h"
 msgstr ""
@@ -236,38 +198,25 @@ msgstr ""
 msgid "s"
 msgstr ""
 
-#. translators: Date
-#: woocommerce/admin/notes/license-auto-deactivate.php:24
-msgid "License has auto deactivate at %1$s."
-msgstr ""
-
-#: woocommerce/admin/notes/license-auto-deactivate.php:35
-msgid "License Auto Deactivate!"
-msgstr ""
-
-#: woocommerce/admin/settings/invoice.php:30
-#: woocommerce/admin/settings/invoice.php:33
+#: woocommerce/admin/settings/invoice.php:29
+#: woocommerce/admin/settings/invoice.php:32
 msgid "SimlePay invoice"
 msgstr ""
 
-#: woocommerce/admin/settings/invoice.php:34
-msgid "Tools"
-msgstr ""
-
-#: woocommerce/admin/settings/invoice.php:44
+#: woocommerce/admin/settings/invoice.php:42
 msgid "Required PHP function `simplexml_load_string`."
 msgstr ""
 
-#: woocommerce/admin/settings/invoice.php:57
-#: woocommerce/admin/settings/invoice.php:60
+#: woocommerce/admin/settings/invoice.php:55
+#: woocommerce/admin/settings/invoice.php:58
 msgid "Not recommended enable two invoice module/plugin at the same time!"
 msgstr ""
 
-#: woocommerce/admin/settings/invoice.php:65
+#: woocommerce/admin/settings/invoice.php:63
 msgid "SimlePay invoice method failed to enable!"
 msgstr ""
 
-#: woocommerce/admin/settings/invoice.php:70
+#: woocommerce/admin/settings/invoice.php:68
 msgid "Order no prefix only letters and numbers allowed"
 msgstr ""
 
@@ -440,22 +389,6 @@ msgstr ""
 
 #: woocommerce/admin/settings/settings-invoice.php:153
 msgid "Verify_key"
-msgstr ""
-
-#: woocommerce/admin/view/html-version-info.php:3
-msgid "version info"
-msgstr ""
-
-#: woocommerce/admin/view/html-version-info.php:6
-msgid "Now Version:"
-msgstr ""
-
-#: woocommerce/admin/view/html-version-info.php:10
-msgid "New Version:"
-msgstr ""
-
-#: woocommerce/admin/view/html-version-info.php:12
-msgid "update plugin"
 msgstr ""
 
 #: woocommerce/invoice-api.php:43

@@ -84,7 +84,7 @@ final class RY_WSI_WC_Invoice extends RY_WSI_Model
             }
         }
 
-        WC()->queue()->schedule_single(time() + 10, 'ry_wsi_auto_get_invoice', [$order_ID], '');
+        WC()->queue()->schedule_single(time() + 10, RY_WSI::OPTION_PREFIX . 'auto_get_invoice', [$order_ID], '');
     }
 
     public function auto_delete_invoice($order_ID)
@@ -99,7 +99,7 @@ final class RY_WSI_WC_Invoice extends RY_WSI_Model
             if ('zero' == $invoice_number) {
             } elseif ('negative' == $invoice_number) {
             } else {
-                WC()->queue()->schedule_single(time() + 10, 'ry_wsi_auto_invalid_invoice', [$order_ID], '');
+                WC()->queue()->schedule_single(time() + 10, RY_WSI::OPTION_PREFIX . 'auto_invalid_invoice', [$order_ID], '');
             }
         }
     }

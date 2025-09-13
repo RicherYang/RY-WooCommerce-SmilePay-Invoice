@@ -1,21 +1,5 @@
 <?php
 
-function rywsi_link_error_to_msg($error)
-{
-    static $error_msg = [];
-    if (empty($error_msg)) {
-        $error_msg = [
-            'Unknown key' => __('Unknown key', 'ry-woocommerce-smilepay-invoice'),
-            'Locked key' => __('Locked key', 'ry-woocommerce-smilepay-invoice'),
-            'Unknown target url' => __('Unknown target url', 'ry-woocommerce-smilepay-invoice'),
-            'Used key' => __('Used key', 'ry-woocommerce-smilepay-invoice'),
-            'Is tried' => __('Is tried', 'ry-woocommerce-smilepay-invoice'),
-        ];
-    }
-
-    return $error_msg[$error] ?? $error;
-}
-
 function rywsi_invoice_type_to_name($invoice_type)
 {
     static $type_name = [];

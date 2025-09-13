@@ -19,7 +19,6 @@ final class RY_WSI_WC_Admin_Setting_Invoice
         add_filter('woocommerce_get_sections_rytools', [$this, 'add_sections'], 11);
         add_filter('woocommerce_get_settings_rytools', [$this, 'add_setting'], 10, 2);
         add_action('woocommerce_update_options_rytools_smilepay_invoice', [$this, 'check_option']);
-        add_filter('ry_setting_section_tools', '__return_false');
     }
 
     public function add_sections($sections)
@@ -31,7 +30,6 @@ final class RY_WSI_WC_Admin_Setting_Invoice
             ] + array_slice($sections, $add_idx);
         } else {
             $sections['smilepay_invoice'] = __('SimlePay invoice', 'ry-woocommerce-smilepay-invoice');
-            $sections['tools'] = __('Tools', 'ry-woocommerce-smilepay-invoice');
         }
 
         return $sections;
@@ -41,7 +39,7 @@ final class RY_WSI_WC_Admin_Setting_Invoice
     {
         if ('smilepay_invoice' == $current_section) {
             if (!function_exists('simplexml_load_string')) {
-                echo '<div class="notice notice-error"><p><strong>RY ECPay Invoice for WooCommerce</strong> ' . esc_html__('Required PHP function `simplexml_load_string`.', 'ry-woocommerce-smilepay-invoice') . '</p></div>';
+                echo '<div class="notice notice-error"><p><strong>RY SimlePay Invoice for WooCommerce</strong> ' . esc_html__('Required PHP function `simplexml_load_string`.', 'ry-woocommerce-smilepay-invoice') . '</p></div>';
             }
 
             $settings = include RY_WSI_PLUGIN_DIR . 'woocommerce/admin/settings/settings-invoice.php';
