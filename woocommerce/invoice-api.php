@@ -33,6 +33,9 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
         if ($order->get_meta('_invoice_number')) {
             return false;
         }
+        if (empty($order->get_meta('_invoice_type'))) {
+            return false;
+        }
 
         list($Grvc, $Verify_key) = RY_WSI_WC_Invoice::instance()->get_api_info();
 

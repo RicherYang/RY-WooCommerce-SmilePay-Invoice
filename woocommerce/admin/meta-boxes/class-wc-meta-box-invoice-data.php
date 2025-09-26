@@ -79,7 +79,7 @@ class RY_WSI_MetaBox_Invoice_Data
 <h3 style="clear:both">
     <?php esc_html_e('Invoice info', 'ry-woocommerce-smilepay-invoice'); ?>
 </h3>
-<?php if (!empty($invoice_type)) { ?>
+<?php if (!empty($invoice_type) || !empty($invoice_number)) { ?>
 <div class="ivoice <?php echo($invoice_number ? '' : 'address'); ?>">
     <div class="ivoice_data_column">
         <p>
