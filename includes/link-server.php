@@ -17,6 +17,15 @@ final class RY_WSI_LinkServer extends RY_Abstract_Link_Server
         return self::$_instance;
     }
 
+    protected function get_base_info(): array
+    {
+        return [
+            'plugin' => RY_WSI_VERSION,
+            'wp' => get_bloginfo('version'),
+            'wc' => WC_VERSION,
+        ];
+    }
+
     protected function get_user_agent()
     {
         return sprintf(
