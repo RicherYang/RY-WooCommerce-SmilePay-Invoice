@@ -27,7 +27,7 @@ final class RY_WSI_WC_Admin_Ajax
         $order_ID = intval($_POST['id'] ?? '');
         $order = wc_get_order($order_ID);
         if ($order) {
-            RY_WSI_WC_Invoice_Api::instance()->get($order);
+            RY_WSI_WC_Invoice_Api::instance()->get($order->get_id());
         }
 
         wp_die();

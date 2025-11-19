@@ -84,7 +84,9 @@ final class RY_WSI_WC_Invoice extends RY_WSI_Model
             }
         }
 
-        WC()->queue()->schedule_single(time() + 10, RY_WSI::OPTION_PREFIX . 'auto_get_invoice', [$order_ID], '');
+        if (! WC()->queue()->get_next(RY_WSI::OPTION_PREFIX . 'auto_get_invoice', [$order_ID], 'ry-invoice')) {
+            WC()->queue()->schedule_single(time() + MINUTE_IN_SECONDS * 2, RY_WSI::OPTION_PREFIX . 'auto_get_invoice', [$order_ID], 'ry-invoice');
+        }
     }
 
     public function auto_delete_invoice($order_ID)
@@ -99,7 +101,7 @@ final class RY_WSI_WC_Invoice extends RY_WSI_Model
             if ('zero' == $invoice_number) {
             } elseif ('negative' == $invoice_number) {
             } else {
-                WC()->queue()->schedule_single(time() + 10, RY_WSI::OPTION_PREFIX . 'auto_invalid_invoice', [$order_ID], '');
+                WC()->queue()->schedule_single(time() + MINUTE_IN_SECONDS * 2, RY_WSI::OPTION_PREFIX . 'auto_invalid_invoice', [$order_ID], 'ry-invoice');
             }
         }
     }
@@ -117,12 +119,15 @@ final class RY_WSI_WC_Invoice extends RY_WSI_Model
 
     public function add_invoice_column($columns)
     {
-        $add_index = array_search('order-total', array_keys($columns)) + 1;
-        $pre_array = array_splice($columns, 0, $add_index);
-        $array = [
-            'invoice-number' => __('Invoice number', 'ry-woocommerce-smilepay-invoice'),
-        ];
-        return array_merge($pre_array, $array, $columns);
+        if (!isset($columns['invoice-number'])) {
+            $add_columns = [
+                'invoice-number' => __('Invoice number', 'ry-woocommerce-smilepay-invoice'),
+            ];
+            $pre_idx = array_search('order-total', array_keys($columns)) + 1;
+            $pre_array = array_splice($columns, 0, $pre_idx);
+            $columns = array_merge($pre_array, $add_columns, $columns);
+        }
+        return $columns;
     }
 
     public function show_invoice_column($order)

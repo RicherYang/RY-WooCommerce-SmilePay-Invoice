@@ -60,13 +60,13 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
         $args['Unit'] = implode('|', $args['Unit']);
         $args['Amount'] = implode('|', $args['Amount']);
 
-        RY_WSI_WC_Invoice::instance()->log('Issue invoice for #' . $order->get_id(), WC_Log_Levels::INFO, ['data' => $args]);
-
         if (RY_WSI_WC_Invoice::instance()->is_testmode()) {
             $post_url = $this->api_test_url['get'];
         } else {
             $post_url = $this->api_url['get'];
         }
+
+        RY_WSI_WC_Invoice::instance()->log('Issue invoice for #' . $order->get_id(), WC_Log_Levels::INFO, ['data' => $args]);
         $result = $this->link_server($post_url, $args);
 
         if (null === $result) {
