@@ -28,11 +28,6 @@ msgstr "RY SmilePay Invoice for WooCommerce"
 msgid "https://ry-plugin.com/ry-woocommerce-smilepay-invoice"
 msgstr "https://ry-plugin.com/ry-woocommerce-smilepay-invoice"
 
-#. Description of the plugin
-#: ry-woocommerce-smilepay-invoice.php
-msgid "WooCommerce order invoice for smilepay"
-msgstr "WooCommerce order invoice for smilepay"
-
 #. Author of the plugin
 #: ry-woocommerce-smilepay-invoice.php
 msgid "Richer Yang"
@@ -52,7 +47,7 @@ msgstr "發票資訊"
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:10
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:96
 #: woocommerce/invoice-basic.php:33
-#: woocommerce/invoice-basic.php:233
+#: woocommerce/invoice-basic.php:238
 msgid "Invoice type"
 msgstr "發票類型"
 
@@ -114,44 +109,45 @@ msgstr "手機條碼"
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:33
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:102
 #: woocommerce/invoice-basic.php:57
-#: woocommerce/invoice-basic.php:243
+#: woocommerce/invoice-basic.php:248
 msgid "Carruer number"
 msgstr "載具編號"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:38
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:107
 #: woocommerce/invoice-basic.php:62
-#: woocommerce/invoice-basic.php:251
+#: woocommerce/invoice-basic.php:256
 msgid "Tax ID number"
 msgstr "統一編號"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:43
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:111
 #: woocommerce/invoice-basic.php:67
-#: woocommerce/invoice-basic.php:258
+#: woocommerce/invoice-basic.php:263
 msgid "Donate number"
 msgstr "捐贈愛心碼"
 
-#: woocommerce/admin/invoice.php:127
+#: woocommerce/admin/invoice.php:125
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:55
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:87
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:89
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:91
-#: woocommerce/invoice-api.php:88
+#: woocommerce/invoice-api.php:91
 #: woocommerce/invoice-basic.php:220
-#: woocommerce/invoice.php:123
+#: woocommerce/invoice.php:124
 msgid "Invoice number"
 msgstr "發票號碼"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:60
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:92
-#: woocommerce/invoice-api.php:89
+#: woocommerce/invoice-api.php:92
 #: woocommerce/invoice-basic.php:225
 msgid "Invoice random number"
 msgstr "發票隨機碼"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:66
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:93
+#: woocommerce/invoice-basic.php:230
 msgid "Invoice date"
 msgstr "發票開立時間"
 
@@ -166,7 +162,7 @@ msgid "Negative no invoice"
 msgstr "負數不開立"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:119
-#: woocommerce/invoice-api.php:326
+#: woocommerce/invoice-api.php:329
 msgid "Invalid invoice"
 msgstr "作廢發票"
 
@@ -203,12 +199,12 @@ msgstr "無效的統一編號"
 msgid "Invalid donate number"
 msgstr "無效的愛心碼"
 
-#: woocommerce/invoice-api.php:43
+#: woocommerce/invoice-api.php:46
 #: woocommerce/invoice-basic.php:208
 msgid "Zero total fee without invoice"
 msgstr "總額零元不開立發票"
 
-#: woocommerce/invoice-api.php:49
+#: woocommerce/invoice-api.php:52
 #: woocommerce/invoice-basic.php:214
 msgid "Negative total fee can't invoice"
 msgstr "總額負數不開立發票"
@@ -217,7 +213,7 @@ msgstr "總額負數不開立發票"
 msgid "Invalid invoice.<br>Please wait."
 msgstr "作廢發票中。<br>請耐心等待。"
 
-#: woocommerce/admin/settings/ry-tools-settings.php:12
+#: woocommerce/admin/settings/ry-tools-settings.php:14
 msgid "RY Tools"
 msgstr "RY Tools"
 
@@ -226,16 +222,11 @@ msgstr "RY Tools"
 msgid "SimlePay invoice"
 msgstr "速買配電子發票"
 
-#: woocommerce/admin/settings/invoice.php:55
-#: woocommerce/admin/settings/invoice.php:58
-msgid "Not recommended enable two invoice module/plugin at the same time!"
-msgstr "不建議同時啟用兩個發票模組！"
-
-#: woocommerce/admin/settings/invoice.php:63
+#: woocommerce/admin/settings/invoice.php:59
 msgid "SimlePay invoice method failed to enable!"
 msgstr "速買配發票模組啟用失敗！"
 
-#: woocommerce/admin/settings/invoice.php:68
+#: woocommerce/admin/settings/invoice.php:64
 msgid "Order no prefix only letters and numbers allowed"
 msgstr "訂單編號前綴只允許使用英文字母與數字"
 
@@ -253,6 +244,7 @@ msgstr "啓用記錄"
 
 #. translators: %s: Path of log file
 #: woocommerce/admin/settings/settings-invoice.php:24
+#, php-format
 msgid "Log API / IPN information, inside %s"
 msgstr "紀錄 API / 服務商通知 等資訊，檔案位於 %s"
 
@@ -317,6 +309,7 @@ msgstr "自動 (當訂單狀態為完成)"
 
 #. translators: %s: paid status
 #: woocommerce/admin/settings/settings-invoice.php:85
+#, php-format
 msgid "Order paid status: %s"
 msgstr "完成付款訂單狀態：%s"
 
@@ -362,7 +355,7 @@ msgid "change order total amount"
 msgstr "修改訂單總金額"
 
 #: woocommerce/admin/settings/settings-invoice.php:121
-#: woocommerce/invoice-api.php:241
+#: woocommerce/invoice-api.php:244
 msgid "Discount"
 msgstr "折價"
 
@@ -390,33 +383,35 @@ msgstr "Grvc"
 msgid "Verify_key"
 msgstr "Verify_key"
 
-#: woocommerce/invoice-api.php:90
+#: woocommerce/invoice-api.php:93
 msgid "Invoice create time"
 msgstr "發票建立時間"
 
-#: woocommerce/invoice-api.php:259
+#: woocommerce/invoice-api.php:262
 msgid "parcel"
 msgstr "批"
 
-#: woocommerce/invoice-api.php:226
+#: woocommerce/invoice-api.php:229
 msgid "shipping fee"
 msgstr "運費"
 
-#: woocommerce/invoice-api.php:232
+#: woocommerce/invoice-api.php:235
 msgid "return fee"
 msgstr "退款"
 
-#: woocommerce/invoice-api.php:297
+#: woocommerce/invoice-api.php:300
 msgid "Order cancel"
 msgstr "訂單取消"
 
 #. translators: %s Error messade
-#: woocommerce/invoice-api.php:318
+#: woocommerce/invoice-api.php:321
+#, php-format
 msgid "Invalid invoice error: %s"
 msgstr "作廢發票號碼失敗：%s"
 
 #. translators: %s Error messade
-#: woocommerce/invoice-api.php:76
+#: woocommerce/invoice-api.php:79
+#, php-format
 msgid "Issue invoice error: %s"
 msgstr "開立發票失敗：%s"
 
@@ -429,7 +424,7 @@ msgstr "開立發票中。<br>請耐心等待。"
 msgid "Issue invoice"
 msgstr "開立發票"
 
-#: woocommerce/admin/settings/invoice.php:42
+#: woocommerce/admin/settings/invoice.php:47
 msgid "Required PHP function `simplexml_load_string`."
 msgstr "需要 PHP simplexml_load_string 函式。"
 
@@ -443,7 +438,7 @@ msgstr "使用貨號作為商品名稱"
 
 #: woocommerce/admin/settings/settings-invoice.php:118
 msgid "Fix amount product name"
-msgstr "金額異常處理模式 "
+msgstr "異常商品名稱"
 
 #: woocommerce/admin/settings/settings-invoice.php:124
 msgid "Custom track code"
@@ -451,6 +446,16 @@ msgstr "自訂字軌代號"
 
 #. translators: %s: count
 #: woocommerce/admin/invoice.php:116
+#, php-format
 msgid "%s order issue invoice."
 msgid_plural "%s orders issue invoice."
 msgstr[0] "%d 筆訂單開立發票。"
+
+#. Description of the plugin
+#: ry-woocommerce-smilepay-invoice.php
+msgid "WooCommerce order invoice for SmilePay"
+msgstr ""
+
+#: woocommerce/admin/settings/invoice.php:37
+msgid "Not recommended enable two invoice plugins at the same time!"
+msgstr ""
