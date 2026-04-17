@@ -15,7 +15,7 @@ abstract class RY_WSI_Model
 
     public function log($message, $level = WC_Log_Levels::INFO, $context = [])
     {
-        if (null === $this->log_enabled) {
+        if ($this->log_enabled === null) {
             $this->log_enabled = 'yes' === RY_WSI::get_option($this->model_type . '_log', 'no');
         }
 
