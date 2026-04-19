@@ -258,7 +258,9 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
             $data['Description'][$key] = mb_substr($item, 0, 80);
             $data['Quantity'][$key] = round($data['Quantity'][$key], 3);
             $data['UnitPrice'][$key] = round($data['Amount'][$key] / $data['Quantity'][$key], 6);
-            $data['Amount'][$key] = round($data['Amount'][$key], 0);
+            $data['Amount'][$key] = (string) round($data['Quantity'][$key] * $data['UnitPrice'][$key], 0);
+            $data['Quantity'][$key] = (string) $data['Quantity'][$key];
+            $data['UnitPrice'][$key] = (string) $data['UnitPrice'][$key];
             $data['Unit'][$key] = __('parcel', 'ry-woocommerce-smilepay-invoice');
         }
 
