@@ -4,7 +4,7 @@ final class RY_WSI_WC_Invoice extends RY_WSI_Model
 {
     protected static $_instance = null;
 
-    protected $model_type = 'smilepay_invoice';
+    protected string $model_type = 'smilepay_invoice';
 
     public static function instance(): RY_WSI_WC_Invoice
     {

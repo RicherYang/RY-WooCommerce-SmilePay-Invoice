@@ -4,7 +4,7 @@ include_once RY_WSI_PLUGIN_DIR . 'includes/ry-global/abstract-license.php';
 
 final class RY_WSI_License extends RY_Abstract_License
 {
-    public static $main_class = RY_WSI::class;
+    public static string $main_class = RY_WSI::class;
 
     protected static $_instance = null;
 

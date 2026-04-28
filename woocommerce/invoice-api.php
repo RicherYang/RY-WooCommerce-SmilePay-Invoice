@@ -4,12 +4,12 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
 {
     protected static $_instance = null;
 
-    protected $api_test_url = [
+    protected array $api_test_url = [
         'get' => 'https://ssl.smse.com.tw/api_test/SPEinvoice_Storage.asp',
         'invalid' => 'https://ssl.smse.com.tw/api_test/SPEinvoice_Storage_Modify.asp',
     ];
 
-    protected $api_url = [
+    protected array $api_url = [
         'get' => 'https://ssl.smse.com.tw/api/SPEinvoice_Storage.asp',
         'invalid' => 'https://ssl.smse.com.tw/api/SPEinvoice_Storage_Modify.asp',
     ];

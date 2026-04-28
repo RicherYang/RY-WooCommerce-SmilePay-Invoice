@@ -6,7 +6,7 @@ final class RY_WSI_LinkServer extends RY_Abstract_Link_Server
 {
     protected static $_instance = null;
 
-    protected $plugin_slug = 'ry-woocommerce-smilepay-invoice';
+    protected string $plugin_slug = 'ry-woocommerce-smilepay-invoice';
 
     public static function instance(): RY_WSI_LinkServer
     {
