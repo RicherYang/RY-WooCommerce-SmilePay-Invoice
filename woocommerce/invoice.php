@@ -1,8 +1,10 @@
 <?php
 
+defined('ABSPATH') or exit;
+
 final class RY_WSI_WC_Invoice extends RY_WSI_Model
 {
-    protected static $_instance = null;
+    protected static ?self $_instance = null;
 
     protected string $model_type = 'smilepay_invoice';
 

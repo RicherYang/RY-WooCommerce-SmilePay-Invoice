@@ -1,5 +1,8 @@
 <?php
-class RY_WSI_MetaBox_Invoice_Data
+
+defined('ABSPATH') or exit;
+
+final class RY_WSI_MetaBox_Invoice_Data
 {
     private static array $fields;
 

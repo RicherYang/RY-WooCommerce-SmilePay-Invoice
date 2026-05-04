@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') or exit;
+
 final class RY_WSI_Cron
 {
     public static function add_action(): void

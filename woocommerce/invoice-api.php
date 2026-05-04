@@ -1,8 +1,10 @@
 <?php
 
+defined('ABSPATH') or exit;
+
 class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
 {
-    protected static $_instance = null;
+    protected static ?self $_instance = null;
 
     protected array $api_test_url = [
         'get' => 'https://ssl.smse.com.tw/api_test/SPEinvoice_Storage.asp',

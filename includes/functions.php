@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') or exit;
+
 function rywsi_invoice_type_to_name($invoice_type)
 {
     static $type_name = [];

@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') or exit;
+
 abstract class RY_WSI_Model
 {
     protected string $model_type = 'woocommerce_tools';
