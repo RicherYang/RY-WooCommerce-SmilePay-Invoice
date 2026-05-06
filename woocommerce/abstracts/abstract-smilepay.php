@@ -12,12 +12,12 @@ abstract class RY_WSI_SmilePay
         return substr($trade_no, 0, 18);
     }
 
-    protected function link_server($post_url, $args)
+    protected function link_server(string $url, array $args, int $timeout = 30)
     {
         wc_set_time_limit(40);
 
-        $response = wp_remote_post($post_url, [
-            'timeout' => 30,
+        $response = wp_remote_post($url, [
+            'timeout' => $timeout,
             'body' => $args,
             'user-agent' => apply_filters('http_headers_useragent', 'WordPress/' . get_bloginfo('version')),
         ]);
@@ -28,14 +28,14 @@ abstract class RY_WSI_SmilePay
         }
 
         if (wp_remote_retrieve_response_code($response) != '200') {
-            RY_WSI_WC_Invoice::instance()->log('Link HTTP status error', WC_Log_Levels::ERROR, ['info' => $response->get_error_messages()]);
+            RY_WSI_WC_Invoice::instance()->log('Link HTTP status error', WC_Log_Levels::ERROR, ['info' => 'HTTP status ' . wp_remote_retrieve_response_code($response)]);
             return;
         }
 
-        $result = @simplexml_load_string($response['body']);
+        $result = @simplexml_load_string(wp_remote_retrieve_body($response));
 
         if (!is_object($result)) {
-            RY_WSI_WC_Invoice::instance()->log('Link response parse failed', WC_Log_Levels::ERROR, ['info' => $response->get_error_messages()]);
+            RY_WSI_WC_Invoice::instance()->log('Link response parse failed', WC_Log_Levels::ERROR, ['info' => 'Response body: ' . wp_remote_retrieve_body($response)]);
             return;
         }
 
