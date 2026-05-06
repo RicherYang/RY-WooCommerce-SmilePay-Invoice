@@ -1,7 +1,7 @@
 {
     "name": "ry-woocommerce-smilepay-invoice",
     "title": "RY SmilePay Invoice for WooCommerce",
-    "version": "2.2.0",
+    "version": "2.2.5",
     "author": "Richer Yang",
     "private": true,
     "devDependencies": {
