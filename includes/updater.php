@@ -29,14 +29,7 @@ final class RY_WSI_Updater
             return $update;
         }
 
-        $update = RY_WSI_LinkServer::instance()->check_version();
-        if (is_array($update)) {
-            $update['id'] = 'https://ry-plugin.com/ry-woocommerce-smilepay-invoice';
-            $update['url'] = 'https://ry-plugin.com/ry-woocommerce-smilepay-invoice';
-            $update['slug'] = 'ry-woocommerce-smilepay-invoice';
-        }
-
-        return $update;
+        return RY_WSI_LinkServer::instance()->check_version();
     }
 
     public static function modify_plugin_details($result, $action, $args)
