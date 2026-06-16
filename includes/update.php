@@ -6,11 +6,8 @@ final class RY_WSI_update
 {
     public static function update()
     {
-        $now_version = RY_WSI::get_option('version');
+        $now_version = RY_WSI::get_option('version', '0.0.0');
 
-        if (false === $now_version) {
-            $now_version = '0.0.0';
-        }
         if (RY_WSI_VERSION === $now_version) {
             return;
         }
@@ -30,6 +27,19 @@ final class RY_WSI_update
         }
 
         if (version_compare($now_version, '2.2.5', '<')) {
+            if (RY_WSI::get_option('smilepay_Grvc') !== false) {
+                RY_WSI::update_option('apikey', [
+                    'Grvc' => RY_WSI::get_option('smilepay_Grvc'),
+                    'Verify_key' => RY_WSI::get_option('smilepay_Verify_key'),
+                ], false);
+                RY_WSI::delete_option('smilepay_Grvc');
+                RY_WSI::delete_option('smilepay_Verify_key');
+            }
+            if (RY_WSI::get_option('smilepay_invoice_testmode') !== false) {
+                RY_WSI::update_option('testmode', RY_WSI::get_option('smilepay_invoice_testmode'));
+                RY_WSI::delete_option('smilepay_invoice_testmode');
+            }
+
             RY_WSI::update_option('version', '2.2.5', true);
         }
     }

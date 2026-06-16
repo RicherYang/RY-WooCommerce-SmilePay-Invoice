@@ -138,24 +138,26 @@ return [
         'type' => 'title',
     ],
     [
-        'title' => __('SmilePay invoice sandbox', 'ry-woocommerce-smilepay-invoice'),
-        'id' => RY_WSI::OPTION_PREFIX . 'smilepay_invoice_testmode',
+        'title' => __('Sandbox', 'ry-woocommerce-smilepay-invoice'),
+        'id' => RY_WSI::OPTION_PREFIX . 'testmode',
         'type' => 'checkbox',
         'default' => 'no',
-        'desc' => __('Enable SmilePay invoice sandbox', 'ry-woocommerce-smilepay-invoice')
+        'desc' => __('Enable sandbox', 'ry-woocommerce-smilepay-invoice')
             . '<p class="description" style="margin-bottom:2px">' . __('Note: Recommend using this for development purposes only.', 'ry-woocommerce-smilepay-invoice') . '<p>',
     ],
     [
         'title' => __('Grvc', 'ry-woocommerce-smilepay-invoice'),
-        'id' => RY_WSI::OPTION_PREFIX . 'smilepay_Grvc',
+        'id' => RY_WSI::OPTION_PREFIX . 'apikey[Grvc]',
         'type' => 'text',
         'default' => '',
+        'autoload' => false,
     ],
     [
         'title' => __('Verify_key', 'ry-woocommerce-smilepay-invoice'),
-        'id' => RY_WSI::OPTION_PREFIX . 'smilepay_Verify_key',
+        'id' => RY_WSI::OPTION_PREFIX . 'apikey[Verify_key]',
         'type' => 'text',
         'default' => '',
+        'autoload' => false,
     ],
     [
         'id' => 'api_options',

@@ -143,13 +143,15 @@ final class RY_WSI_WC_Invoice extends RY_WSI_Model
     public function get_api_info()
     {
         if ($this->is_testmode()) {
-            $Grvc = 'SEI1000034';
-            $Verify_key = '9D73935693EE0237FABA6AB744E48661';
-        } else {
-            $Grvc = RY_WSI::get_option('smilepay_Grvc');
-            $Verify_key = RY_WSI::get_option('smilepay_Verify_key');
+            return [
+                'Grvc' => 'SEI1000034',
+                'Verify_key' => '9D73935693EE0237FABA6AB744E48661',
+            ];
         }
 
-        return [$Grvc, $Verify_key];
+        return RY_WSI::get_option('apikey', [
+            'Grvc' => '',
+            'Verify_key' => '',
+        ]);
     }
 }
