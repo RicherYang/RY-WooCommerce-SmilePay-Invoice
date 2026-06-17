@@ -222,7 +222,11 @@ msgstr "RY Tools"
 msgid "SimlePay invoice"
 msgstr "速買配電子發票"
 
-#: woocommerce/admin/settings/invoice.php:60
+#: woocommerce/admin/settings/invoice.php:61
+msgid "SimlePay invoice method failed to enable!"
+msgstr "速買配發票模組啟用失敗！"
+
+#: woocommerce/admin/settings/invoice.php:66
 msgid "Order no prefix only letters and numbers allowed"
 msgstr "訂單編號前綴只允許使用英文字母與數字"
 
@@ -359,6 +363,14 @@ msgstr "折價"
 msgid "API credentials"
 msgstr "API 憑證"
 
+#: woocommerce/admin/settings/settings-invoice.php:141
+msgid "SmilePay invoice sandbox"
+msgstr "速買配電子發票測試模式"
+
+#: woocommerce/admin/settings/settings-invoice.php:145
+msgid "Enable SmilePay invoice sandbox"
+msgstr "啟用速買配電子發票測試模式"
+
 #: woocommerce/admin/settings/settings-invoice.php:146
 msgid "Note: Recommend using this for development purposes only."
 msgstr "注意：僅建議基於開發需求使用本功能。"
@@ -367,7 +379,7 @@ msgstr "注意：僅建議基於開發需求使用本功能。"
 msgid "Grvc"
 msgstr "Grvc"
 
-#: woocommerce/admin/settings/settings-invoice.php:156
+#: woocommerce/admin/settings/settings-invoice.php:155
 msgid "Verify_key"
 msgstr "Verify_key"
 
@@ -447,11 +459,3 @@ msgstr "WooCommerce order invoice for SmilePay"
 #: woocommerce/admin/settings/invoice.php:39
 msgid "Not recommended enable two invoice plugins at the same time!"
 msgstr "不建議同時啟用兩個發票外掛！"
-
-#: woocommerce/admin/settings/settings-invoice.php:141
-msgid "Sandbox"
-msgstr ""
-
-#: woocommerce/admin/settings/settings-invoice.php:145
-msgid "Enable sandbox"
-msgstr ""

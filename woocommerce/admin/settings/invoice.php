@@ -56,6 +56,12 @@ final class RY_WSI_WC_Admin_Setting_Invoice
 
     public function check_option()
     {
+        if (!RY_WSI_WC_Invoice::instance()->is_testmode()) {
+            if (empty(RY_WSI::get_option('smilepay_Grvc')) || empty(RY_WSI::get_option('smilepay_Verify_key'))) {
+                WC_Admin_Settings::add_error(__('SimlePay invoice method failed to enable!', 'ry-woocommerce-smilepay-invoice'));
+            }
+        }
+
         if (!preg_match('/^[a-z0-9]*$/i', RY_WSI::get_option('order_prefix', ''))) {
             WC_Admin_Settings::add_error(__('Order no prefix only letters and numbers allowed', 'ry-woocommerce-smilepay-invoice'));
             RY_WSI::update_option('order_prefix', '');

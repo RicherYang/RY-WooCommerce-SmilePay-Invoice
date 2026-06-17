@@ -39,9 +39,9 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
             return false;
         }
 
-        $api_info = RY_WSI_WC_Invoice::instance()->get_api_info();
+        list($Grvc, $Verify_key) = RY_WSI_WC_Invoice::instance()->get_api_info();
 
-        $args = $this->make_get_data($order, $api_info['Grvc'], $api_info['Verify_key']);
+        $args = $this->make_get_data($order, $Grvc, $Verify_key);
         if (0 == $args['AllAmount']) {
             $order->update_meta_data('_invoice_number', 'zero');
             $order->save();
@@ -294,10 +294,10 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
             return false;
         }
 
-        $api_info = RY_WSI_WC_Invoice::instance()->get_api_info();
+        list($Grvc, $Verify_key) = RY_WSI_WC_Invoice::instance()->get_api_info();
         $args = [
-            'Grvc' => $api_info['Grvc'],
-            'Verify_key' => $api_info['Verify_key'],
+            'Grvc' => $Grvc,
+            'Verify_key' => $Verify_key,
             'InvoiceNumber' => $invoice_number,
             'InvoiceDate' => str_replace('-', '/', substr($order->get_meta('_invoice_date'), 0, 10)),
             'types' => 'Cancel',
