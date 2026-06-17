@@ -29,8 +29,34 @@ final class RY_WSI_update
             RY_WSI::update_option('version', '2.0.1', true);
         }
 
-        if (version_compare($now_version, '2.2.5', '<')) {
-            RY_WSI::update_option('version', '2.2.5', true);
+        if (version_compare($now_version, '2.2.6', '<')) {
+            if (RY_WSI::get_option('smilepay_Grvc') !== false) {
+                RY_WSI::update_option('apiinfo', [
+                    'prefix' => RY_WSI::get_option('order_prefix'),
+                    'use_sku' => RY_WSI::get_option('use_sku_as_name'),
+                    'abnormal_mode' => RY_WSI::get_option('amount_abnormal_mode'),
+                    'abnormal_product' => RY_WSI::get_option('amount_abnormal_product'),
+                    'trackcode' => RY_WSI::get_option('used_track'),
+                    'testmode' => RY_WSI::get_option('smilepay_invoice_testmode'),
+                    'Grvc' => RY_WSI::get_option('smilepay_Grvc'),
+                    'Verify_key' => RY_WSI::get_option('smilepay_Verify_key'),
+                ], false);
+                RY_WSI::delete_option('order_prefix');
+                RY_WSI::delete_option('use_sku_as_name');
+                RY_WSI::delete_option('amount_abnormal_mode');
+                RY_WSI::delete_option('amount_abnormal_product');
+                RY_WSI::delete_option('used_track');
+                RY_WSI::delete_option('smilepay_invoice_testmode');
+                RY_WSI::delete_option('smilepay_Grvc');
+                RY_WSI::delete_option('smilepay_Verify_key');
+            }
+            if (RY_WSI::get_option('skip_foreign_order') !== false) {
+                RY_WSI::update_option('skip_foreign_order', RY_WSI::get_option('skip_foreign_order'), true);
+            }
+            RY_WSI::delete_option('invoice_log');
+            RY_WSI::delete_option('smilepay_testmode');
+
+            RY_WSI::update_option('version', '2.2.6', true);
         }
     }
 }

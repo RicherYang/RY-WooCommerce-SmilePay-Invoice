@@ -142,14 +142,28 @@ final class RY_WSI_WC_Invoice extends RY_WSI_Model
 
     public function get_api_info()
     {
-        if ($this->is_testmode()) {
-            $Grvc = 'SEI1000034';
-            $Verify_key = '9D73935693EE0237FABA6AB744E48661';
-        } else {
-            $Grvc = RY_WSI::get_option('smilepay_Grvc');
-            $Verify_key = RY_WSI::get_option('smilepay_Verify_key');
+        $api_info = RY_WSI::get_option('apiinfo', []);
+        if (!is_array($api_info)) {
+            $api_info = [];
+        }
+        $api_info = array_merge([
+            'prefix' => '',
+            'use_sku' => 'no',
+            'abnormal_mode' => '',
+            'abnormal_product' => __('Discount', 'ry-woocommerce-smilepay-invoice'),
+            'trackcode' => '',
+            'testmode' => 'no',
+            'Grvc' => '',
+            'Verify_key' => '',
+        ], $api_info);
+        $api_info['use_sku'] = wc_string_to_bool($api_info['use_sku']);
+        $api_info['testmode'] = wc_string_to_bool($api_info['testmode']);
+
+        if ($api_info['testmode'] === true) {
+            $api_info['Grvc'] = 'SEI1000034';
+            $api_info['Verify_key'] = '9D73935693EE0237FABA6AB744E48661';
         }
 
-        return [$Grvc, $Verify_key];
+        return $api_info;
     }
 }

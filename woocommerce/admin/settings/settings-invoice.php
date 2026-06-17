@@ -30,7 +30,7 @@ return [
     ],
     [
         'title' => __('Order no prefix', 'ry-woocommerce-smilepay-invoice'),
-        'id' => RY_WSI::OPTION_PREFIX . 'order_prefix',
+        'id' => RY_WSI::OPTION_PREFIX . 'apiinfo[prefix]',
         'type' => 'text',
         'desc' => __('The prefix string of order no. Only letters and numbers allowed.', 'ry-woocommerce-smilepay-invoice'),
         'desc_tip' => true,
@@ -67,10 +67,11 @@ return [
     ],
     [
         'title' => __('User SKU as product name', 'ry-woocommerce-smilepay-invoice'),
-        'id' => RY_WSI::OPTION_PREFIX . 'use_sku_as_name',
+        'id' => RY_WSI::OPTION_PREFIX . 'apiinfo[use_sku]',
         'type' => 'checkbox',
         'default' => 'no',
         'desc' => __('If product no SKU, back to use product name', 'ry-woocommerce-smilepay-invoice'),
+        'autoload' => false,
     ],
     [
         'title' => __('Get mode', 'ry-woocommerce-smilepay-invoice'),
@@ -94,6 +95,7 @@ return [
         'type' => 'checkbox',
         'default' => 'no',
         'desc' => __('Disable auto get invoice for order billing country and shipping country are not in Taiwan.', 'ry-woocommerce-smilepay-invoice'),
+        'autoload' => false,
     ],
     [
         'title' => __('Invalid mode', 'ry-woocommerce-smilepay-invoice'),
@@ -107,7 +109,7 @@ return [
     ],
     [
         'title' => __('Amount abnormal mode', 'ry-woocommerce-smilepay-invoice'),
-        'id' => RY_WSI::OPTION_PREFIX . 'amount_abnormal_mode',
+        'id' => RY_WSI::OPTION_PREFIX . 'apiinfo[abnormal_mode]',
         'type' => 'select',
         'default' => '',
         'options' => [
@@ -115,18 +117,21 @@ return [
             'product' => _x('add one product to match order amount', 'amount abnormal mode', 'ry-woocommerce-smilepay-invoice'),
             'order' => _x('change order total amount', 'amount abnormal mode', 'ry-woocommerce-smilepay-invoice'),
         ],
+        'autoload' => false,
     ],
     [
         'title' => __('Fix amount product name', 'ry-woocommerce-smilepay-invoice'),
-        'id' => RY_WSI::OPTION_PREFIX . 'amount_abnormal_product',
+        'id' => RY_WSI::OPTION_PREFIX . 'apiinfo[abnormal_product]',
         'type' => 'text',
         'default' => __('Discount', 'ry-woocommerce-smilepay-invoice'),
+        'autoload' => false,
     ],
     [
         'title' => __('Custom track code', 'ry-woocommerce-smilepay-invoice'),
-        'id' => RY_WSI::OPTION_PREFIX . 'used_track',
+        'id' => RY_WSI::OPTION_PREFIX . 'apiinfo[trackcode]',
         'type' => 'text',
         'default' => '',
+        'autoload' => false,
     ],
     [
         'id' => 'invoice_options',
@@ -139,23 +144,26 @@ return [
     ],
     [
         'title' => __('SmilePay invoice sandbox', 'ry-woocommerce-smilepay-invoice'),
-        'id' => RY_WSI::OPTION_PREFIX . 'smilepay_invoice_testmode',
+        'id' => RY_WSI::OPTION_PREFIX . 'apiinfo[testmode]',
         'type' => 'checkbox',
         'default' => 'no',
         'desc' => __('Enable SmilePay invoice sandbox', 'ry-woocommerce-smilepay-invoice')
             . '<p class="description" style="margin-bottom:2px">' . __('Note: Recommend using this for development purposes only.', 'ry-woocommerce-smilepay-invoice') . '<p>',
+        'autoload' => false,
     ],
     [
         'title' => __('Grvc', 'ry-woocommerce-smilepay-invoice'),
-        'id' => RY_WSI::OPTION_PREFIX . 'smilepay_Grvc',
+        'id' => RY_WSI::OPTION_PREFIX . 'apiinfo[Grvc]',
         'type' => 'text',
         'default' => '',
+        'autoload' => false,
     ],
     [
         'title' => __('Verify_key', 'ry-woocommerce-smilepay-invoice'),
-        'id' => RY_WSI::OPTION_PREFIX . 'smilepay_Verify_key',
+        'id' => RY_WSI::OPTION_PREFIX . 'apiinfo[Verify_key]',
         'type' => 'text',
         'default' => '',
+        'autoload' => false,
     ],
     [
         'id' => 'api_options',

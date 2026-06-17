@@ -39,9 +39,9 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
             return false;
         }
 
-        list($Grvc, $Verify_key) = RY_WSI_WC_Invoice::instance()->get_api_info();
+        $api_info = RY_WSI_WC_Invoice::instance()->get_api_info();
 
-        $args = $this->make_get_data($order, $Grvc, $Verify_key);
+        $args = $this->make_get_data($order, $api_info);
         if (0 == $args['AllAmount']) {
             $order->update_meta_data('_invoice_number', 'zero');
             $order->save();
@@ -62,7 +62,7 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
         $args['Unit'] = implode('|', $args['Unit']);
         $args['Amount'] = implode('|', $args['Amount']);
 
-        if (RY_WSI_WC_Invoice::instance()->is_testmode()) {
+        if ($api_info['testmode']) {
             $post_url = $this->api_test_url['get'];
         } else {
             $post_url = $this->api_url['get'];
@@ -104,7 +104,7 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
         do_action('ry_wsi_get_invoice_response', $result, $order);
     }
 
-    protected function make_get_data($order, $Grvc, $Verify_key)
+    protected function make_get_data($order, $api_info)
     {
         $country = $order->get_billing_country();
         $countries = WC()->countries->get_countries();
@@ -117,16 +117,16 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
         $now = new DateTime('now', new DateTimeZone('Asia/Taipei'));
 
         $data = [
-            'Grvc' => $Grvc,
-            'Verify_key' => $Verify_key,
+            'Grvc' => $api_info['Grvc'],
+            'Verify_key' => $api_info['Verify_key'],
             'InvoiceDate' => $now->format('Y/m/d'),
             'InvoiceTime' => $now->format('H:i:s'),
-            'TrackSystemID' => RY_WSI::get_option('used_track', ''),
+            'TrackSystemID' => $api_info['trackcode'],
             'Intype' => '07',
             'TaxType' => '1',
             'DonateMark' => '0',
             'LoveKey' => '',
-            'orderid' => $this->generate_trade_no($order->get_id(), RY_WSI::get_option('order_prefix', '')),
+            'orderid' => $this->generate_trade_no($order->get_id(), $api_info['prefix']),
             'MainRemark' => '',
             'Certificate_Remark' => '#' . $order->get_order_number(),
 
@@ -176,7 +176,6 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
         }
 
         $total_refunded = $order->get_total_refunded();
-        $use_sku = 'yes' === RY_WSI::get_option('use_sku_as_name', 'no');
         $order_items = $order->get_items(['line_item']);
         if (count($order_items)) {
             foreach ($order_items as $order_item) {
@@ -196,7 +195,7 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
                 }
 
                 $item_name = '';
-                if ($use_sku && method_exists($order_item, 'get_product')) {
+                if ($api_info['use_sku'] && method_exists($order_item, 'get_product')) {
                     $item_name = $order_item->get_product()->get_sku();
                 }
                 if (empty($item_name)) {
@@ -241,9 +240,9 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
 
         $total_amount = array_sum($data['Amount']);
         if ($total_amount != $data['AllAmount']) {
-            switch (RY_WSI::get_option('amount_abnormal_mode', '')) {
+            switch ($api_info['abnormal_mode']) {
                 case 'product':
-                    $data['Description'][] = RY_WSI::get_option('amount_abnormal_product', __('Discount', 'ry-woocommerce-smilepay-invoice'));
+                    $data['Description'][] = $api_info['abnormal_product'];
                     $data['Quantity'][] = 1;
                     $data['Amount'][] = round($data['AllAmount'] - $total_amount, wc_get_price_decimals());
                     break;
@@ -294,10 +293,10 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
             return false;
         }
 
-        list($Grvc, $Verify_key) = RY_WSI_WC_Invoice::instance()->get_api_info();
+        $api_info = RY_WSI_WC_Invoice::instance()->get_api_info();
         $args = [
-            'Grvc' => $Grvc,
-            'Verify_key' => $Verify_key,
+            'Grvc' => $api_info['Grvc'],
+            'Verify_key' => $api_info['Verify_key'],
             'InvoiceNumber' => $invoice_number,
             'InvoiceDate' => str_replace('-', '/', substr($order->get_meta('_invoice_date'), 0, 10)),
             'types' => 'Cancel',
@@ -308,7 +307,7 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
 
         RY_WSI_WC_Invoice::instance()->log('Invalid invoice for #' . $order->get_id(), WC_Log_Levels::INFO, ['data' => $args]);
 
-        if (RY_WSI_WC_Invoice::instance()->is_testmode()) {
+        if ($api_info['testmode']) {
             $post_url = $this->api_test_url['invalid'];
         } else {
             $post_url = $this->api_url['invalid'];
