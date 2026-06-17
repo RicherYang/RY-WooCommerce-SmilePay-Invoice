@@ -351,7 +351,6 @@ msgid "change order total amount"
 msgstr "修改訂單總金額"
 
 #: woocommerce/admin/settings/settings-invoice.php:126
-#: woocommerce/invoice-api.php:245
 #: woocommerce/invoice.php:153
 msgid "Discount"
 msgstr "折價"

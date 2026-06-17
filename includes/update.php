@@ -29,7 +29,7 @@ final class RY_WSI_update
             RY_WSI::update_option('version', '2.0.1', true);
         }
 
-        if (version_compare($now_version, '2.2.6', '<')) {
+        if (version_compare($now_version, '2.3.0', '<')) {
             if (RY_WSI::get_option('smilepay_Grvc') !== false) {
                 RY_WSI::update_option('apiinfo', [
                     'prefix' => RY_WSI::get_option('order_prefix'),
@@ -56,7 +56,7 @@ final class RY_WSI_update
             RY_WSI::delete_option('invoice_log');
             RY_WSI::delete_option('smilepay_testmode');
 
-            RY_WSI::update_option('version', '2.2.6', true);
+            RY_WSI::update_option('version', '2.3.0', true);
         }
     }
 }
