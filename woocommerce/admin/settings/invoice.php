@@ -58,8 +58,8 @@ final class RY_WSI_WC_Admin_Setting_Invoice
     {
         $api_info = RY_WSI::get_option('apiinfo', []);
         if (is_array($api_info) && isset($api_info['prefix'])) {
-            if (!preg_match('/^[a-z0-9]*$/i', $api_info['prefix'])) {
-                WC_Admin_Settings::add_error(__('Order no prefix only letters and numbers allowed', 'ry-woocommerce-smilepay-invoice'));
+            if (!preg_match('/^[a-z0-9]{0,3}$/i', $api_info['prefix'])) {
+                WC_Admin_Settings::add_error(__('Order no prefix only letters and numbers allowed, and maximum length is 3 characters.', 'ry-woocommerce-smilepay-invoice'));
                 $api_info['prefix'] = '';
                 RY_WSI::update_option('apiinfo', $api_info, false);
             }
