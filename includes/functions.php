@@ -22,6 +22,9 @@ function rywsi_carruer_type_to_name($carruer_type)
     if (empty($type_name)) {
         $type_name = [
             'none' => _x('none', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
+            'amego_host' => _x('amego_host', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
+            'ezpay_host' => _x('ezpay_host', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
+            'ecpay_host' => _x('ecpay_host', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
             'smilepay_host' => _x('smilepay_host', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
             'MOICA' => _x('MOICA', 'carruer type', 'ry-woocommerce-smilepay-invoice'),
             'phone_barcode' => _x('phone_barcode', 'carruer type', 'ry-woocommerce-smilepay-invoice'),

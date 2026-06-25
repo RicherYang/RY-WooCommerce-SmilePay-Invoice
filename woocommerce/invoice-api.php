@@ -60,6 +60,7 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
         $args['Quantity'] = implode('|', $args['Quantity']);
         $args['UnitPrice'] = implode('|', $args['UnitPrice']);
         $args['Unit'] = implode('|', $args['Unit']);
+        $args['ProductTaxType'] = implode('|', $args['ProductTaxType']);
         $args['Amount'] = implode('|', $args['Amount']);
 
         if ($api_info['testmode']) {
@@ -110,10 +111,6 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
         $countries = WC()->countries->get_countries();
         $full_country = ($country && isset($countries[$country])) ? $countries[$country] : $country;
 
-        $state = $order->get_billing_state();
-        $states = WC()->countries->get_states($country);
-        $full_state = ($state && isset($states[$state])) ? $states[$state] : $state;
-
         $now = new DateTime('now', new DateTimeZone('Asia/Taipei'));
 
         $data = [
@@ -124,21 +121,23 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
             'TrackSystemID' => $api_info['trackcode'],
             'Intype' => '07',
             'TaxType' => '1',
+            'TaxRate' => '0.05',
             'DonateMark' => '0',
             'LoveKey' => '',
             'orderid' => $this->generate_trade_no($order->get_id(), $api_info['prefix']),
-            'MainRemark' => '',
-            'Certificate_Remark' => '#' . $order->get_order_number(),
+            'MainRemark' => '#' . $order->get_order_number(),
 
             'Description' => [],
             'Quantity' => [],
             'UnitPrice' => [],
             'Unit' => [],
+            'ProductTaxType' => [],
             'Amount' => [],
             'AllAmount' => round($order->get_total() - $order->get_total_refunded(), 0),
+            'UnitTAX' => 'Y',
 
-            'Name' => $order->get_billing_last_name() . $order->get_billing_first_name(),
-            'Address' => $full_country . $full_state . $order->get_billing_city() . $order->get_billing_address_1() . $order->get_billing_address_2(),
+            'Name' => __('Customer', 'ry-woocommerce-smilepay-invoice'),
+            'Address' => $full_country,
             'Phone' => '',
             'Email' => $order->get_billing_email(),
         ];
@@ -163,10 +162,9 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
                 break;
             case 'company':
                 $data['Buyer_id'] = $order->get_meta('_invoice_no');
-                $data['UnitTAX'] = 'Y';
-                $company = $order->get_billing_company();
-                if ($company) {
-                    $data['CompanyName'] = $company;
+                $data['CompanyName'] = $order->get_billing_company();
+                if (empty($data['CompanyName'])) {
+                    $data['CompanyName'] = $data['Buyer_id'];
                 }
                 break;
             case 'donate':
@@ -205,6 +203,7 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
                 $data['Description'][] = $item_name;
                 $data['Quantity'][] = $item_qty == 0 ? 1 : $item_qty;
                 $data['Amount'][] = $item_total;
+                $data['ProductTaxType'][] = '1';
             }
         }
 
@@ -221,6 +220,7 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
                 $data['Description'][] = $fee_item->get_name();
                 $data['Quantity'][] = $item_qty == 0 ? 1 : $item_qty;
                 $data['Amount'][] = $item_total;
+                $data['ProductTaxType'][] = '1';
             }
         }
 
@@ -230,12 +230,14 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
             $data['Description'][] = __('shipping fee', 'ry-woocommerce-smilepay-invoice');
             $data['Quantity'][] = 1;
             $data['Amount'][] = round($shipping_fee, wc_get_price_decimals());
+            $data['ProductTaxType'][] = '1';
         }
 
         if ($total_refunded != 0) {
             $data['Description'][] = __('return fee', 'ry-woocommerce-smilepay-invoice');
             $data['Quantity'][] = 1;
             $data['Amount'][] = round(-$total_refunded, wc_get_price_decimals());
+            $data['ProductTaxType'][] = '1';
         }
 
         $total_amount = array_sum($data['Amount']);
@@ -245,6 +247,7 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
                     $data['Description'][] = $api_info['abnormal_product'];
                     $data['Quantity'][] = 1;
                     $data['Amount'][] = round($data['AllAmount'] - $total_amount, wc_get_price_decimals());
+                    $data['ProductTaxType'][] = '1';
                     break;
                 case 'order':
                     $data['AllAmount'] = round($total_amount, 0);
@@ -255,8 +258,7 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
         }
 
         foreach ($data['Description'] as $key => $item) {
-            $item = str_replace('|', '', $item);
-            $data['Description'][$key] = mb_substr($item, 0, 80);
+            $data['Description'][$key] = mb_strimwidth(str_replace('|', '', $item), 0, 80, '');
             $data['Quantity'][$key] = round($data['Quantity'][$key], 3);
             $data['UnitPrice'][$key] = round($data['Amount'][$key] / $data['Quantity'][$key], 6);
             $data['Amount'][$key] = (string) round($data['Quantity'][$key] * $data['UnitPrice'][$key], 0);
@@ -265,11 +267,8 @@ class RY_WSI_WC_Invoice_Api extends RY_WSI_SmilePay
             $data['Unit'][$key] = __('parcel', 'ry-woocommerce-smilepay-invoice');
         }
 
-        $data['MainRemark'] = apply_filters('ry_wsi_invoice_main_remark', $data['MainRemark'], $data, $order);
-        $data['MainRemark'] = mb_substr($data['MainRemark'], 0, 100);
-
-        $data['Certificate_Remark'] = apply_filters('ry_wsi_invoice_remark', $data['Certificate_Remark'], $data, $order);
-        $data['Certificate_Remark'] = mb_substr($data['Certificate_Remark'], 0, 30);
+        $data['MainRemark'] = apply_filters('ry_wsi_invoice_remark', $data['MainRemark'], $data, $order);
+        $data['MainRemark'] = mb_strimwidth($data['MainRemark'], 0, 200, '');
 
         return $data;
     }

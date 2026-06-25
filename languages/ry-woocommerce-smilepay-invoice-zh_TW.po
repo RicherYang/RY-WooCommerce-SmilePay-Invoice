@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2024-03-02T11:52:48+08:00\n"
-"PO-Revision-Date: 2026-06-19 13:55+0800\n"
+"PO-Revision-Date: 2026-06-25 09:50+0800\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
@@ -85,21 +85,21 @@ msgctxt "carruer type"
 msgid "none"
 msgstr "紙本發票"
 
-#: includes/functions.php:25
+#: includes/functions.php:28
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:30
 #: woocommerce/invoice-basic.php:50
 msgctxt "carruer type"
 msgid "smilepay_host"
 msgstr "雲端發票"
 
-#: includes/functions.php:26
+#: includes/functions.php:29
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:31
 #: woocommerce/invoice-basic.php:51
 msgctxt "carruer type"
 msgid "MOICA"
 msgstr "自然人憑證"
 
-#: includes/functions.php:27
+#: includes/functions.php:30
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:32
 #: woocommerce/invoice-basic.php:52
 msgctxt "carruer type"
@@ -132,7 +132,7 @@ msgstr "捐贈愛心碼"
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:90
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:92
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:94
-#: woocommerce/invoice-api.php:93
+#: woocommerce/invoice-api.php:94
 #: woocommerce/invoice-basic.php:238
 #: woocommerce/invoice.php:126
 msgid "Invoice number"
@@ -140,7 +140,7 @@ msgstr "發票號碼"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:63
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:95
-#: woocommerce/invoice-api.php:94
+#: woocommerce/invoice-api.php:95
 #: woocommerce/invoice-basic.php:243
 msgid "Invoice random number"
 msgstr "發票隨機碼"
@@ -162,7 +162,7 @@ msgid "Negative no invoice"
 msgstr "負數不開立"
 
 #: woocommerce/admin/meta-boxes/class-wc-meta-box-invoice-data.php:122
-#: woocommerce/invoice-api.php:332
+#: woocommerce/invoice-api.php:331
 msgid "Invalid invoice"
 msgstr "作廢發票"
 
@@ -375,11 +375,11 @@ msgstr "Grvc"
 msgid "Verify_key"
 msgstr "Verify_key"
 
-#: woocommerce/invoice-api.php:95
+#: woocommerce/invoice-api.php:96
 msgid "Invoice create time"
 msgstr "發票建立時間"
 
-#: woocommerce/invoice-api.php:265
+#: woocommerce/invoice-api.php:267
 msgid "parcel"
 msgstr "批"
 
@@ -387,22 +387,22 @@ msgstr "批"
 msgid "shipping fee"
 msgstr "運費"
 
-#: woocommerce/invoice-api.php:236
+#: woocommerce/invoice-api.php:237
 msgid "return fee"
 msgstr "退款"
 
-#: woocommerce/invoice-api.php:303
+#: woocommerce/invoice-api.php:302
 msgid "Order cancel"
 msgstr "訂單取消"
 
 #. translators: %s Error messade
-#: woocommerce/invoice-api.php:324
+#: woocommerce/invoice-api.php:323
 #, php-format
 msgid "Invalid invoice error: %s"
 msgstr "作廢發票號碼失敗：%s"
 
 #. translators: %s Error messade
-#: woocommerce/invoice-api.php:81
+#: woocommerce/invoice-api.php:82
 #, php-format
 msgid "Issue invoice error: %s"
 msgstr "開立發票失敗：%s"
@@ -455,3 +455,22 @@ msgstr "不建議同時啟用兩個發票外掛！"
 #: woocommerce/admin/settings/invoice.php:62
 msgid "Order no prefix only letters and numbers allowed, and maximum length is 3 characters."
 msgstr "訂單編號前綴只允許使用英文字母與數字，且不得超過 3 個字元。"
+
+#: includes/functions.php:25
+msgctxt "carruer type"
+msgid "amego_host"
+msgstr "雲端發票 (光貿)"
+
+#: includes/functions.php:26
+msgctxt "carruer type"
+msgid "ezpay_host"
+msgstr "雲端發票 (ezPay)"
+
+#: includes/functions.php:27
+msgctxt "carruer type"
+msgid "ecpay_host"
+msgstr "雲端發票 (綠界)"
+
+#: woocommerce/invoice-api.php:139
+msgid "Customer"
+msgstr "消費者"
